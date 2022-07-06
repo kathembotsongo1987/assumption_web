@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 22 juin 2022 à 07:58
+-- Généré le : mer. 06 juil. 2022 à 09:02
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -374,6 +374,55 @@ INSERT INTO `perpetual_vows` (`id`, `image`, `name`, `country`, `community`, `te
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `postulancy`
+--
+
+CREATE TABLE `postulancy` (
+  `id` int(11) NOT NULL,
+  `photo1` varchar(150) DEFAULT NULL,
+  `description1` varchar(200) DEFAULT NULL,
+  `photo2` varchar(150) DEFAULT NULL,
+  `description2` varchar(150) DEFAULT NULL,
+  `descriptionvideo` varchar(150) DEFAULT NULL,
+  `video` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `postulancy`
+--
+
+INSERT INTO `postulancy` (`id`, `photo1`, `description1`, `photo2`, `description2`, `descriptionvideo`, `video`) VALUES
+(1, '00020.00_00_00_00.Still079.jpg', '    THE PLACE OF THE LAY IN THE ASSUMPTION  ', '00020.00_00_00_12.Still048.jpg', '  Consecration of our outstation  ', '    This Emmanuel, accepted to make His dwelling among us and to become like us so that we too, may become like Him: “Holy as he is Holy”. Finding the', '  https://www.youtube.com/embed/NZZ4xpmkvhA  '),
+(2, '00020.00_00_00_21.Still005.jpg', '   what is Lay Assumption in Nairobi ', '00020.00_00_00_00.Still076.jpg', ' Consecration of our outstation ', '     The presence of Lay Assumptionists in the Congregation is the fruit of the Holy Spirit. As they undergo the formation, they feel the need to comm', ' https://www.youtube.com/embed/vLEMz88joTg '),
+(3, '00020.00_00_01_04.Still002.jpg', 'The image of postulancy building', '00020.00_00_00_21.Still005.jpg', 'Conversion of st Peter', '              Postulant\'s master giving a message for the........       ', 'https://www.youtube.com/embed/vLEMz88joTg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `postulants`
+--
+
+CREATE TABLE `postulants` (
+  `id` int(11) NOT NULL,
+  `image` varchar(200) DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `diocese` varchar(150) DEFAULT NULL,
+  `parish` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `postulants`
+--
+
+INSERT INTO `postulants` (`id`, `image`, `name`, `country`, `diocese`, `parish`) VALUES
+(56, 'photo5.jpeg', ' Tsongo ', '   Tanzania kklklkkllkk', ' Emmanuel House ', ' 3 June 2022 '),
+(60, 'photo3OKOK.jpg', 'Dieudonne', '  Tanzania', 'Emmanuel House', '12 June 2015'),
+(61, 'photo4.jpeg', ' St Monica Njiru Parish ', '   Kenya ', ' Emmanuel JJJJJJ', ' 12 June 2015 ');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `priests`
 --
 
@@ -394,9 +443,9 @@ CREATE TABLE `priests` (
 --
 
 INSERT INTO `priests` (`id`, `image`, `name`, `country`, `community`, `temp_v_date`, `perp_v_date`, `deaconate_date`, `priesthood_date`) VALUES
-(63, 'photo3OK.jpg', 'Dieudonne', '  Tanzania', NULL, NULL, NULL, NULL, NULL),
 (64, 'photo3OKOK.jpg', 'Dieudonne', '  Kenya', NULL, NULL, NULL, NULL, NULL),
-(65, 'photo5.jpeg', 'Tsongo', '  Kenya', 'Emmanuel House', '12 June 2015', '14 July 2022', '17 October 2023', NULL);
+(65, 'photo5.jpeg', 'Tsongo', '  Kenya', 'Emmanuel House', '12 June 2015', '14 July 2022', '17 October 2023', NULL),
+(66, '00020.00_00_01_04.Still002.jpg', 'Kabwiku', 'DRC', 'Emmanuel House', '12 June 2015', '14 July 2022', ' 17 Octobe', '4 November 2028');
 
 -- --------------------------------------------------------
 
@@ -483,7 +532,9 @@ INSERT INTO `registration` (`id`, `name`, `email`, `password`) VALUES
 (6, 'Dieudonne Tsongo', 'dieudonnetsongo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055'),
 (7, 'Tsongo', 'didd@gmail.com', '733d7be2196ff70efaf6913fc8bdcabf'),
 (8, 'Clarisse Sekeravithi', 'sekera@gmail.com', '7bccfde7714a1ebadf06c5f4cea752c1'),
-(10, 'assumptionists', 'aainform@gmail.c', '7fe11a347a541890aaccf29bdc380f61');
+(10, 'assumptionists', 'aainform@gmail.c', '7fe11a347a541890aaccf29bdc380f61'),
+(12, 'Dieudonne', 'testadmin@gmail.com', '0192023a7bbd73250516f069df18b500'),
+(13, 'Tsongo', 'testadmin@gmail.com', '0192023a7bbd73250516f069df18b500');
 
 -- --------------------------------------------------------
 
@@ -503,12 +554,12 @@ CREATE TABLE `rule` (
 --
 
 INSERT INTO `rule` (`id`, `image`, `title`, `description`) VALUES
-(40, 'MoniK.jfif', ' Rule of Life 1 aa', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor'),
+(40, '00020.00_00_00_23.Still080.jpg', '  Rule of Life 1 aa', '  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolo'),
 (41, 'rule2.jfif', ' Rule of Life 2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor '),
 (42, 'rule3.jfif', ' Rule of Life 3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor '),
 (43, 'rule4.jpg', ' Rule of Life 4', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor '),
 (44, 'rule5.jfif', ' Rule of Life 5', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor '),
-(45, 'lay8.jfif', '   Rule of Life 6', '   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dol');
+(45, '00020.00_00_00_00.Still076.jpg', '    Rule of Life 6', '    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure do');
 
 -- --------------------------------------------------------
 
@@ -598,7 +649,27 @@ CREATE TABLE `triplelove` (
 INSERT INTO `triplelove` (`id`, `image`, `title`, `description`) VALUES
 (27, 'photo9.jpeg', '     LOVE OT THE VIRGIN MARY', '     Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu\'il est prêt ou que la mise en page est achevée. Généralement,'),
 (28, 'churche.png', '   LOVE OT THE CHURCH', '   Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu\'il est prêt ou que la mise en page est achevée. Généralement, o'),
-(39, 'jesus.jpg', '     Love of Jesus', '     Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu\'il est prêt ou que la mise en page est achevée. Généralement,');
+(39, '00020.00_00_00_12.Still048.jpg', '      Love of Jesus', '      Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu\'il est prêt ou que la mise en page est achevée. Généralement');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `password` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `fname`, `lname`, `password`) VALUES
+(1, 'kathembo', 'Tsongo', '1234');
 
 --
 -- Index pour les tables déchargées
@@ -689,6 +760,18 @@ ALTER TABLE `perpetual_vows`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `postulancy`
+--
+ALTER TABLE `postulancy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `postulants`
+--
+ALTER TABLE `postulants`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `priests`
 --
 ALTER TABLE `priests`
@@ -746,6 +829,12 @@ ALTER TABLE `temporary_vows`
 -- Index pour la table `triplelove`
 --
 ALTER TABLE `triplelove`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `users`
+--
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -837,10 +926,22 @@ ALTER TABLE `perpetual_vows`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
+-- AUTO_INCREMENT pour la table `postulancy`
+--
+ALTER TABLE `postulancy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `postulants`
+--
+ALTER TABLE `postulants`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
+--
 -- AUTO_INCREMENT pour la table `priests`
 --
 ALTER TABLE `priests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT pour la table `provincial_administration`
@@ -864,7 +965,7 @@ ALTER TABLE `prov_calendar`
 -- AUTO_INCREMENT pour la table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT pour la table `rule`
