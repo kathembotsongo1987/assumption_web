@@ -1,5 +1,4 @@
 
-<?php    require_once 'admin/cruds/other_cruds/dbconnection.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -9,15 +8,16 @@
 <!-- Favicon -->
   <link href="assets/images/logo_AR.ico" rel="icon">  
   <!-- CSS Link with HTML-->
-  <link rel="stylesheet" href="assets/css/style.css">    
-  <link rel="stylesheet" href="assets/css/bootstrap/css/style.css">   
-  
-
+  <link rel="stylesheet" href="../assets/css2/style.css">    
+  <link rel="stylesheet" href="../assets/css2/fonts_google.css">    
+  <link rel="stylesheet" href="../assets/css2/fonts_special.css">    
+  <link rel="stylesheet" href="../css/bootstrap/css/style.css">  
+<!-- selector country links bootstrap -->
+  <script src='https://kit.fontawesome.com/a076d05399.js' ></script>
 	
         <title>AssumptionistFathers||East Africa</title>        
 	     
 	</head>
-   
     <header> 
 		<!-- Top Bar Start -->
         <div class="top-bar">           
@@ -51,10 +51,11 @@
 
         <!-- end style top bar -->
 
-       
+        <!-- Top Bar End -->
+
          <!-- Nav Bar Start -->
          <div class="navbar navbar-expand-lg bg-dark navbar-dark">          
-              <a href="index.php" class="navbar-brand"><span class="logo"><img class="logo" src="assets/images/logo_AR.ico" rel="icon"></span><span>Assumptionists</span></a>
+              <a href="index.html" class="navbar-brand"><span class="logo"><img class="logo" src="../assets/images/logo_AR.ico" rel="icon"></span><span>Assumptionists</span></a>
               
               <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                   <span class="navbar-toggler-icon"></span>
@@ -62,11 +63,11 @@
 
               <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
                   <ul class="navbar-nav">
-                      <li><a href="#" data-bs-toggle="modal" data-bs-target="#HomeModal" class="nav-item nav-link">Home</a></li>
+                      <li><a href="index.php" class="nav-link active">Home</a></li>
                       <li><a href="#" data-bs-toggle="modal" data-bs-target="#AboutModal" class="nav-item nav-link">About</a></li>
                       <li><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#ApostolateModal" class="nav-item nav-link active" >Apostolates</a></li>
-                      <li><a href="vocation.php" class="nav-item nav-link">Vocation_Office</a></li>
-                      <li><a href="contact.php" class="nav-item nav-link" >Contacts</a></li>
+                      <li><a href="../vocation.php" class="nav-item nav-link">Vocation_Office</a></li>
+                      <li><a href="../contact.php" class="nav-item nav-link" >Contacts</a></li>
 
                     <div class="dropdown">
                       <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link dropdown-toggle">
@@ -82,17 +83,13 @@
                         </ul> 
                       </div>
 
-                      <li><a href="#" data-bs-toggle="modal" data-bs-target="#login" class="nav-link active" >Login</a></li>
+                      <li><a href="../admin/login.php" class="nav-link active" >Login</a></li>
                   </ul>
               </div>
           </div>
       
 
     </header> <!---End Header-->
-
-    <!-- selector country links bootstrap -->
-  <script src='https://kit.fontawesome.com/a076d05399.js' ></script>
-    
 
     
 

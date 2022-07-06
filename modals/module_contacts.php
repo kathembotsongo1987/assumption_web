@@ -174,7 +174,7 @@
       <div class="modal-body" style="text-align: justify;"> 
 
 <?php
-  require_once 'admin/crudFile/dbconnection.php'; 
+  require_once 'admin/cruds/other_cruds/dbconnection.php'; 
       $select_stmt = $connection->prepare("SELECT * FROM contact_kenya"); //sql select query
       $select_stmt->execute();
       while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))

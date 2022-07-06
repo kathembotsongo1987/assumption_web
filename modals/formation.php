@@ -10,22 +10,22 @@
       <div class="modal-body">
         <form>
           <div class="mb-12 d-grid">
-            <a href="formation_file/postulancy.php" class="btn btn-primary" ><h2>Postulancy</h2></a>
+            <a href="postulancy.php" class="btn btn-primary" ><h2>Postulancy</h2></a>
           </div>
           <div class="mb-12 d-grid">
-            <a href="formation_file/noviciate.php" class="btn btn-success" ><h2>Noviciate</h2></a>
+            <a href="noviciate.php" class="btn btn-success" ><h2>Noviciate</h2></a>
           </div>
           <div class="mb-12 d-grid">
-            <a href="formation_file/philosophy.php" class="btn btn-warning" ><h2>Philosophy</h2></a>
+            <a href="philosophy.php" class="btn btn-warning" ><h2>Philosophy</h2></a>
           </div>
           <div class="mb-12 d-grid">
-             <a href="formation_file/pastoral_and_deaconate.php" class="btn btn-secondary" ><h2>Pastoral and Deaconate Experience</h2></a>
+             <a href="pastoral_and_deaconate.php" class="btn btn-secondary" ><h2>Pastoral and Deaconate Experience</h2></a>
           </div>
           <div class="mb-12 d-grid">
-            <a href="formation_file/theology.php" class="btn btn-danger" ><h2>Theology</h2></a>
+            <a href="theology.php" class="btn btn-danger" ><h2>Theology</h2></a>
           </div>
           <div class="mb-12 d-grid">
-            <a href="formation_file/priesthood.php" class="btn btn-primary" ><h2>Priesthood</h2></a>
+            <a href="priesthood.php" class="btn btn-primary" ><h2>Priesthood</h2></a>
           </div>
         </form>
       </div>
