@@ -60,8 +60,8 @@
 				  				$insert_stmt->bindParam(':image', $image_file); // bind all parameter
 				  				$insert_stmt->bindParam(':name', $name);
 				  				$insert_stmt->bindParam(':country', $country);
-				  				$insert_stmt->bindParam(':diocese', $cty);
-				  				$insert_stmt->bindParam(':parish', $temp_v_date);
+				  				$insert_stmt->bindParam(':diocese', $diocese);
+				  				$insert_stmt->bindParam(':parish', $parish);
 				  								  				
 				  				if($insert_stmt->execute()){
 				  					$insertMsg="File Upload Successfully."; // execute query success message

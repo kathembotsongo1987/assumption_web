@@ -10,7 +10,8 @@
   <link href="assets/images/logo_AR.ico" rel="icon">  
   <!-- CSS Link with HTML-->
   <link rel="stylesheet" href="assets/css/style.css">    
-  <link rel="stylesheet" href="assets/css/bootstrap/css/style.css">   
+  <link rel="stylesheet" href="assets/css/bootstrap/css/style.css">
+  <link rel="stylesheet" href="assets/css/mdb.min.css" />   
   
 
 	
@@ -62,7 +63,7 @@
 
               <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
                   <ul class="navbar-nav">
-                      <li><a href="#" data-bs-toggle="modal" data-bs-target="#HomeModal" class="nav-item nav-link">Home</a></li>
+                      <li><a href="index.php" class="nav-item nav-link">Home</a></li>
                       <li><a href="#" data-bs-toggle="modal" data-bs-target="#AboutModal" class="nav-item nav-link">About</a></li>
                       <li><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#ApostolateModal" class="nav-item nav-link active" >Apostolates</a></li>
                       <li><a href="vocation.php" class="nav-item nav-link">Vocation_Office</a></li>

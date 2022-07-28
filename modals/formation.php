@@ -19,13 +19,13 @@
             <a href="philosophy.php" class="btn btn-warning" ><h2>Philosophy</h2></a>
           </div>
           <div class="mb-12 d-grid">
-             <a href="pastoral_and_deaconate.php" class="btn btn-secondary" ><h2>Pastoral and Deaconate Experience</h2></a>
+             <a href="post_philosophy.php" class="btn btn-danger" ><h2>Post-Philosophy</h2></a>
           </div>
           <div class="mb-12 d-grid">
-            <a href="theology.php" class="btn btn-danger" ><h2>Theology</h2></a>
+            <a href="theology.php" class="btn btn-secondary" ><h2>Theology</h2></a>
           </div>
           <div class="mb-12 d-grid">
-            <a href="priesthood.php" class="btn btn-primary" ><h2>Priesthood</h2></a>
+            <a href="orders.php" class="btn btn-primary" ><h2>Orders</h2></a>
           </div>
         </form>
       </div>

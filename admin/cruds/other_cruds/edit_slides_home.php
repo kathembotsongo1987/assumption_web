@@ -33,7 +33,7 @@ if(isset($_REQUEST['btn_update'])){
 				} else if (empty($Description)) {
 					$errorMsg = "please Enter the Description of your post";	
 				}
-				else if(empty($image_rule)){
+				else if(empty($image)){
 						$errorMsg = "Please Select Image";
 					} 
 				  else if ($type=="image/jpg" || $type=='image/jpeg' || $type=='image/png' || $type=='image/gif') // check file extension
@@ -51,7 +51,7 @@ if(isset($_REQUEST['btn_update'])){
 				  		}
 				  		
 		if(!isset($errorMsg)){
-			$upldate_stmt = $connection->prepare('UPDATE slideshome SET title=:title_up, description=:description_up, image=:file_up WHERE id=:id'); //slq update the query.
+			$upldate_stmt = $connection->prepare('UPDATE slideshome SET title=:title_up, smalltext=:description_up, image=:file_up WHERE id=:id'); //slq update the query.
 			$upldate_stmt->bindParam(':title_up',$Title);
 			$upldate_stmt->bindParam(':description_up',$Description);
 			$upldate_stmt->bindParam(':file_up',$image); // bind all parameter
@@ -59,7 +59,7 @@ if(isset($_REQUEST['btn_update'])){
 
 			if($upldate_stmt->execute()){
 				$updateMsg = "File Uplade Successfully....."; // File update success message
-				header("location: read_slideshome.php");//reflesh 3 second and redirect to read.php page.
+				header("location: read_slides_home.php");//reflesh 3 second and redirect to read.php page.
 			}
 		}
 	}
@@ -93,7 +93,7 @@ if(isset($_REQUEST['btn_update'])){
 								?>
 								<form method="post" class="form-horizontal" enctype="multipart/form-data">
 									<div class="form-group">
-										<label class="col-sm-3 control-label">Tite</label>
+										<label class="col-sm-3 control-label">Title</label>
 											<div class="col-sm-6">
 												<input type="text" name="title" class="form-control" value=" <?php echo $title; ?>" required/>
 											</div>
@@ -107,7 +107,7 @@ if(isset($_REQUEST['btn_update'])){
 									<div class="form-group">
 										<label class="col-sm-3 control-label">Image</label>
 											<div class="col-sm-6">
-												<input type="file" name="image_rule" class="form-control" value=" <?php echo $image; ?>" required/>
+												<input type="file" name="image" class="form-control" value=" <?php echo $image; ?>" required/>
 													<p><img src="upload/<?php echo $image; ?>" height="100" width="100"/></p>
 											</div>
 									</div>

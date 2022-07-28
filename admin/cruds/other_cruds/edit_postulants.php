@@ -19,14 +19,14 @@
 if(isset($_REQUEST['btn_update'])){
 	try {
 		$image_file = $_FILES["txt_file"]["name"]; 
-				$type = $_FILES["txt_file"]["type"];
-				$size = $_FILES["txt_file"]["size"];
-				$temp = $_FILES["txt_file"]["tmp_name"];
+		$type = $_FILES["txt_file"]["type"];
+		$size = $_FILES["txt_file"]["size"];
+		$temp = $_FILES["txt_file"]["tmp_name"];
 				
-				$name = $_REQUEST["name"]; // 
-				$country = $_REQUEST["country"]; 
-				$diocese = $_REQUEST["diocese"]; 
-				$parish = $_REQUEST['parish']; 
+		$name = $_REQUEST["name"]; // 
+		$country = $_REQUEST["country"]; 
+		$diocese = $_REQUEST["diocese"]; 
+		$parish = $_REQUEST['parish']; 
 								
 				// now set the part to the store. where the image is going to be kept. You must open first a new folder called upload. that is where images will be stored in your computer
 			$path = "upload/".$image_file;
@@ -38,10 +38,10 @@ if(isset($_REQUEST['btn_update'])){
 					$errorMsg = "please Enter the country";	
 				}
 				else if (empty($diocese)) {
-					$errorMsg = "please Enter Community";	
+					$errorMsg = "please Enter Diocese";	
 				}
 				else if (empty($parish)) {
-					$errorMsg = "please Enter the date for the first vows";	
+					$errorMsg = "please Enter Parish";	
 				}
 						
 				else if(empty($image_file)){
@@ -64,13 +64,13 @@ if(isset($_REQUEST['btn_update'])){
 				  		}
 				  		
 		if(!isset($errorMsg)){
-			$upldate_stmt = $connection->prepare('UPDATE postulants SET	image=:image, name=:name, country=:country, diocese=:diocese, parish=:parish, WHERE id=:id'); // sql insert query
+			$upldate_stmt = $connection->prepare('UPDATE postulants SET	image=:image, name=:name, country=:country, diocese=:diocese, parish=:parish WHERE id=:id'); // sql insert query
 				  				
 			$upldate_stmt->bindParam(':image', $image_file); // bind all parameter
 			$upldate_stmt->bindParam(':name', $name);
 			$upldate_stmt->bindParam(':country', $country);
-			$upldate_stmt->bindParam(':diocese', $cty);
-			$upldate_stmt->bindParam(':parish', $temp_v_date);		
+			$upldate_stmt->bindParam(':diocese', $diocese);
+			$upldate_stmt->bindParam(':parish', $parish);		
 			$upldate_stmt->bindParam(':id',$id);
 
 			if($upldate_stmt->execute()){

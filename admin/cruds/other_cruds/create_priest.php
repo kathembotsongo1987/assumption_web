@@ -158,7 +158,7 @@
 								<div class="col-sm-6">
 									<label class="col-sm-6 control-label">Action</label>
 										<input type="submit" name="btn_insert" class="btn btn-success" value="Insert">
-											<a href="read_priest" class="btn btn-danger">Cancel</a>
+											<a href="read_priest.php" class="btn btn-danger">Cancel</a>
 								</div>
 							</div>
 						</form>	

@@ -75,8 +75,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 <?php 
-  include('modals/formation.php');
-  include('modals/formation2.php');
+  include('modals/formation.php'); 
   include('modals/modal_about_us.php');
   include('modals/modal_apostolate.php');
   include('modals/module_contacts.php');
