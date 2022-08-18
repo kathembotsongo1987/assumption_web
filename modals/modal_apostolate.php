@@ -14,19 +14,16 @@
           </div>
           <div class="mb-12 d-grid">
             <a href="parishes.php" class="btn btn-success" ><h2>Parishes and Shrines</h2></a>
-          </div>
-          <div class="mb-12 d-grid">
-            <a href="communication.php" class="btn btn-warning" ><h2>Communication</h2></a>
-          </div>
+          </div>          
           <div class="mb-12 d-grid">
              <a href="ecumenism.php" class="btn btn-secondary" ><h2>Ecumenism</h2></a>
           </div>
-          <div class="mb-12 d-grid">
+          <!-- <div class="mb-12 d-grid">
              <a href="ministries.php" class="btn btn-primary" ><h2>Ministries</h2></a>
           </div>
           <div class="mb-12 d-grid">
             <a href="music.php" class="btn btn-danger" ><h2>Music</h2></a>
-          </div>
+          </div> -->
         </form>
       </div>
       <div class="modal-footer" style="background: rgba(170,85,255,.6);">
