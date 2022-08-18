@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 06 juil. 2022 à 09:02
+-- Généré le : jeu. 18 août 2022 à 10:11
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -181,6 +181,29 @@ INSERT INTO `deacons` (`id`, `image`, `name`, `country`, `community`, `temp_v_da
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `ecumenism`
+--
+
+CREATE TABLE `ecumenism` (
+  `id` int(11) NOT NULL,
+  `articletitle` varchar(100) DEFAULT NULL,
+  `articledescription` text DEFAULT NULL,
+  `ecumenism_image` varchar(50) DEFAULT NULL,
+  `intro_title` varchar(50) DEFAULT NULL,
+  `video` varchar(100) DEFAULT NULL,
+  `intro_description` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `ecumenism`
+--
+
+INSERT INTO `ecumenism` (`id`, `articletitle`, `articledescription`, `ecumenism_image`, `intro_title`, `video`, `intro_description`) VALUES
+(2, '      Consecration of our outstation      ', '      A parish is a community of Christ\'s faithful whose pastoral care is entrusted to a Parish Priest. He is the proper pastor of the community, caring for the people and celebrating the sacraments. In the exercise of his office the Parish Priest acts under the authority of the diocesan Bishop.A parish is a community of Christ\'s faithful whose pastoral care is entrusted to a Parish Priest. He is the proper pastor of the community, caring for the people and celebrating the sacraments. In the exercise of his office the Parish Priest acts under the authority of the diocesan Bishop.A parish is a community of Christ\'s faithful whose pastoral care is entrusted to a Parish Priest. He is the proper pastor of the community, caring for the people and celebrating the sacraments. In the exercise of his office the Parish Priest acts under the authority of the diocesan Bishop.A parish is a community of Christ\'s faithful whose pastoral care is entrusted to a Parish Priest. He is the proper pastor of the community, caring for the      ', 'cq5dam.thumbnail.cropped.1500.844.jpeg', '  what is ecumenism', ' https://www.youtube.com/embed/xMAQb2DyWVI', '              The collaboration between Assumptionist Religious and Laypeople is not something new in the Congregation as well as in East Africa Region. This collaboration is not a mere dream; it is rather a reality. Indeed, it is getting deeper and deeper in the minds of both religious and Laypeople. Of course, it has been raised to the status of alliance Lay-Religious. For many years, the Lay were not but workers in assumptionist institutions, benefactors or just friends of the Augustinians of the Assumption. Nowadays, especially from the last two General Chapters (2005 and 2011), they have become members of the Assumptionist Family, sharing the same Charism and spirituality with us.        ');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `europ_location`
 --
 
@@ -303,22 +326,71 @@ INSERT INTO `lay_groups` (`id`, `lay_image`, `intro_title`, `intro_description`,
 --
 
 CREATE TABLE `novices` (
-  `id` int(11) NOT NULL DEFAULT 0,
+  `id` int(11) NOT NULL,
   `image` varchar(200) DEFAULT NULL,
   `name` varchar(200) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL
+  `country` varchar(255) DEFAULT NULL,
+  `diocese` varchar(150) DEFAULT NULL,
+  `parish` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `novices`
 --
 
-INSERT INTO `novices` (`id`, `image`, `name`, `country`) VALUES
-(57, 'livingOK.jpg', ' Tsongo tDONTO', '  Uganda'),
-(58, 'MoniK.jfif', 'Tsongo', 'Uganda'),
-(59, 'MoniK.jfif', 'Tsongo', 'Uganda'),
-(0, 'photo3OKOK.jpg', 'Dieudonne', '  Kenya'),
-(0, 'photo4.jpeg', 'Dieudonne', '  Kenya');
+INSERT INTO `novices` (`id`, `image`, `name`, `country`, `diocese`, `parish`) VALUES
+(56, 'photo6.jpeg', '  Tsongo  ', '    Tanzania kklklkkllkk ', ' Emmanuel House ', ' 3 June 2022 '),
+(65, 'photo8.jpeg', 'Dieudonne', '  Kenya', 'NAIROBI', 'Monica'),
+(66, 'photo5OK.jpg', 'Dieudonne', '  Kenya', '    Digodigo', 'Milimani'),
+(69, 'photo11.jpeg', 'Dieudonne', '  Kenya', 'NAIROBI', 'Monica'),
+(70, 'photo10.jpeg', 'Dieudonne', '  Uganda', 'NAIROBI', '       St Augu '),
+(71, 'photo7.jpeg', 'Tsongo', '  Tanzania', '    Digodigo', 'Monica');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `noviciate`
+--
+
+CREATE TABLE `noviciate` (
+  `id` int(11) NOT NULL,
+  `photo1` varchar(150) DEFAULT NULL,
+  `description1` varchar(200) DEFAULT NULL,
+  `photo2` varchar(150) DEFAULT NULL,
+  `description2` varchar(150) DEFAULT NULL,
+  `descriptionvideo` varchar(150) DEFAULT NULL,
+  `video` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `noviciate`
+--
+
+INSERT INTO `noviciate` (`id`, `photo1`, `description1`, `photo2`, `description2`, `descriptionvideo`, `video`) VALUES
+(5, 'photo11.jpeg', ' The image of postulancy building ', 'photo3OKOK.jpg', ' Conversion of st Peter ', '            Novice\'s master giving a message for the year            ', ' https://www.youtube.com/embed/NZZ4xpmkvhA ');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `noviciate_infor`
+--
+
+CREATE TABLE `noviciate_infor` (
+  `id` int(11) NOT NULL,
+  `photo1` varchar(150) DEFAULT NULL,
+  `article` text DEFAULT NULL,
+  `photo2` varchar(150) DEFAULT NULL,
+  `description2` varchar(150) DEFAULT NULL,
+  `description1` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `noviciate_infor`
+--
+
+INSERT INTO `noviciate_infor` (`id`, `photo1`, `article`, `photo2`, `description2`, `description1`) VALUES
+(4, 'photo4.jpeg', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  ', 'photo5.jpeg', '  Conversion of st Peter  ', '  The image of postulancy building  '),
+(5, 'photo1.jpeg', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ', 'bayard1.jpg', ' Conversion of st Peter ', ' The image of postulancy building ');
 
 -- --------------------------------------------------------
 
@@ -339,6 +411,64 @@ CREATE TABLE `oceanic_location` (
 INSERT INTO `oceanic_location` (`id`, `country`, `no_community`) VALUES
 (47, 'Urluondo', '3'),
 (49, 'VIET-NAM', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `image` varchar(200) DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `community` varchar(255) DEFAULT NULL,
+  `temp_v_date` varchar(200) DEFAULT NULL,
+  `perp_v_date` varchar(200) DEFAULT NULL,
+  `deaconate_date` varchar(200) DEFAULT NULL,
+  `priesthood_date` varchar(200) DEFAULT NULL,
+  `message` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `orders`
+--
+
+INSERT INTO `orders` (`id`, `image`, `name`, `country`, `community`, `temp_v_date`, `perp_v_date`, `deaconate_date`, `priesthood_date`, `message`) VALUES
+(64, 'MoniK.jfif', '      Father  John Kiarie   ', '         Kenya       ', '      Njiru    ', '        12 June       ', '        01 january 2012      ', '        14 June 2015      ', '     14 July 2019  ', '    The evangelist is actually putting it clear that Elizabeth cried in a loud voice when Virgin Mary visited her: “For at the moment the sound of your greeting reached my ears, the infant in my womb leaped for joy…” These words of Elizabeth show how the presence of Jesus is really coming to her as a gift of a real Joy. Even the infant in the womb of Elizabeth noticed the presence of Jesus in the family.  This is one of the greatest gift that Elizabeth received throughout her life, to be greeted by the mother of the Lord.  '),
+(68, 'photo4.jpeg', 'Father Jean-Marie Meso', '   Kenya ', ' Emmanuel House ', ' 12 June 2015 ', ' 14 July 2022 ', ' 17 October 2023 ', '4 November 2028', ' The evangelist is actually putting it clear that Elizabeth cried in a loud voice when Virgin Mary visited her: “For at the moment the sound of your greeting reached my ears, the infant in my womb leaped for joy…” These words of Elizabeth show how the presence of Jesus is really coming to her as a gift of a real Joy. Even the infant in the womb of Elizabeth noticed the presence of Jesus in the family.  This is one of the greatest gift that Elizabeth received throughout her life, to be greeted by the mother of the Lord.  ');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `parishes`
+--
+
+CREATE TABLE `parishes` (
+  `id` int(11) NOT NULL,
+  `building` varchar(50) DEFAULT NULL,
+  `parish_name` varchar(50) DEFAULT NULL,
+  `parish_description` text DEFAULT NULL,
+  `articletitle` varchar(100) DEFAULT NULL,
+  `articledescription` text DEFAULT NULL,
+  `parish_priest` varchar(50) DEFAULT NULL,
+  `parish_church_council` varchar(50) DEFAULT NULL,
+  `video` varchar(100) DEFAULT NULL,
+  `contact1` varchar(100) DEFAULT NULL,
+  `contact2` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `christians` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `parishes`
+--
+
+INSERT INTO `parishes` (`id`, `building`, `parish_name`, `parish_description`, `articletitle`, `articledescription`, `parish_priest`, `parish_church_council`, `video`, `contact1`, `contact2`, `email`, `christians`) VALUES
+(1, 'photo1.jpeg', '  Blessed Pavel  School', '  The main teaching in the gospel of today is all about the seed: Two parables are found in the gospel. The Seed growing by itself and the Mustard Seed. Actually by these parables Jesus is trying to show us how God’s kingdom will grow. when he says: “…and the seed would sprout and grow…” (v. 27). His message is clear: The Kingdom of God even if it requires our collaboration is first and foremost, a grace and a gift coming from God. It is not primarily a product of human effort.  ', '  Consecration of our outstation  ', '    This Emmanuel, accepted to make His dwelling among us and to become like us so that we too, may become like Him: “Holy as he is Holy”. Finding the celebration of today very important, our Church suggests that we celebrate three Masses: at midnight, at dawn and at daytime and each with its own readings. While for midnight and dawn the gospel readings are from Luke and telling of the Christmas story, for the daytime Mass we read the prologue of John which tells us about the coming of the Almighty God into our world. The cold and comfortless cave of Bethlehem was where the Eternal Word stepped into human history and becomes a member of our human race. This shows us how great the love of God to each one of us is.  As we can read in the first reading, the prophet Isaiah is like prophesying about the arrival of that gift from God, a gift coming as a solution to our problems. Back to the historical context of the Israelites, who had been victims of number of sufferings, slavery, living many years out of their land  ', 'photo7.jpeg', 'photo3.jpeg', '  https://www.youtube.com/embed/NZZ4xpmkvhA  ', '   +254789562011  ', '  +254758968741  ', 'dieudonne@gmail.com', 'photo8.jpeg'),
+(2, 'photo2.jpeg', '  Blessed Pavel  School', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Consecration of our outstation', 'A parish is a community of Christ\'s faithful whose pastoral care is entrusted to a Parish Priest. He is the proper pastor of the community, caring for the people and celebrating the sacraments. In the exercise of his office the Parish Priest acts under the authority of the diocesan Bishop.A parish is a community of Christ\'s faithful whose pastoral care is entrusted to a Parish Priest. He is the proper pastor of the community, caring for the people and celebrating the sacraments. In the exercise of his office the Parish Priest acts under the authority of the diocesan Bishop.A parish is a community of Christ\'s faithful whose pastoral care is entrusted to a Parish Priest. He is the proper pastor of the community, caring for the people and celebrating the sacraments. In the exercise of his office the Parish Priest acts under the authority of the diocesan Bishop.A parish is a community of Christ\'s faithful whose pastoral care is entrusted to a Parish Priest. He is the proper pastor of the community, caring for the', 'photo7.jpeg', 'photo3.jpeg', 'https://www.youtube.com/embed/NZZ4xpmkvhA', ' +25478000000', '+254758968741', 'dieudonnetsong@gmail.com', 'photo2.jpeg'),
+(3, 'photo2.jpeg', '  Blessed Pavel  School', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Consecration of our outstation', 'A parish is a community of Christ\'s faithful whose pastoral care is entrusted to a Parish Priest. He is the proper pastor of the community, caring for the people and celebrating the sacraments. In the exercise of his office the Parish Priest acts under the authority of the diocesan Bishop.A parish is a community of Christ\'s faithful whose pastoral care is entrusted to a Parish Priest. He is the proper pastor of the community, caring for the people and celebrating the sacraments. In the exercise of his office the Parish Priest acts under the authority of the diocesan Bishop.A parish is a community of Christ\'s faithful whose pastoral care is entrusted to a Parish Priest. He is the proper pastor of the community, caring for the people and celebrating the sacraments. In the exercise of his office the Parish Priest acts under the authority of the diocesan Bishop.A parish is a community of Christ\'s faithful whose pastoral care is entrusted to a Parish Priest. He is the proper pastor of the community, caring for the', 'photo7.jpeg', 'photo3.jpeg', 'https://www.youtube.com/embed/NZZ4xpmkvhA', ' +25478000000', '+254758968741', 'dieudonnetsong@gmail.com', 'photo2.jpeg');
 
 -- --------------------------------------------------------
 
@@ -374,6 +504,79 @@ INSERT INTO `perpetual_vows` (`id`, `image`, `name`, `country`, `community`, `te
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `philosophers`
+--
+
+CREATE TABLE `philosophers` (
+  `id` int(11) NOT NULL,
+  `image` varchar(200) DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `diocese` varchar(150) DEFAULT NULL,
+  `parish` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `philosophers`
+--
+
+INSERT INTO `philosophers` (`id`, `image`, `name`, `country`, `diocese`, `parish`) VALUES
+(66, 'photo5OK.jpg', 'Dieudonne', '  Kenya', '    Digodigo', 'Milimani'),
+(69, 'photo11.jpeg', 'Dieudonne', '  Kenya', 'NAIROBI', 'Monica'),
+(70, 'photo10.jpeg', 'Dieudonne', '  Uganda', 'NAIROBI', '       St Augu '),
+(71, 'photo7.jpeg', 'Tsongo', '  Tanzania', '    Digodigo', 'Monica'),
+(72, 'lay6.jfif', 'Dieudonne', '  Kenya', 'NAIROBI', 'Monica'),
+(73, 'lay8.jfif', ' St Monica Njiru Parish ', '   Kenya ', '    Digodigo', '       St Augu ');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `philosophy`
+--
+
+CREATE TABLE `philosophy` (
+  `id` int(11) NOT NULL,
+  `photo1` varchar(150) DEFAULT NULL,
+  `description1` varchar(200) DEFAULT NULL,
+  `photo2` varchar(150) DEFAULT NULL,
+  `description2` varchar(150) DEFAULT NULL,
+  `descriptionvideo` varchar(150) DEFAULT NULL,
+  `video` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `philosophy`
+--
+
+INSERT INTO `philosophy` (`id`, `photo1`, `description1`, `photo2`, `description2`, `descriptionvideo`, `video`) VALUES
+(5, 'photo11.jpeg', ' The image of postulancy building ', 'photo3OKOK.jpg', ' Conversion of st Peter ', '            Novice\'s master giving a message for the year            ', ' https://www.youtube.com/embed/NZZ4xpmkvhA ');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `philosophy_infor`
+--
+
+CREATE TABLE `philosophy_infor` (
+  `id` int(11) NOT NULL,
+  `photo1` varchar(150) DEFAULT NULL,
+  `article` text DEFAULT NULL,
+  `photo2` varchar(150) DEFAULT NULL,
+  `description2` varchar(150) DEFAULT NULL,
+  `description1` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `philosophy_infor`
+--
+
+INSERT INTO `philosophy_infor` (`id`, `photo1`, `article`, `photo2`, `description2`, `description1`) VALUES
+(4, 'photo4.jpeg', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  ', 'photo5.jpeg', '  Conversion of st Peter  ', '  The image of postulancy building  '),
+(5, 'photo1.jpeg', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ', 'bayard1.jpg', ' Conversion of st Peter ', ' The image of postulancy building ');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `postulancy`
 --
 
@@ -392,9 +595,29 @@ CREATE TABLE `postulancy` (
 --
 
 INSERT INTO `postulancy` (`id`, `photo1`, `description1`, `photo2`, `description2`, `descriptionvideo`, `video`) VALUES
-(1, '00020.00_00_00_00.Still079.jpg', '    THE PLACE OF THE LAY IN THE ASSUMPTION  ', '00020.00_00_00_12.Still048.jpg', '  Consecration of our outstation  ', '    This Emmanuel, accepted to make His dwelling among us and to become like us so that we too, may become like Him: “Holy as he is Holy”. Finding the', '  https://www.youtube.com/embed/NZZ4xpmkvhA  '),
-(2, '00020.00_00_00_21.Still005.jpg', '   what is Lay Assumption in Nairobi ', '00020.00_00_00_00.Still076.jpg', ' Consecration of our outstation ', '     The presence of Lay Assumptionists in the Congregation is the fruit of the Holy Spirit. As they undergo the formation, they feel the need to comm', ' https://www.youtube.com/embed/vLEMz88joTg '),
-(3, '00020.00_00_01_04.Still002.jpg', 'The image of postulancy building', '00020.00_00_00_21.Still005.jpg', 'Conversion of st Peter', '              Postulant\'s master giving a message for the........       ', 'https://www.youtube.com/embed/vLEMz88joTg');
+(1, 'photo3OKOK.jpg', '      THE PLACE OF THE LAY IN THE ASSUMPTION    ', 'photo9.jpeg', '    Consecration of our outstation    ', '      This Emmanuel, accepted to make His dwelling among us and to become like us so that we too, may become like Him: “Holy as he is Holy”. Finding t', '    https://www.youtube.com/embed/NZZ4xpmkvhA    ');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `postulancy_infor`
+--
+
+CREATE TABLE `postulancy_infor` (
+  `id` int(11) NOT NULL,
+  `photo1` varchar(150) DEFAULT NULL,
+  `article` text DEFAULT NULL,
+  `photo2` varchar(150) DEFAULT NULL,
+  `description2` varchar(150) DEFAULT NULL,
+  `description1` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `postulancy_infor`
+--
+
+INSERT INTO `postulancy_infor` (`id`, `photo1`, `article`, `photo2`, `description2`, `description1`) VALUES
+(4, 'photo3OKOK.jpg', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ', 'photo4.jpeg', ' Conversion of st Peter ', ' The image of postulancy building ');
 
 -- --------------------------------------------------------
 
@@ -418,7 +641,84 @@ CREATE TABLE `postulants` (
 INSERT INTO `postulants` (`id`, `image`, `name`, `country`, `diocese`, `parish`) VALUES
 (56, 'photo5.jpeg', ' Tsongo ', '   Tanzania kklklkkllkk', ' Emmanuel House ', ' 3 June 2022 '),
 (60, 'photo3OKOK.jpg', 'Dieudonne', '  Tanzania', 'Emmanuel House', '12 June 2015'),
-(61, 'photo4.jpeg', ' St Monica Njiru Parish ', '   Kenya ', ' Emmanuel JJJJJJ', ' 12 June 2015 ');
+(61, 'photo4.jpeg', ' St Monica Njiru Parish ', '   Kenya ', ' Emmanuel JJJJJJ', ' 12 June 2015 '),
+(64, 'photo3OKOK.jpg', ' Dieudonne ', '   Kenya ', '    Digodigo', '       St Augu '),
+(65, 'photo8.jpeg', 'Dieudonne', '  Kenya', 'NAIROBI', 'Monica'),
+(66, 'photo5OK.jpg', 'Dieudonne', '  Kenya', '    Digodigo', 'Milimani');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `post_philosophers`
+--
+
+CREATE TABLE `post_philosophers` (
+  `id` int(11) NOT NULL,
+  `image` varchar(200) DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `diocese` varchar(150) DEFAULT NULL,
+  `parish` varchar(100) DEFAULT NULL,
+  `current_cty` varchar(40) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `post_philosophers`
+--
+
+INSERT INTO `post_philosophers` (`id`, `image`, `name`, `country`, `diocese`, `parish`, `current_cty`) VALUES
+(66, 'photo5OK.jpg', 'Dieudonne', '  Kenya', '    Digodigo', 'Milimani', NULL),
+(69, 'photo11.jpeg', 'Dieudonne', '  Kenya', 'NAIROBI', 'Monica', NULL),
+(70, 'photo10.jpeg', 'Dieudonne', '  Uganda', 'NAIROBI', '       St Augu ', NULL),
+(71, 'photo7.jpeg', 'Tsongo', '  Tanzania', '    Digodigo', 'Monica', NULL),
+(72, 'lay6.jfif', 'Dieudonne', '  Kenya', 'NAIROBI', 'Monica', NULL),
+(73, 'lay8.jfif', ' St Monica Njiru Parish ', '   Kenya ', '    Digodigo', '       St Augu ', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `post_philosophy`
+--
+
+CREATE TABLE `post_philosophy` (
+  `id` int(11) NOT NULL,
+  `photo1` varchar(150) DEFAULT NULL,
+  `description1` varchar(200) DEFAULT NULL,
+  `photo2` varchar(150) DEFAULT NULL,
+  `description2` varchar(150) DEFAULT NULL,
+  `descriptionvideo` varchar(150) DEFAULT NULL,
+  `video` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `post_philosophy`
+--
+
+INSERT INTO `post_philosophy` (`id`, `photo1`, `description1`, `photo2`, `description2`, `descriptionvideo`, `video`) VALUES
+(5, 'photo11.jpeg', ' The image of postulancy building ', 'photo3OKOK.jpg', ' Conversion of st Peter ', '            Novice\'s master giving a message for the year            ', ' https://www.youtube.com/embed/NZZ4xpmkvhA ');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `post_philosophy_infor`
+--
+
+CREATE TABLE `post_philosophy_infor` (
+  `id` int(11) NOT NULL,
+  `photo1` varchar(150) DEFAULT NULL,
+  `article` text DEFAULT NULL,
+  `photo2` varchar(150) DEFAULT NULL,
+  `description2` varchar(150) DEFAULT NULL,
+  `description1` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `post_philosophy_infor`
+--
+
+INSERT INTO `post_philosophy_infor` (`id`, `photo1`, `article`, `photo2`, `description2`, `description1`) VALUES
+(4, 'photo4.jpeg', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.  ', 'photo5.jpeg', '  Conversion of st Peter  ', '  The image of postulancy building  '),
+(5, 'photo1.jpeg', ' Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ', 'bayard1.jpg', ' Conversion of st Peter ', ' The image of postulancy building ');
 
 -- --------------------------------------------------------
 
@@ -564,6 +864,35 @@ INSERT INTO `rule` (`id`, `image`, `title`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `schools`
+--
+
+CREATE TABLE `schools` (
+  `id` int(11) NOT NULL,
+  `school_image` varchar(100) DEFAULT NULL,
+  `school_name` varchar(100) DEFAULT NULL,
+  `school_description` text DEFAULT NULL,
+  `articletitle` varchar(100) DEFAULT NULL,
+  `articledescription` text DEFAULT NULL,
+  `school_chaplain` varchar(100) DEFAULT NULL,
+  `school_teachers` varchar(100) DEFAULT NULL,
+  `video` varchar(100) DEFAULT NULL,
+  `contact1` varchar(100) DEFAULT NULL,
+  `contact2` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `art_image` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `schools`
+--
+
+INSERT INTO `schools` (`id`, `school_image`, `school_name`, `school_description`, `articletitle`, `articledescription`, `school_chaplain`, `school_teachers`, `video`, `contact1`, `contact2`, `email`, `art_image`) VALUES
+(1, 'bayard2OK.jpg', ' Blessed Pavel ', ' The main teaching in the gospel of today is all about the seed: Two parables are found in the gospel. The Seed growing by itself and the Mustard Seed. Actually by these parables Jesus is trying to show us how God’s kingdom will grow. when he says: “…and the seed would sprout and grow…” (v. 27). His message is clear: The Kingdom of God even if it requires our collaboration is first and foremost, a grace and a gift coming from God. It is not primarily a product of human effort. ', ' Consecration of our outstation ', '   This Emmanuel, accepted to make His dwelling among us and to become like us so that we too, may become like Him: “Holy as he is Holy”. Finding the celebration of today very important, our Church suggests that we celebrate three Masses: at midnight, at dawn and at daytime and each with its own readings. While for midnight and dawn the gospel readings are from Luke and telling of the Christmas story, for the daytime Mass we read the prologue of John which tells us about the coming of the Almighty God into our world. The cold and comfortless cave of Bethlehem was where the Eternal Word stepped into human history and becomes a member of our human race. This shows us how great the love of God to each one of us is.  As we can read in the first reading, the prophet Isaiah is like prophesying about the arrival of that gift from God, a gift coming as a solution to our problems. Back to the historical context of the Israelites, who had been victims of number of sufferings, slavery, living many years out of their land ', 'MoniK.jfif', 'photo3.jpeg', ' https://www.youtube.com/embed/NZZ4xpmkvhA ', '  +254789562011 ', ' +254758968741 ', 'dieudonne@gmail.com', 'photo1.jpeg');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `slidelay`
 --
 
@@ -584,6 +913,28 @@ INSERT INTO `slidelay` (`id`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `slidesecumenism`
+--
+
+CREATE TABLE `slidesecumenism` (
+  `id` int(11) NOT NULL,
+  `image` varchar(100) DEFAULT NULL,
+  `title` varchar(200) NOT NULL,
+  `smalltext` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `slidesecumenism`
+--
+
+INSERT INTO `slidesecumenism` (`id`, `image`, `title`, `smalltext`) VALUES
+(31, 'photo.jpg', '         Title here', '     Description of the caroussel'),
+(34, 'ecu.png', '  Title here', '  Description of the photo'),
+(36, 'ecumenis.jpg', 'Title here', 'Description of the caroussel');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `slideshome`
 --
 
@@ -599,9 +950,30 @@ CREATE TABLE `slideshome` (
 --
 
 INSERT INTO `slideshome` (`id`, `image`, `title`, `smalltext`) VALUES
-(30, '222.jpg', 'Title here', 'A general metting of the Assumptionists with Bayard Publication'),
-(31, '257165399.jpg', 'Title here', 'A general metting of the Assumptionists with Bayard Publication'),
-(32, '503382708.jpg', 'Title here', 'A general metting of the Assumptionists with Bayard Publication');
+(37, '222.jpg', 'Title of the caroussel', 'Description of the caroussel'),
+(38, '257165399.jpg', 'title here', 'caroussell description'),
+(39, 'ecumenis.jpg', 'Title here', 'Description of the caroussel'),
+(40, 'photo.jpg', '   hghghg', '   hghghg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `slides_orders`
+--
+
+CREATE TABLE `slides_orders` (
+  `id` int(11) NOT NULL,
+  `video` varchar(255) DEFAULT NULL,
+  `title` varchar(200) NOT NULL,
+  `smalltext` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `slides_orders`
+--
+
+INSERT INTO `slides_orders` (`id`, `video`, `title`, `smalltext`) VALUES
+(33, '    https://www.youtube.com/embed/NZZ4xpmkvhA', '    Ordination Year 2019', 'The Ordination was presided over by Bishop Kamau, the Auxiliary bishop of Nairobi. We with good mistry to our newly ordained');
 
 -- --------------------------------------------------------
 
@@ -632,6 +1004,78 @@ INSERT INTO `temporary_vows` (`id`, `image`, `name`, `country`, `community`, `te
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `theologians`
+--
+
+CREATE TABLE `theologians` (
+  `id` int(11) NOT NULL,
+  `image` varchar(200) DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `diocese` varchar(150) DEFAULT NULL,
+  `parish` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `theologians`
+--
+
+INSERT INTO `theologians` (`id`, `image`, `name`, `country`, `diocese`, `parish`) VALUES
+(66, 'photo5OK.jpg', 'Dieudonne', '  Kenya', '    Digodigo', 'Milimani'),
+(69, 'photo11.jpeg', 'Dieudonne', '  Kenya', 'NAIROBI', 'Monica'),
+(70, 'photo10.jpeg', 'Dieudonne', '  Uganda', 'NAIROBI', '       St Augu '),
+(71, 'photo7.jpeg', 'Tsongo', '  Tanzania', '    Digodigo', 'Monica'),
+(72, 'lay6.jfif', 'Dieudonne', '  Kenya', 'NAIROBI', 'Monica'),
+(73, 'lay8.jfif', ' St Monica Njiru Parish ', '   Kenya ', '    Digodigo', '       St Augu ');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `theology`
+--
+
+CREATE TABLE `theology` (
+  `id` int(11) NOT NULL,
+  `photo1` varchar(150) DEFAULT NULL,
+  `description1` varchar(200) DEFAULT NULL,
+  `photo2` varchar(150) DEFAULT NULL,
+  `description2` varchar(150) DEFAULT NULL,
+  `descriptionvideo` varchar(150) DEFAULT NULL,
+  `video` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `theology`
+--
+
+INSERT INTO `theology` (`id`, `photo1`, `description1`, `photo2`, `description2`, `descriptionvideo`, `video`) VALUES
+(5, 'photo11.jpeg', ' The image of postulancy building ', 'photo3OKOK.jpg', ' Conversion of st Peter ', '            Novice\'s master giving a message for the year            ', ' https://www.youtube.com/embed/NZZ4xpmkvhA ');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `theology_infor`
+--
+
+CREATE TABLE `theology_infor` (
+  `id` int(11) NOT NULL,
+  `photo1` varchar(150) DEFAULT NULL,
+  `article` text DEFAULT NULL,
+  `photo2` varchar(150) DEFAULT NULL,
+  `description2` varchar(150) DEFAULT NULL,
+  `description1` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `theology_infor`
+--
+
+INSERT INTO `theology_infor` (`id`, `photo1`, `article`, `photo2`, `description2`, `description1`) VALUES
+(4, 'photo3OKOK.jpg', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ', 'photo4.jpeg', ' Conversion of st Peter ', ' The image of postulancy building ');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `triplelove`
 --
 
@@ -647,9 +1091,9 @@ CREATE TABLE `triplelove` (
 --
 
 INSERT INTO `triplelove` (`id`, `image`, `title`, `description`) VALUES
-(27, 'photo9.jpeg', '     LOVE OT THE VIRGIN MARY', '     Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu\'il est prêt ou que la mise en page est achevée. Généralement,'),
+(27, 'jesus.jpg', 'LOVE OF JESUS CHRIST', '      Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu\'il est prêt ou que la mise en page est achevée. Généralement'),
 (28, 'churche.png', '   LOVE OT THE CHURCH', '   Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu\'il est prêt ou que la mise en page est achevée. Généralement, o'),
-(39, '00020.00_00_00_12.Still048.jpg', '      Love of Jesus', '      Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu\'il est prêt ou que la mise en page est achevée. Généralement');
+(39, 'Mary2.jfif', '           Love of The B.V.Mary', '           Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu\'il est prêt ou que la mise en page est achevée. Général');
 
 -- --------------------------------------------------------
 
@@ -718,6 +1162,12 @@ ALTER TABLE `deacons`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `ecumenism`
+--
+ALTER TABLE `ecumenism`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `europ_location`
 --
 ALTER TABLE `europ_location`
@@ -748,9 +1198,39 @@ ALTER TABLE `lay_groups`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `novices`
+--
+ALTER TABLE `novices`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `noviciate`
+--
+ALTER TABLE `noviciate`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `noviciate_infor`
+--
+ALTER TABLE `noviciate_infor`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `oceanic_location`
 --
 ALTER TABLE `oceanic_location`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `parishes`
+--
+ALTER TABLE `parishes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -760,15 +1240,57 @@ ALTER TABLE `perpetual_vows`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `philosophers`
+--
+ALTER TABLE `philosophers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `philosophy`
+--
+ALTER TABLE `philosophy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `philosophy_infor`
+--
+ALTER TABLE `philosophy_infor`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `postulancy`
 --
 ALTER TABLE `postulancy`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `postulancy_infor`
+--
+ALTER TABLE `postulancy_infor`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `postulants`
 --
 ALTER TABLE `postulants`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `post_philosophers`
+--
+ALTER TABLE `post_philosophers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `post_philosophy`
+--
+ALTER TABLE `post_philosophy`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `post_philosophy_infor`
+--
+ALTER TABLE `post_philosophy_infor`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -808,9 +1330,21 @@ ALTER TABLE `rule`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `schools`
+--
+ALTER TABLE `schools`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `slidelay`
 --
 ALTER TABLE `slidelay`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `slidesecumenism`
+--
+ALTER TABLE `slidesecumenism`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -820,9 +1354,33 @@ ALTER TABLE `slideshome`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `slides_orders`
+--
+ALTER TABLE `slides_orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `temporary_vows`
 --
 ALTER TABLE `temporary_vows`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `theologians`
+--
+ALTER TABLE `theologians`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `theology`
+--
+ALTER TABLE `theology`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `theology_infor`
+--
+ALTER TABLE `theology_infor`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -884,6 +1442,12 @@ ALTER TABLE `deacons`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
+-- AUTO_INCREMENT pour la table `ecumenism`
+--
+ALTER TABLE `ecumenism`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT pour la table `europ_location`
 --
 ALTER TABLE `europ_location`
@@ -914,10 +1478,40 @@ ALTER TABLE `lay_groups`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT pour la table `novices`
+--
+ALTER TABLE `novices`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+
+--
+-- AUTO_INCREMENT pour la table `noviciate`
+--
+ALTER TABLE `noviciate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT pour la table `noviciate_infor`
+--
+ALTER TABLE `noviciate_infor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT pour la table `oceanic_location`
 --
 ALTER TABLE `oceanic_location`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
+--
+-- AUTO_INCREMENT pour la table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+
+--
+-- AUTO_INCREMENT pour la table `parishes`
+--
+ALTER TABLE `parishes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `perpetual_vows`
@@ -926,16 +1520,58 @@ ALTER TABLE `perpetual_vows`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
+-- AUTO_INCREMENT pour la table `philosophers`
+--
+ALTER TABLE `philosophers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+
+--
+-- AUTO_INCREMENT pour la table `philosophy`
+--
+ALTER TABLE `philosophy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `philosophy_infor`
+--
+ALTER TABLE `philosophy_infor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT pour la table `postulancy`
 --
 ALTER TABLE `postulancy`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT pour la table `postulancy_infor`
+--
+ALTER TABLE `postulancy_infor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT pour la table `postulants`
 --
 ALTER TABLE `postulants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+
+--
+-- AUTO_INCREMENT pour la table `post_philosophers`
+--
+ALTER TABLE `post_philosophers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+
+--
+-- AUTO_INCREMENT pour la table `post_philosophy`
+--
+ALTER TABLE `post_philosophy`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `post_philosophy_infor`
+--
+ALTER TABLE `post_philosophy_infor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `priests`
@@ -974,22 +1610,58 @@ ALTER TABLE `rule`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
+-- AUTO_INCREMENT pour la table `schools`
+--
+ALTER TABLE `schools`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT pour la table `slidelay`
 --
 ALTER TABLE `slidelay`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT pour la table `slidesecumenism`
+--
+ALTER TABLE `slidesecumenism`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
 -- AUTO_INCREMENT pour la table `slideshome`
 --
 ALTER TABLE `slideshome`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+
+--
+-- AUTO_INCREMENT pour la table `slides_orders`
+--
+ALTER TABLE `slides_orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT pour la table `temporary_vows`
 --
 ALTER TABLE `temporary_vows`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+
+--
+-- AUTO_INCREMENT pour la table `theologians`
+--
+ALTER TABLE `theologians`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+
+--
+-- AUTO_INCREMENT pour la table `theology`
+--
+ALTER TABLE `theology`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `theology_infor`
+--
+ALTER TABLE `theology_infor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `triplelove`
