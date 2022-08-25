@@ -88,7 +88,7 @@
 	<div class="col-lg-12">		
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h1 style="color: blue; text-align: center;"> Create the Parish</h1>
+                <h1 style="color: blue; text-align: center;"> Create the Ecumenism</h1>
             </div>
         </div>                        
         <div class="panel-body">
