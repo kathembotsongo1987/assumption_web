@@ -81,4 +81,4 @@ if(isset($_REQUEST['btn_update'])){
         </div>				
 	</div>		
 </div>
-		
+<?php require 'layout_footer.php' ?>

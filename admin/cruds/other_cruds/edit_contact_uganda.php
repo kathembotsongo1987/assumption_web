@@ -1,6 +1,5 @@
 
 <?php 
- require_once 'header.php';
  require_once 'dbconnection.php';  
  
  if(isset($_REQUEST['update_id'])) {
@@ -38,6 +37,8 @@ if(isset($_REQUEST['btn_update'])){
 }
 
  ?>
+
+ <?php require 'layout_header.php'; ?>
 
 <div class="wrapper">	
 	<div class="container">
@@ -79,4 +80,4 @@ if(isset($_REQUEST['btn_update'])){
 	</div>		
 </div>
 			
-	
+<?php require 'layout_footer.php' ?>

@@ -1,8 +1,6 @@
 
-<?php 
-	  require_once 'header.php'; 
-	  require_once 'dbconnection.php';
-
+<?php  
+require_once 'dbconnection.php';
 
 if(isset($_REQUEST['delete_id'])){
 	// select image from database to delete
@@ -22,6 +20,8 @@ if(isset($_REQUEST['delete_id'])){
 
 ?>
 
+
+<?php require 'layout_header.php'; ?>
 <div class="wrapper">
 	<div class="container">
 		<div class="col-lg-12">
@@ -62,4 +62,4 @@ if(isset($_REQUEST['delete_id'])){
         </div>				
 	</div>		
 </div>
-
+<?php require 'layout_footer.php' ?>

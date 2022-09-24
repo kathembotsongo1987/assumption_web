@@ -1,7 +1,36 @@
+ 	<?php require 'dbconnection.php'; ?>
+	<?php 	
+		if(isset($_REQUEST['btn_insert']))
+		{
+			try
+			{				
+			$contact1 = $_REQUEST['contact1']; 
+				
+				if (empty($contact1)) {
+					$errorMsg = "please Enter the contact1";	
+				} 				
+				
+				if(!isset($errorMsg)){
+				  	$insert_stmt = $connection->prepare('INSERT INTO contact_uganda(contact1) VALUES(:contact1)'); 			  				
+				  	$insert_stmt->bindParam(':contact1', $contact1);				  						  			
+				  				
+				  	if($insert_stmt->execute()){
+				  		$insertMsg="File Upload Successfully."; // execute query success message
+				  		header("refresh:1;read_contact_uganda.php"); 
+				  	}
+				}
 
-<?php require 'dbconnection.php'; ?>
-<?php require 'header.php'; ob_start(); ?>
+			}
+			catch(PDOException $e){
+				echo $e->getMessage();
+			}
 
+		}
+		
+	 ?>
+
+
+<?php require 'layout_header.php'; ?>
 <div class="wrapper">			
 	<div class="col-lg-12">
 		<div class="col-lg-12">
@@ -32,33 +61,4 @@
         </div>				
 	</div>		
 </div> 
-
-	<?php 	
-		if(isset($_REQUEST['btn_insert']))
-		{
-			try
-			{				
-			$contact1 = $_REQUEST['contact1']; 
-				
-				if (empty($contact1)) {
-					$errorMsg = "please Enter the contact1";	
-				} 				
-				
-				if(!isset($errorMsg)){
-				  	$insert_stmt = $connection->prepare('INSERT INTO contact_uganda(contact1) VALUES(:contact1)'); 			  				
-				  	$insert_stmt->bindParam(':contact1', $contact1);				  						  			
-				  				
-				  	if($insert_stmt->execute()){
-				  		$insertMsg="File Upload Successfully."; // execute query success message
-				  		header("refresh:1;read_contact_uganda.php"); 
-				  	}
-				}
-
-			}
-			catch(PDOException $e){
-				echo $e->getMessage();
-			}
-
-		}
-		
-	 ?>
+<?php require 'layout_footer.php' ?>

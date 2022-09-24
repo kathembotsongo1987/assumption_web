@@ -27,19 +27,19 @@
                 <h1 style="text-align: center;">Five First Assumptionists</h1>
                   <div class="row" style="margin-left: 20px">
                       <div class="col-3">
-                        <h2 style="text-align: center;">Fr. Emmanuel D'Alzon</h2>
+                        <h2 style="text-align: center;">Name 1</h2>
                         <img src="assets/images/d_Alzon_3.jpg" alt="image" style="height:300px; width: 300px; border-top-left-radius: 30px;">
                       </div>
                       <div class="col-3">
-                        <h2 style="text-align: center;">Name</h2>
+                        <h2 style="text-align: center;">Name 2</h2>
                         <img src="assets/images/d_Alzon_4.jpg" alt="image" style="height:300px;width: 300px; border-top-left-radius: 30px;">
                       </div> 
                       <div class="col-3">
-                        <h2 style="text-align: center;">Name</h2>
+                        <h2 style="text-align: center;">Name 3</h2>
                         <img src="assets/images/d_Alzon_4.jpg" alt="image" style="height:300px;width: 300px; border-top-left-radius: 30px;">
                       </div>
                       <div class="col-3">
-                        <h2 style="text-align: center;">Name</h2>
+                        <h2 style="text-align: center;">Name 4</h2>
                         <img src="assets/images/d_Alzon_3.jpg" alt="image" style="height:300px; width: 300px; border-top-left-radius: 30px;">
                       </div>                     
                   </div>

@@ -1,19 +1,16 @@
 
 
-<?php 	
-include('header.php');
-require 'admin/cruds/other_cruds/dbconnection.php';
- ?>
+<?php include('header.php'); ?>
 
+  <body>
     <div class="row">    
-        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" style="z-index: -1;">
           <div class="carousel-indicators">        
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
               <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
-              
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>              
           </div>
           <div class="carousel-inner w-100" >
             <div class="carousel-item active">
@@ -184,7 +181,8 @@ require 'admin/cruds/other_cruds/dbconnection.php';
                         </div>
                     </div>
                </div>
+  </body>
 
 <?php   include('footer.php'); ?>
-<?php   include('modals.php'); ?>
+
 

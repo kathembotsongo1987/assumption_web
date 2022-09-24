@@ -1,5 +1,5 @@
 
-<?php    require_once 'admin/cruds/other_cruds/dbconnection.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -63,7 +63,7 @@
 
               <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
                   <ul class="navbar-nav">
-                      <li><a href="index.php" class="nav-item nav-link">Home</a></li>
+                      <li><a href="index.php" class="nav-link active">Home</a></li>
                       <li><a href="#" data-bs-toggle="modal" data-bs-target="#AboutModal" class="nav-item nav-link">About</a></li>
                       <li><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#ApostolateModal" class="nav-item nav-link active" >Apostolates</a></li>
                       <li><a href="vocation.php" class="nav-item nav-link">Vocation_Office</a></li>
@@ -74,25 +74,31 @@
                         Support-Mission
                       </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink"> 
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#donateVocation">Vocation</a></li>
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#donateFormation">Formation</a></li>
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#donateParishes">Parishes</a></li>
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#donateDisabled">Apostolate for people living with desabilities</a></li>
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#donateStudies">Further studies</a></li>
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#donateOthers">Other</a></li>
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#Vocation">Vocation</a></li>
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#Formation">Formation</a></li>
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#Parishes">Parishes</a></li>
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#Shrines">Shrines</a></li>
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#SocialWork">Social work</a></li>
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#OtherProjects">Other Projects</a></li>
                         </ul> 
                       </div>
 
-                      <li><a href="#" data-bs-toggle="modal" data-bs-target="#login" class="nav-link active" >Login</a></li>
+                      <li><a href="login.php" class="nav-item nav-link">Login</a></li>
                   </ul>
               </div>
-          </div>
-      
+          </div>    
 
     </header> <!---End Header-->
 
+
+<?php include ('admin/cruds/other_cruds/dbconnection.php'); ?>
+  
+
+
     <!-- selector country links bootstrap -->
   <script src='https://kit.fontawesome.com/a076d05399.js' ></script>
+  <?php   include('modals/modal_donation.php'); ?>
+  <?php   include('modals/modal_login.php'); ?>
     
 
     

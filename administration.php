@@ -35,7 +35,7 @@
                       <div style="text-align: center; text-align: justify;">
                         <table class="table">
                         <tr>
-                             <th colspan="3" style="background: rgba(212,255,255); font-size: 25px; text-align: center;">ACTIVITY PLANNING</th>
+                             <th colspan="3" style="background: rgba(212,255,255); font-size: 25px; text-align: center;">CALENDER FOR EVENTS</th>
                        </tr>
                        <tr style="background: rgba(255,212,212,.6)">
                             <th style="text-align: center;"><h3>Date</h3></th>
