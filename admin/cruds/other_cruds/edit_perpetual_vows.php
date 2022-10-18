@@ -97,7 +97,7 @@ if(isset($_REQUEST['btn_update'])){
 		<div class="col-lg-12">
 			 <div class="panel panel-default">
                     <div class="panel-heading">
-                    	<h1 style="text-align: center;">DATA MANIPULATION || PERPETUAL VOWS</h1>
+                    	<h1 style="text-align: center; color: blue;">DATA MANIPULATION || PERPETUAL VOWS</h1>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">

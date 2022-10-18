@@ -28,7 +28,7 @@ if(isset($_REQUEST['delete_id'])){
 		<div class="col-lg-12">
 			<div class="panel panel-default">
                     <div class="panel-heading">
-                    	<h1 style="text-align: center;">DATA MANIPULATION || ORDERS</h1>
+                    	<h1 style="text-align: center; color: blue;">DATA MANIPULATION || ORDERS</h1>
                         <h3><a href="create_orders.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add File</a></h3>
                     </div>
                     <div class="panel-body">

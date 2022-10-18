@@ -25,7 +25,7 @@ if(isset($_REQUEST['delete_id'])){
 	<div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h1 style="text-align: center;">DATA MANIPULATION || OUR LAY ASSUMPTIONISTS</h1>
+                <h1 style="color: blue; text-align: center;"><a href="create_lay_form.php"><span class="glyphicon glyphicon-plus"></a>DATA MANIPULATION || OUR LAY ASSUMPTIONIST</h1>
             </div>
         	<div class="panel-body">
                 <div class="table-responsive">

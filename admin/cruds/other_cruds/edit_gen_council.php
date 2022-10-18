@@ -80,8 +80,7 @@ if(isset($_REQUEST['btn_update'])){
 		<div class="col-lg-12">
 			<div class="panel panel-default">
                 <div class="panel-heading">
-                	<h1>DATA MANIPULATION || OUR GENERAL COUNCIL</h1>
-                    <h3><a href="creat_gen_council.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add File</a></h3>
+                	<h1 style="text-align: center; color: blue;">DATA MANIPULATION || GENERAL COUNCIL</h1>
                 </div>
             <div class="panel-body">
                 <div class="table-responsive">

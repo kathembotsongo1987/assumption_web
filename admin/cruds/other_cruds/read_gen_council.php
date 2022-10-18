@@ -27,7 +27,8 @@
 		<div class="col-lg-12">			
             <div class="panel panel-default">
                	<div class="panel-heading">
-                    <h3><a href="create_gen_council.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add New member of the general Council</a></h3>
+                   <h1 style="text-align: center; color: blue;">DATA MANIPULATION || GENERAL COUNCIL</h1>
+                    <h3><a href="creat_gen_council.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add File</a></h3>
                 </div>
             	<div class="panel-body">
                     <div class="table-responsive">

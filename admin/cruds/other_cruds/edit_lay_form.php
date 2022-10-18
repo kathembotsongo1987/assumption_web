@@ -144,7 +144,7 @@ if(isset($_REQUEST['btn_update'])){
 								<div class="col-sm-6">
 									<label class="col-sm-6 control-label">Action</label>
 										<input type="submit" name="btn_update" class="btn btn-success" value="Insert">
-											<a href="read_lay_groups.php" class="btn btn-danger">Cancel</a>
+											<a href="read_lay_form.php" class="btn btn-danger">Cancel</a>
 								</div>
 							</div>
 						</form>

@@ -101,6 +101,9 @@ if(isset($_REQUEST['btn_update'])){
 	<div class="container">			
 		<div class="col-lg-12">
             <div class="panel panel-default">
+              <div class="panel-heading">
+                	<h1 style="color: blue; text-align: center;">DATA MANIPULATION || OUR LAY ASSUMPTIONIST</h1>
+              </div>
                 <div class="panel-body">
                     <div class="table-responsive">
 						<?php

@@ -84,7 +84,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
                 <div class="panel-heading">
-                	<h1>DATA MANIPULATION || TEMPORARY VOWS</h1>
+                	<h1 style="text-align: center; color: blue;">DATA MANIPULATION || TEMPORARY VOWS</h1>
                     <h3><a href="create_temporary_vows.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add File</a></h3>
                 </div>
                 <div class="panel-body">
@@ -124,7 +124,7 @@
 								<div class="col-sm-6">
 									<label class="col-sm-6 control-label">Action</label>
 										<input type="submit" name="btn_insert" class="btn btn-success" value="Insert">
-											<a href="read_priest" class="btn btn-danger">Cancel</a>
+											<a href="read_temporary_vows.php" class="btn btn-danger">Cancel</a>
 								</div>
 							</div>
 						</form>	

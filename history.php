@@ -11,41 +11,58 @@
                 <img src="assets/images/d_Alzon_5.jpg" alt="image">
            </div>
            <div class="textHist">
-               <h1>The Founder and the Foundation</h1>
-               <h2 style="text-align: justify;">Church context during the life of Father d’Alzon, the pontificate of Pius IX
+               <h1>Augustinians of the Assumption</h1>
+               <P style="text-align: justify;">
             
-                Elected in 1846 and hailed as a liberal-minded pope, Pius IX, previously known as Giovanni Maria Mastai Ferretti (1792-1878), quickly evolved toward intransigence regarding modern 
-                ideas as a result of the political events that were taking place in Italy. Father d’Alzon can be considered an intimate friend of both his person and his ideas. Father d’Alzon met 
-                him several times in private audience: May 18, 1855 at Castelgandolfo, then in Rome on May 29, 1855, May 27, 1862, June 3, 1862 (public audience), June 6, 1862 (private audience), 
-                April 30, 1863, November 10, 1869, January 28, 1877, and February 1, 1877. The end of the Papal States in 1870, already heavily reduced in size in 1860, signaled a general loss of 
-                the Church’s political influence in traditionally Catholic countries: Italy (1831-1832; 1870); France (1879, the Third Republic which was strongly anticlerical); Spain (after the fall 
-                of Isabella II in 1868 and during the anticlerical wave from 1873 to 1875); but also in certain Protestant countries: Switzerland (the Sonderbund  in 1848 and the exile of Bishop Mermillod 
-                1873-1883), Prussia (Bismarck’s Kulturkampf  1871-1878). However, the Catholic Church also found a new audience in several 
-               </h2>
+                This congregation had its origin in the College of the Assumption, established in Nîmes France, in 1843, by the Rev. Emmanuel d'Alzon vicar-general of that diocese. Although it was organized in 1847, the members did not take their first vows until 1850; they took their public vows at Christmas of the next year. A second house was established in Paris, and they continued their work there, encouraged by the Holy See. The congregation was formally approved by a Brief of 26 November, 1864. The chief objects of the congregation are to combat the spirit of irreligion in Europe and the spread of schism in the East. To this end the Assumptionists have devoted themselves to the work of Catholic higher and secondary education, to the spread of truth by means of the Press, to the conduct of pilgrimages, and to missionary work in the East. In addition to their college at Nîmes they established Apostolic schools where poor students were educated for the priesthood without expense to themselves. They established "La Bonne Presse" which issued periodicals, pamphlets, and books in great numbers the chief publication, "La Croix" appearing simultaneously in several different cities. Their activities provoked the resentment of the French Government, and in 1900 the congregation was suppressed within French territory, this action being based on the charge that they were accumulating a fund to be used in a royalist movement to overthrow the Republic. Many of the Assumptionists left France after this, but some remained as secular priests under the authority of various bishops. 
+               <a href="https://www.newadvent.org/cathen/02104a.htm" style="background-color: yellow; border-radius: 8px; text-decoration: none;" target="_blank">Read more</a>
+               </P>
            </div>
               <section class="first_aa">                                  
                 <h1 style="text-align: center;">Five First Assumptionists</h1>
-                  <div class="row" style="margin-left: 20px">
-                      <div class="col-3">
-                        <h2 style="text-align: center;">Name 1</h2>
-                        <img src="assets/images/d_Alzon_3.jpg" alt="image" style="height:300px; width: 300px; border-top-left-radius: 30px;">
+                  <div class="card-group">
+                      <div class="card">
+                        <img src="assets/images/d_Alzon_3.jpg" alt="image" >
+                            <div class="card-body" style="text-align: center;">
+                              <h5 class="card-title">Emmanuel D'Alzon</h5>
+                              <p class="card-text">1810-1880</p>
+                              <a href="https://en.wikipedia.org/wiki/Emmanuel_d%27Alzon">read more</a>
+                            </div>
                       </div>
-                      <div class="col-3">
-                        <h2 style="text-align: center;">Name 2</h2>
-                        <img src="assets/images/d_Alzon_4.jpg" alt="image" style="height:300px;width: 300px; border-top-left-radius: 30px;">
-                      </div> 
-                      <div class="col-3">
-                        <h2 style="text-align: center;">Name 3</h2>
-                        <img src="assets/images/d_Alzon_4.jpg" alt="image" style="height:300px;width: 300px; border-top-left-radius: 30px;">
+                      <div class="card">
+                        <img src="assets/images/d_Alzon_3.jpg" alt="image" >
+                            <div class="card-body" style="text-align: center;">
+                              <h5 class="card-title">Henri Brun</h5>
+                              <p class="card-text">1810-1880</p>
+                              <a href="https://en.wikipedia.org/wiki/%C3%89tienne_Pernet">read more</a>
+                            </div>
                       </div>
-                      <div class="col-3">
-                        <h2 style="text-align: center;">Name 4</h2>
-                        <img src="assets/images/d_Alzon_3.jpg" alt="image" style="height:300px; width: 300px; border-top-left-radius: 30px;">
-                      </div>                     
-                  </div>
-              </section>
-                
-            
+                      <div class="card">
+                        <img src="assets/images/d_Alzon_3.jpg" alt="image" >
+                            <div class="card-body" style="text-align: center;">
+                              <h5 class="card-title">Francois Picard</h5>
+                              <p class="card-text">1810-1880</p>
+                              <a href="https://en.wikipedia.org/wiki/%C3%89tienne_Pernet">read more</a>
+                             </div>
+                      </div>
+                      <div class="card">
+                        <img src="assets/images/d_Alzon_3.jpg" alt="image" >
+                            <div class="card-body" style="text-align: center;">
+                              <h5 class="card-title">Etienne Pernet</h5>
+                              <p class="card-text">1824–1899</p>
+                              <a href="https://en.wikipedia.org/wiki/%C3%89tienne_Pernet">read more</a>
+                            </div>
+                      </div>
+                      <div class="card">
+                        <img src="assets/images/d_Alzon_3.jpg" alt="image" >
+                            <div class="card-body" style="text-align: center;">
+                              <h5 class="card-title">Carden</h5>
+                              <p class="card-text">1810-1880</p>
+                              <a href="https://en.wikipedia.org/wiki/%C3%89tienne_Pernet">read more</a>
+                            </div>
+                      </div>
+                    </div>                  
+              </section>          
            </div>
           </section>     
     </body>

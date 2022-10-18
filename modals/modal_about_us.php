@@ -15,10 +15,7 @@
           </div>
           <div class="mb-12 d-grid">
             <a href="history.php" class="btn btn-success" ><h2>Our History</h2></a>
-          </div>
-          <div class="mb-12 d-grid">
-            <a href="spirituality.php" class="btn btn-warning" ><h2>Our Spirituality</h2></a>
-          </div>
+          </div>          
           <div class="mb-12 d-grid">
              <a href="lay.php" class="btn btn-secondary" ><h2>Lay Assumptionists</h2></a>
           </div>
@@ -67,6 +64,9 @@
           </div>
           <div class="mb-12 d-grid">
             <a href="theology.php" class="btn btn-secondary" ><h2>Theology</h2></a>
+          </div>
+          <div class="mb-12 d-grid">
+            <a href="deacons.php" class="btn btn-success" ><h2>Post-Theology</h2></a>
           </div>
           <div class="mb-12 d-grid">
             <a href="orders.php" class="btn btn-primary" ><h2>Orders</h2></a>

@@ -61,7 +61,7 @@ if(isset($_REQUEST['btn_update'])){
 								<div class="col-sm-6">
 									<label class="col-sm-6 control-label">Action</label>
 										<input type="submit" name="btn_update" class="btn btn-success" value="update">
-											<a href="read_textlay.php" class="btn btn-danger">Cancel</a>
+											<a href="read_america_location.php" class="btn btn-danger">Cancel</a>
 								</div>
 							</div>
 						</form>	

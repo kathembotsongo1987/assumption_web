@@ -32,8 +32,8 @@ if(isset($_REQUEST['delete_id'])){
 		<div class="col-lg-12">
 			<div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3><a href="create_slidelay.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add new slide</a></h3>
-               	</div>
+                	<h1 style="color: blue; text-align: center;"><a href="create_slidelay.php"><span class="glyphicon glyphicon-plus"></span></a>DATA MANIPULATION || SLIDE LAY ASSUMPTIONIST</h1>
+                </div>
             	<div class="panel-body">
                 	<div class="table-responsive">
 						<table class="table table-striped table-bordered table-hover" style="text-align: center;">

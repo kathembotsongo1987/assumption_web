@@ -76,7 +76,7 @@ if(isset($_REQUEST['btn_update'])){
 		<div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3><a href="create_slidelay.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; DATA MANIPULATION || SLIDE LAY ASSUMPTIONISTt</a></h3>
+                   <h1 style="color: blue; text-align: center;">DATA MANIPULATION || UPDATE SLIDE LAY ASSUMPTIONIST</h1>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -99,7 +99,7 @@ if(isset($_REQUEST['btn_update'])){
 											<div class="form-group">
 												<div class="col-sm-offset-3 col-sm-9 m-t*15">
 													<input type="submit" name="btn_update" class="btn btn-primary" value="Update">
-														<a href="read.php" class="btn btn-danger">Cancel</a>
+														<a href="read_slidelay.php" class="btn btn-danger">Cancel</a>
 												</div>
 											</div>
 										</form>	

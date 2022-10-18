@@ -89,7 +89,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
                 <div class="panel-heading">
-                	<h1>DATA MANIPULATION || PERPETUAL</h1>
+                	<h1 style="text-align: center; color: blue;">DATA MANIPULATION || PERPETUAL VOWS</h1>
                     <h3><a href="create_perpetual_vows.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add File</a></h3>
                 </div>
                 <div class="panel-body">

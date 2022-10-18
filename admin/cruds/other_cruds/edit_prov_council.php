@@ -60,7 +60,7 @@ if(isset($_REQUEST['btn_update'])){
 
 			if($upldate_stmt->execute()){
 				$updateMsg = "File Uplade Successfully....."; // File update success message
-				header("location; read_prov_council.php");//reflesh 3 second and redirect to read.php page.
+				header("location: read_prov_council.php");//reflesh 3 second and redirect to read.php page.
 			}
 		}
 	}
@@ -78,8 +78,7 @@ if(isset($_REQUEST['btn_update'])){
 		<div class="col-lg-12">
 			<div class="panel panel-default">
                 <div class="panel-heading">
-                	<h1>DATA MANIPULATION || OUR PROVINCIAL COUNCIL</h1>
-                    <h3><a href="add.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add File</a></h3>
+                	<h1 style="text-align: center; color: blue;">DATA MANIPULATION || OUR PROVINCIAL COUNCIL</h1>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">

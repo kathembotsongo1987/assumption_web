@@ -26,7 +26,7 @@ if(isset($_REQUEST['delete_id'])){
 	<div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3><a href="create_lay_groups.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add file</a></h3>
+            	<h1 style="color: blue; text-align: center;"><a href="create_lay_groups.php"><span class="glyphicon glyphicon-plus"></span></a>DATA MANIPULATION || OUR LAY ASSUMPTIONIST</h1>
             </div>
         	<div class="panel-body">
                 <div class="table-responsive">

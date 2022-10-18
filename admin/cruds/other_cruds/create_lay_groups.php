@@ -93,7 +93,7 @@
 	<div class="col-lg-12">
 		<div class="panel panel-default">
             <div class="panel-heading">
-                <h1 style="color: blue; text-align: center;"> DATA MANIPULATION || OUR LAY ASSOCIATE</h1>
+                <h1 style="color: blue; text-align: center;"><a href="create_lay_groups.php"></a>DATA MANIPULATION || OUR LAY ASSUMPTIONIST</h1>
             </div>
             <div class="panel-body">
                 <div class="table-responsive">

@@ -73,7 +73,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 style="color: blue; text-align: center;">DATA MANIPULATION || OUR GENERAL COUNCIL</h1>
+                    <h1 style="text-align: center; color: blue;">DATA MANIPULATION || GENERAL COUNCIL</h1>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">

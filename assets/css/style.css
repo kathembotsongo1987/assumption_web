@@ -1792,7 +1792,9 @@ ul span :hover {
 	.footer .footer-content .footer-section {
 		flex: 1;
 		border: 1px solid white;
-		padding: 25px;
+		padding: 20px;
+		text-decoration: none;
+
 	}
 
 	.footer .footer-content h1,
@@ -1831,6 +1833,7 @@ ul span :hover {
 		margin-bottom: 5px;
 		font-size: 1.2em;
 		transition: .3s;
+		text-decoration: none;
 	}
 
 	.footer .footer-content .links ul a:hover {

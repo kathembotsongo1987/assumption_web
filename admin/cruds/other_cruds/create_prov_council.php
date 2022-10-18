@@ -24,7 +24,7 @@
 				$path = "upload/".$image_file;
 
 				if(empty($name)){
-					$errorMsg = "please Enter the Title of your post";					
+					$errorMsg = "please Enter name";					
 				} 
 				else if (empty($title)) {
 					$errorMsg = "please Enter the title";	
@@ -90,8 +90,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
                 <div class="panel-heading">
-                	<h1></h1>
-                    <h3><a href="#"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add File</a></h3>
+                	<h1 style="text-align: center; color: blue;">DATA MANIPULATION || OUR PROVINCIAL COUNCIL</h1>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -136,7 +135,7 @@
 								<div class="col-sm-6">
 									<label class="col-sm-6 control-label">Action</label>
 										<input type="submit" name="btn_insert" class="btn btn-success" value="Insert">
-											<a href="#" class="btn btn-danger">Cancel</a>
+											<a href="read_prov_council.php" class="btn btn-danger">Cancel</a>
 								</div>
 							</div>
 						</form>	
