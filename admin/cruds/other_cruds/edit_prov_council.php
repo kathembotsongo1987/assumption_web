@@ -19,8 +19,10 @@
 
 if(isset($_REQUEST['btn_update'])){
 	try {
-		$name = $_REQUEST['txt_name']; // textbox name "txt_name"
-
+		$name = $_REQUEST['txt_name'];
+		$title = $_REQUEST['txt_title'];
+		$email = $_REQUEST['txt_email'];
+		$phone = $_REQUEST['txt_phone'];
 		$image_file = $_FILES["txt_file"]["name"];
 		$type = $_FILES["txt_file"]["type"];
 		$size = $_FILES["txt_file"]["size"];
@@ -29,6 +31,18 @@ if(isset($_REQUEST['btn_update'])){
 		$path="upload/".$image_file; //set upload folder path
 		$directory = "upload/"; // set upload folder parh for update time previous file remove and new file upload for next use
 
+		if(empty($name)){
+					$errorMsg = "please Enter name";					
+				} 
+				else if (empty($title)) {
+					$errorMsg = "please Enter the title";	
+				}
+				else if (empty($phone)) {
+					$errorMsg = "please Enter the phone number";	
+				}
+				else if (empty($email)) {
+					$errorMsg = "please Enter the email";	
+				}
 		if($image_file){
 			if($type=="image/jpg" || $type=='image/jpeg' || $type=='image/png' || $type=='image/gif') // check file extension
 			{
@@ -53,9 +67,12 @@ if(isset($_REQUEST['btn_update'])){
 			$image_file = $row['image']; //if not select new image than previous image sam it is it.
 		}
 		if(!isset($errorMsg)){
-			$upldate_stmt = $connection->prepare('UPDATE provincial_council SET name=:name_up, image=:file_up WHERE id=:id'); //slq update the query.
+			$upldate_stmt = $connection->prepare('UPDATE provincial_council SET image=:file_up, name=:name_up, title=:title, phone=:phone, email=:email WHERE id=:id'); //slq update the query.
 			$upldate_stmt->bindParam(':name_up',$name);
-			$upldate_stmt->bindParam(':file_up',$image_file); // bind all parameter
+			$upldate_stmt->bindParam(':file_up',$image_file); 
+			$upldate_stmt->bindParam(':title',$title); 
+			$upldate_stmt->bindParam(':email',$email); 
+			$upldate_stmt->bindParam(':phone',$phone); 
 			$upldate_stmt->bindParam(':id',$id);
 
 			if($upldate_stmt->execute()){
@@ -93,27 +110,45 @@ if(isset($_REQUEST['btn_update'])){
 						}
 				 		?>
 							<form method="post" class="form-horizontal" enctype="multipart/form-data">
-								<div class="form-group">
-									<label class="col-sm-3 control-label">Name</label>
-										<div class="col-sm-6">
-											<input type="text" name="txt_name" class="form-control" value=" <?php echo $name; ?>" required/>
-										</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-3 control-label">File</label>
-										<div class="col-sm-6">
-											<input type="file" name="txt_file" class="form-control" value=" <?php echo $image; ?>" required/>
-												<p><img src="upload/<?php echo $image; ?>" height="100" width="100"/></p>
-										</div>
-								</div>
-								<div class="form-group">
-									<div class="col-sm-offset-3 col-sm-9 m-t*15">
-										<input type="submit" name="btn_update" class="btn btn-primary" value="Update">
-											<a href="read_prov_council.php" class="btn btn-danger">Cancel</a>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Image</label>
+									<div class="col-sm-6">
+										<input type="file" name="txt_file" class="form-control" value="<?php echo $image_file; ?>">
 									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Name</label>
+									<div class="col-sm-6">
+										<input type="name" name="txt_name" class="form-control" value="<?php echo $name; ?>">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Title</label>
+									<div class="col-sm-6">
+										<input type="text" name="txt_title" class="form-control" value="<?php echo $title; ?>">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Phone</label>
+									<div class="col-sm-6">
+										<input type="phone" name="txt_phone" class="form-control" plvalue="<?php echo $phone; ?>">
+									</div>
+							</div>					
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Email</label>
+									<div class="col-sm-6">
+										<input type="email" name="txt_email" class="form-control" value="<?php echo $email; ?>">
+									</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-6">
+									<label class="col-sm-6 control-label">Action</label>
+										<input type="submit" name="btn_update" class="btn btn-success" value="update">
+											<a href="read_prov_council.php" class="btn btn-danger">Cancel</a>
 								</div>
-							</form>	
-		 			</div>
+							</div>
+						</form>	
+					</div>
                 </div>
             </div>
         </div>				

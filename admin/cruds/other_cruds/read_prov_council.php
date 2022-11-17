@@ -42,7 +42,6 @@
 									<th style="text-align: center;">Title</th>
 									<th style="text-align: center;">Phone</th>
 									<th style="text-align: center;">Email</th>
-									<th style="text-align: center;">Description</th>
 									<th style="text-align: center;">Edit</th>
 									<th style="text-align: center;">Delete</th>
 								</tr>
@@ -60,7 +59,6 @@
 										<td><?php echo $row['title']; ?></td>
 										<td><?php echo $row['phone']; ?></td>
 										<td><?php echo $row['email']; ?></td>
-										<td><?php echo $row['description']; ?></td>
 										<td><a href="edit_prov_council.php?update_id=<?php echo $row['id']; ?>" class="btn btn-warning">Edit</a></td>
 										<td><a href="?delete_id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a></td>
 									</tr>

@@ -6,8 +6,6 @@
 		{
 			try
 			{
-				
-
 				$image_file = $_FILES["txt_file"]["name"]; 
 				$type = $_FILES["txt_file"]["type"];
 				$size = $_FILES["txt_file"]["size"];

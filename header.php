@@ -26,7 +26,7 @@
                     <div class="col-md-6">
                         <div class="top-bar-left">
                             <div class="text">
-                              <a title="8:00 am - 9:00 pm" href="" style="display: flex; text-decoration: none;"> <i class="far fa-clock"></i><h2 class="g-none">8:00 am - 9:00 pm</h2></a>
+                              <a title="8:00 am - 9:00 pm" href="#" style="display: flex; text-decoration: none;"> <i class="far fa-clock"></i><h2 class="g-none">8:00 am - 9:00 pm</h2></a>
                                 <p class="g-none">Opening Hour Monday - Saturday</p>
                             </div>
                             <div class="text">
@@ -82,8 +82,15 @@
                           <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#OtherProjects">Other Projects</a></li>
                         </ul> 
                       </div>
-
-                      <li><a href="login.php" class="nav-item nav-link">Login</a></li>
+                      <div class="dropdown">
+                      <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link dropdown-toggle">
+                        Login
+                      </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink"> 
+                          <li><a class="dropdown-item" href="login.php">Admin</a></li>
+                          <li><a class="dropdown-item" href="login_religious.php" >Religious</a></li>                          
+                        </ul> 
+                      </div>
                   </ul>
               </div>
           </div>    

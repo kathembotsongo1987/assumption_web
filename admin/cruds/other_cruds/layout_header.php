@@ -126,6 +126,15 @@
                                                         <a class="nav-link" href="read_lay_groups.php">News</a>
                                                     </nav>
                                                 </div>
+                                              <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#admCollapse" aria-expanded="false" aria-controls="StatisticCollapse">Administration
+                                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                            </a>
+                                                <div class="collapse" id="admCollapse" aria-labelledby="headingOne" data-bs-parent="#formationCollapse">
+                                                    <nav class="sb-sidenav-menu-nested nav">
+                                                        <a class="nav-link" href="read_prov_council.php">Provincial Council</a>
+                                                        <a class="nav-link" href="read_gen_council.php">General Council</a>
+                                                    </nav>
+                                                </div>
                                         </nav>
                                     </div>
                                 </nav>

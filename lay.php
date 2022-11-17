@@ -99,7 +99,6 @@
                 ?>
                   <div class="col-4">
                     <img src="admin/cruds/other_cruds/upload/<?php echo $row['lay_image']; ?>" style="width: 100%;  height: 93%; border-left-color: blue; border-right-color: blue; border-top-color: blue; border-bottom-color: red; border-style: solid;">
-                      <h3 style="background-color: red; color: white; text-align: center;">Word about the picture</h3>                              
                   </div>                        
                   <div class="col-4">
                     <div class="card">         
