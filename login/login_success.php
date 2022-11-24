@@ -8,6 +8,6 @@
  }  
  else  
  {  
-      header("location:pdo_login.php");  
+      header("location:login_religious.php");  
  }  
  ?>  

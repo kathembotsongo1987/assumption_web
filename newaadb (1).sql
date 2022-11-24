@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 21 nov. 2022 à 07:04
+-- Généré le : jeu. 24 nov. 2022 à 13:22
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `newaadb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `pass` varchar(200) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `admin`
+--
+
+INSERT INTO `admin` (`id`, `fname`, `lname`, `email`, `phone`, `pass`, `status`) VALUES
+(1, 'dido', 'Tsongo', 'dieudonnetsongo@gmail.com', '0706571995', '1234', 1),
+(2, 'Kathembo', 'Tsongo', 'tsongo@gmail.com', '0706571900', '1111', 2),
+(3, 'Fabien', 'Ngugo', 'ngo@gmail.com', '0706571911', '1111', 3);
 
 -- --------------------------------------------------------
 
@@ -153,6 +178,66 @@ INSERT INTO `communitiesuganda` (`id`, `name`, `diocese`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `contact_kenya`
+--
+
+CREATE TABLE `contact_kenya` (
+  `id` int(11) NOT NULL,
+  `contact1` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `contact_kenya`
+--
+
+INSERT INTO `contact_kenya` (`id`, `contact1`) VALUES
+(1, '+254789562347'),
+(2, '+25478956000'),
+(5, '+254789562045');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `contact_tanzania`
+--
+
+CREATE TABLE `contact_tanzania` (
+  `id` int(11) NOT NULL,
+  `contact1` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `contact_tanzania`
+--
+
+INSERT INTO `contact_tanzania` (`id`, `contact1`) VALUES
+(1, '+254789562347'),
+(2, ' +25478000000'),
+(3, '+254789562000');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `contact_uganda`
+--
+
+CREATE TABLE `contact_uganda` (
+  `id` int(11) NOT NULL,
+  `contact1` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `contact_uganda`
+--
+
+INSERT INTO `contact_uganda` (`id`, `contact1`) VALUES
+(1, '  +25478950011'),
+(2, '+254789562045'),
+(3, '  +2547830220');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `deacons`
 --
 
@@ -182,6 +267,223 @@ INSERT INTO `deacons` (`id`, `image`, `name`, `country`, `community`, `temp_v_da
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `donation_formation`
+--
+
+CREATE TABLE `donation_formation` (
+  `id` int(11) NOT NULL,
+  `donation` int(100) DEFAULT NULL,
+  `currency` varchar(20) DEFAULT NULL,
+  `fname` varchar(60) DEFAULT NULL,
+  `lname` varchar(60) DEFAULT NULL,
+  `phone` varchar(30) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `town` varchar(50) DEFAULT NULL,
+  `country` varchar(100) DEFAULT NULL,
+  `relation` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `donation_formation`
+--
+
+INSERT INTO `donation_formation` (`id`, `donation`, `currency`, `fname`, `lname`, `phone`, `email`, `town`, `country`, `relation`) VALUES
+(1, 50000, 'KSH', 'kathembo', 'Tsongo', ' +2540111111111', 'dieudonne@gmail.com', 'Mombasa', 'AZ', 'Religious a.a'),
+(2, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(3, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(4, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(5, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(6, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(7, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(8, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(9, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(10, 50000, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Nakuru', '  ', 'Friend'),
+(11, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(12, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(13, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(14, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(15, 12, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Kisumu', 'DZ', 'Friend'),
+(16, 12, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Kisumu', 'DZ', 'Friend');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `donation_parishes`
+--
+
+CREATE TABLE `donation_parishes` (
+  `id` int(11) NOT NULL,
+  `donation` int(100) DEFAULT NULL,
+  `currency` varchar(20) DEFAULT NULL,
+  `fname` varchar(60) DEFAULT NULL,
+  `lname` varchar(60) DEFAULT NULL,
+  `phone` varchar(30) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `town` varchar(50) DEFAULT NULL,
+  `country` varchar(100) DEFAULT NULL,
+  `relation` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `donation_parishes`
+--
+
+INSERT INTO `donation_parishes` (`id`, `donation`, `currency`, `fname`, `lname`, `phone`, `email`, `town`, `country`, `relation`) VALUES
+(1, 50000, 'KSH', 'kathembo', 'Tsongo', ' +2540111111111', 'dieudonne@gmail.com', 'Mombasa', 'AZ', 'Religious a.a'),
+(2, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(3, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(4, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(5, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(6, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(7, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(8, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(9, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(10, 50000, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Nakuru', '  ', 'Friend'),
+(11, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(12, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(13, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(14, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(15, 12, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Kisumu', 'DZ', 'Friend'),
+(16, 12, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Kisumu', 'DZ', 'Friend');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `donation_shrines`
+--
+
+CREATE TABLE `donation_shrines` (
+  `id` int(11) NOT NULL,
+  `donation` int(100) DEFAULT NULL,
+  `currency` varchar(20) DEFAULT NULL,
+  `fname` varchar(60) DEFAULT NULL,
+  `lname` varchar(60) DEFAULT NULL,
+  `phone` varchar(30) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `town` varchar(50) DEFAULT NULL,
+  `country` varchar(100) DEFAULT NULL,
+  `relation` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `donation_shrines`
+--
+
+INSERT INTO `donation_shrines` (`id`, `donation`, `currency`, `fname`, `lname`, `phone`, `email`, `town`, `country`, `relation`) VALUES
+(1, 50000, 'KSH', 'kathembo', 'Tsongo', ' +2540111111111', 'dieudonne@gmail.com', 'Mombasa', 'AZ', 'Religious a.a'),
+(2, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(3, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(4, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(5, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(6, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(7, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(8, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(9, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(10, 50000, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Nakuru', '  ', 'Friend'),
+(11, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(12, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(13, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(14, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(15, 12, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Kisumu', 'DZ', 'Friend'),
+(16, 12, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Kisumu', 'DZ', 'Friend'),
+(17, 2000, 'KSH', 'Juju', 'Kath', ' +2540111111111', 'tsongo@gmail.com', 'Mombasa', 'Australia', 'Friend'),
+(18, 2000, 'KSH', 'Juju', 'Kath', ' +2540111111111', 'tsongo@gmail.com', 'Mombasa', 'Australia', 'Friend'),
+(19, 2000, 'KSH', 'Juju', 'Kath', ' +2540111111111', 'tsongo@gmail.com', 'Mombasa', 'Australia', 'Friend'),
+(20, 2000, 'KSH', 'Juju', 'Kath', ' +2540111111111', 'tsongo@gmail.com', 'Mombasa', 'Australia', 'Friend'),
+(21, 2000, 'KSH', 'Juju', 'Kath', ' +2540111111111', 'tsongo@gmail.com', 'Mombasa', 'Australia', 'Friend'),
+(22, 2000, 'KSH', 'Juju', 'Kath', ' +2540111111111', 'tsongo@gmail.com', 'Mombasa', 'Australia', 'Friend'),
+(23, 2000, 'KSH', 'Juju', 'Kath', ' +2540111111111', 'tsongo@gmail.com', 'Mombasa', 'Australia', 'Friend'),
+(24, 2000, 'KSH', 'Juju', 'Kath', ' +2540111111111', 'tsongo@gmail.com', 'Mombasa', 'Australia', 'Friend'),
+(25, 2000, 'KSH', 'Juju', 'Kath', ' +2540111111111', 'tsongo@gmail.com', 'Mombasa', 'Australia', 'Friend'),
+(26, 2000, 'KSH', 'Juju', 'Kath', ' +2540111111111', 'tsongo@gmail.com', 'Mombasa', 'Australia', 'Friend'),
+(27, 2000, 'KSH', 'Juju', 'Kath', ' +2540111111111', 'tsongo@gmail.com', 'Mombasa', 'Australia', 'Friend'),
+(28, 2000, 'KSH', 'Juju', 'Kath', ' +2540111111111', 'tsongo@gmail.com', 'Mombasa', 'Australia', 'Friend');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `donation_socialworks`
+--
+
+CREATE TABLE `donation_socialworks` (
+  `id` int(11) NOT NULL,
+  `donation` int(100) DEFAULT NULL,
+  `currency` varchar(20) DEFAULT NULL,
+  `fname` varchar(60) DEFAULT NULL,
+  `lname` varchar(60) DEFAULT NULL,
+  `phone` varchar(30) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `town` varchar(50) DEFAULT NULL,
+  `country` varchar(100) DEFAULT NULL,
+  `relation` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `donation_socialworks`
+--
+
+INSERT INTO `donation_socialworks` (`id`, `donation`, `currency`, `fname`, `lname`, `phone`, `email`, `town`, `country`, `relation`) VALUES
+(1, 50000, 'KSH', 'kathembo', 'Tsongo', ' +2540111111111', 'dieudonne@gmail.com', 'Mombasa', 'AZ', 'Religious a.a'),
+(2, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(3, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(4, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(5, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(6, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(7, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(8, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(9, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(10, 50000, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Nakuru', '  ', 'Friend'),
+(11, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(12, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(13, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(14, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(15, 12, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Kisumu', 'DZ', 'Friend'),
+(16, 12, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Kisumu', 'DZ', 'Friend');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `donation_vocation`
+--
+
+CREATE TABLE `donation_vocation` (
+  `id` int(11) NOT NULL,
+  `donation` int(100) DEFAULT NULL,
+  `currency` varchar(20) DEFAULT NULL,
+  `fname` varchar(60) DEFAULT NULL,
+  `lname` varchar(60) DEFAULT NULL,
+  `phone` varchar(30) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `town` varchar(50) DEFAULT NULL,
+  `country` varchar(100) DEFAULT NULL,
+  `relation` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `donation_vocation`
+--
+
+INSERT INTO `donation_vocation` (`id`, `donation`, `currency`, `fname`, `lname`, `phone`, `email`, `town`, `country`, `relation`) VALUES
+(1, 50000, 'KSH', 'kathembo', 'Tsongo', ' +2540111111111', 'dieudonne@gmail.com', 'Mombasa', 'AZ', 'Religious a.a'),
+(2, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(3, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(4, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(5, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(6, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(7, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(8, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(9, 50000, 'KSH', 'kathembo', 'Tsongo', '+254025550121', 'dio@gmail.com', 'Nakuru', 'BY', 'Religious a.a'),
+(10, 50000, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Nakuru', '  ', 'Friend'),
+(11, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(12, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(13, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(14, 20000, 'KSH', 'Juju', 'Kath', '+25489696857', 'dieudonne@gmail.com', 'Kisumu', 'KE', 'Friend'),
+(15, 12, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Kisumu', 'DZ', 'Friend'),
+(16, 12, 'KSH', 'kathembo', 'Tsongo', ' +2540000000022 ', 'dio@gmail.com', 'Kisumu', 'DZ', 'Friend');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `ecumenism`
 --
 
@@ -205,6 +507,94 @@ INSERT INTO `ecumenism` (`id`, `articletitle`, `articledescription`, `ecumenism_
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `emails`
+--
+
+CREATE TABLE `emails` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `message` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `emails`
+--
+
+INSERT INTO `emails` (`id`, `email`, `subject`, `message`) VALUES
+(6, 'didod@gmail.com', 'Greetings', 'Hope you are fine there padre'),
+(7, 'didod@gmail.com', 'Greetings', 'Hope you are fine there padre'),
+(8, 'dieudonnetsongo@gmail.com', 'Greetings', 'kkjkjkjkjkjjk');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `email_kenya`
+--
+
+CREATE TABLE `email_kenya` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `message` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `email_kenya`
+--
+
+INSERT INTO `email_kenya` (`id`, `email`, `subject`, `message`) VALUES
+(6, 'didod@gmail.com', 'Greetings', 'Hope you are fine there padre'),
+(7, 'didod@gmail.com', 'Greetings', 'Hope you are fine there padre'),
+(8, 'dieudonnetsongo@gmail.com', 'Greetings', 'kkjkjkjkjkjjk');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `email_tanzania`
+--
+
+CREATE TABLE `email_tanzania` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `message` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `email_tanzania`
+--
+
+INSERT INTO `email_tanzania` (`id`, `email`, `subject`, `message`) VALUES
+(1, 'dieudonnetsongo@gmail.com', 'Greetings', 'Hope this email finds you well. I have been trying to reach you because I am'),
+(2, 'dieudonnetsongo@gmail.com', 'Greetings', 'Hello Padre. Here we are doing well. Hope you too are doing well there in Uganda'),
+(3, 'didod@gmail.com', 'Greetings', 'hjhjhhjhhj');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `email_uganda`
+--
+
+CREATE TABLE `email_uganda` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `message` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `email_uganda`
+--
+
+INSERT INTO `email_uganda` (`id`, `email`, `subject`, `message`) VALUES
+(1, 'dieudonnetsongo@gmail.com', 'Greetings', 'Hope this email finds you well. I have been trying to reach you because I am'),
+(2, 'dieudonnetsongo@gmail.com', 'Greetings', 'Hello Padre. Here we are doing well. Hope you too are doing well there in Uganda'),
+(3, 'songo@gmail.com', 'Greetings', 'Hello padre. Hope you are fine. I wish you a happy feast of St Monica');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `europ_location`
 --
 
@@ -223,6 +613,61 @@ INSERT INTO `europ_location` (`id`, `country`, `no_community`) VALUES
 (49, 'ENGLAND', '4'),
 (50, 'FRANCE', '7'),
 (51, 'GREECE', '2');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `events`
+--
+
+CREATE TABLE `events` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) COLLATE utf8_bin NOT NULL,
+  `start` datetime NOT NULL,
+  `end` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Déchargement des données de la table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `start`, `end`) VALUES
+(1, ';poiuu', '2022-11-09 00:00:00', '2022-11-10 00:00:00'),
+(3, 'Community meeting', '2022-11-03 00:00:00', '2022-11-04 00:00:00'),
+(4, 'mass', '2022-11-03 17:00:00', '2022-11-04 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `form_vocation`
+--
+
+CREATE TABLE `form_vocation` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `country` varchar(200) NOT NULL,
+  `parish` varchar(200) NOT NULL,
+  `diocese` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `image` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `form_vocation`
+--
+
+INSERT INTO `form_vocation` (`id`, `name`, `email`, `phone`, `country`, `parish`, `diocese`, `password`, `image`) VALUES
+(38, 'Dieudonne', 'dieudonnetsongo@gmail.com', '0706571995', 'KENYA', 'Monica', 'NAIROBI', 'e10adc3949ba59abbe56e057f20f883e', '276047621_148089111025215_6676395024830516915_n.jpg'),
+(40, 'Tsongo', 'dieudonnetsongo@gmal.com', '0787991880', 'UGANDA', 'Monica', 'Arusha', '96e79218965eb72c92a549dd5a330112', 'images.jfif'),
+(41, 'Tsongo', 'dieudonnetsongo@gmal.com', '0787991880', 'UGANDA', 'Monica', 'Arusha', '96e79218965eb72c92a549dd5a330112', 'images.jfif'),
+(42, 'Tsongo', 'dieudonnetsongo@gmail.com', '1111111', 'KENYA', 'Monica', 'NAIROBI', '1111111', 'kizito.jpg'),
+(43, 'Tsongo', 'dieudonnetsongo@gmail.com', '1111111', 'KENYA', 'Monica', 'NAIROBI', '1111111', 'kizito.jpg'),
+(44, 'Tsongo', 'dieudonnetsongo@gmal.com', '0787991880', 'UGANDA', 'Monica', 'Arusha', '111111', 'images.jfif'),
+(45, 'Tsongo', 'dieudonnetsongo@gmal.com', '0787991880', 'UGANDA', 'Monica', 'Arusha', '111111', 'images.jfif'),
+(46, 'Tsongo', 'dieudonnetsongo@gmal.com', '0787991880', 'UGANDA', 'Monica', 'Arusha', '111111', 'images.jfif'),
+(47, 'Tsongo', 'dieudonnetsongo@gmal.com', '0787991880', 'UGANDA', 'Monica', 'Arusha', '111111', 'images.jfif');
 
 -- --------------------------------------------------------
 
@@ -578,6 +1023,39 @@ INSERT INTO `philosophy_infor` (`id`, `photo1`, `article`, `photo2`, `descriptio
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `phone_kenya`
+--
+
+CREATE TABLE `phone_kenya` (
+  `id` int(11) NOT NULL,
+  `contact1` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `phone_tanzania`
+--
+
+CREATE TABLE `phone_tanzania` (
+  `id` int(11) NOT NULL,
+  `contact1` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `phone_uganda`
+--
+
+CREATE TABLE `phone_uganda` (
+  `id` int(11) NOT NULL,
+  `contact1` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `postulancy`
 --
 
@@ -744,7 +1222,8 @@ CREATE TABLE `priests` (
 INSERT INTO `priests` (`id`, `image`, `name`, `country`, `community`, `temp_v_date`, `perp_v_date`, `deaconate_date`, `priesthood_date`) VALUES
 (64, 'photo3OKOK.jpg', 'Dieudonne', '  Kenya', NULL, NULL, NULL, NULL, NULL),
 (65, 'photo5.jpeg', 'Tsongo', '  Kenya', 'Emmanuel House', '12 June 2015', '14 July 2022', '17 October 2023', NULL),
-(66, '00020.00_00_01_04.Still002.jpg', 'Kabwiku', 'DRC', 'Emmanuel House', '12 June 2015', '14 July 2022', ' 17 Octobe', '4 November 2028');
+(66, '00020.00_00_01_04.Still002.jpg', 'Kabwiku', 'DRC', 'Emmanuel House', '12 June 2015', '14 July 2022', ' 17 Octobe', '4 November 2028'),
+(67, 'Charles Muvunga DRCongo (1).JPG', 'Charles', 'Congo Kinshasa', 'Emmanuel House', '12 June 2015', '14 July 2022', '17 October 2023', '4 November 2028');
 
 -- --------------------------------------------------------
 
@@ -808,6 +1287,147 @@ INSERT INTO `prov_calendar` (`id`, `Date_event`, `Event_prepared`, `Location`) V
 (13, '12 / 06 / 2022', 'Ordination', 'Kijenge'),
 (14, '21 / 02 / 2022', 'Proncial Meeting ', 'Njiru Kenya'),
 (15, '02 / 09 / 2011', 'Ordination', 'Kyabakade');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `public_chat`
+--
+
+CREATE TABLE `public_chat` (
+  `id` int(100) NOT NULL,
+  `fromid` varchar(100) DEFAULT NULL,
+  `fromName` varchar(200) NOT NULL,
+  `messages` varchar(400) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `public_chat`
+--
+
+INSERT INTO `public_chat` (`id`, `fromid`, `fromName`, `messages`) VALUES
+(170, 'mkt', 'Mohit', 'Hi'),
+(171, 'mkt', 'Mohit', 'Gola'),
+(172, 'mkt', 'Mohit', 'Hmm'),
+(173, 'pkt', 'Prashant', 'okk'),
+(174, 'pkt', 'Prashant', 'aur?'),
+(175, 'pkt', 'Prashant', 'thik hai na?'),
+(176, 'pkt', 'Prashant', 'hiii'),
+(177, 'pkt', 'Prashant Kumar Tripathi', 'hii'),
+(178, 'pkt', 'Prashant Kumar Tripathi', 'dfdfd'),
+(179, 'pkt', 'Prashant Kumar Tripathi', 'dxfsdfsdfs'),
+(180, 'pkt', 'Prashant Kumar Tripathi', 'dxf'),
+(181, 'pkt', 'Prashant Kumar Tripathi', 'dxf'),
+(182, 'pkt', 'Prashant Kumar Tripathi', 'dsfsdfsdf\nDSFSDFS\nDSFSDF\nSDFSDF\nXFSDFSDF\nDFSDF\n'),
+(183, 'pkt', 'Prashant Kumar Tripathi', 'how are you'),
+(184, 'pkt', 'Prashant Kumar Tripathi', ';;;'),
+(185, 'anit', 'Anit', 'Hii, I am Java Developer'),
+(186, 'pkt', 'Prashant Kumar Tripathi', 'are bhai bhai'),
+(187, 'pkt', 'Prashant Kumar Tripathi', 'Hmm'),
+(188, 'pkt', 'Prashant Kumar Tripathi', 'Okk'),
+(189, 'pkt', 'Prashant Kumar Tripathi', 'Hmm'),
+(190, '', '', 'hfhfhf');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `register`
+--
+
+CREATE TABLE `register` (
+  `id` int(11) NOT NULL,
+  `fname` varchar(50) DEFAULT NULL,
+  `lname` varchar(50) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `pass` varchar(50) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `register`
+--
+
+INSERT INTO `register` (`id`, `fname`, `lname`, `email`, `pass`, `phone`) VALUES
+(1, 'kathembo', 'Tsongo', 'dieudonnetsongo@gmail.com', '1234', '0706571995'),
+(2, 'kathembo', 'Tsongo', 'dieudonnetsongo@gmail.com', '1234', '0706571995'),
+(3, 'kathembo', 'Tsongo', 'dieudonnetsongo@gmail.com', '1234', '0706571995'),
+(4, 'kathembo', 'Tsongo', 'dieudonnetsongo@gmail.com', '1234', '0706571995'),
+(5, 'dido', 'Kivu', 'didotsongo@gmail.com', '123123', '+2540266570110'),
+(6, 'dido', 'Kivu', 'didotsongo@gmail.com', '123123', '+2540266570110');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reli`
+--
+
+CREATE TABLE `reli` (
+  `id` int(11) NOT NULL,
+  `code` varchar(250) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `updated_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `reli`
+--
+
+INSERT INTO `reli` (`id`, `code`, `email`, `password`, `updated_time`) VALUES
+(2, 'MOH8FD5R2P', 'dieudonnetsongo@gmail.com', '1515', '2022-11-22 02:55:14');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `religious`
+--
+
+CREATE TABLE `religious` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `pass` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `religious`
+--
+
+INSERT INTO `religious` (`id`, `name`, `email`, `phone`, `pass`) VALUES
+(1, 'Tsongo', 'dieudonnetsongo@gmail.com', '0706571995', '1234'),
+(2, 'Tsongo', 'tsongo@gmail.com', '0706571900', '1111'),
+(3, 'Ngugo', 'ngo@gmail.com', '0706571911', '1111');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `religious_tb`
+--
+
+CREATE TABLE `religious_tb` (
+  `id` int(11) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `country` varchar(30) DEFAULT NULL,
+  `community` varchar(50) DEFAULT NULL,
+  `phone` varchar(30) DEFAULT NULL,
+  `code` varchar(250) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `updated_time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `temp_v_date` varchar(100) DEFAULT NULL,
+  `perp_v_date` varchar(100) DEFAULT NULL,
+  `deaconate_date` varchar(50) DEFAULT NULL,
+  `priesthood_date` varchar(50) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `religious_tb`
+--
+
+INSERT INTO `religious_tb` (`id`, `image`, `name`, `country`, `community`, `phone`, `code`, `email`, `password`, `updated_time`, `temp_v_date`, `perp_v_date`, `deaconate_date`, `priesthood_date`) VALUES
+(6, 'lay3.jpg', ' Dieudonne ', '   Kenya ', ' Emmanuel House ', ' 0706571995 ', 'E5KO8SGJC4', 'dieudonnetsongo@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '2022-11-22 11:24:16', ' 12 June 2015 ', ' 14 July 2022 ', '  17 Octobe ', ' 4 November 2028 ');
 
 -- --------------------------------------------------------
 
@@ -1069,6 +1689,28 @@ INSERT INTO `triplelove` (`id`, `image`, `title`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `upload`
+--
+
+CREATE TABLE `upload` (
+  `id` int(11) NOT NULL,
+  `fname` text NOT NULL,
+  `name` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `upload`
+--
+
+INSERT INTO `upload` (`id`, `fname`, `name`) VALUES
+(1, '20221123032529_BBT 2204- IS Project 1 Course Outline.pdf', 'BBT 2204- IS Project 1 Course Outline.pdf'),
+(2, '20221123032601_112721_CONCEPT_NOTE.odt', '112721_CONCEPT_NOTE.odt'),
+(3, '20221123034732_cover.docx', 'cover.docx'),
+(4, '20221123035423_2232113.png', '2232113.png');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
@@ -1094,9 +1736,64 @@ INSERT INTO `users` (`id`, `emp_id`, `name`, `mobile`, `email`, `pass`) VALUES
 (55, '78', 'Tsongo', 112521, 'ongo@gmail.com', '1234'),
 (56, '455', 'jejeje', 4546646, 'sstsongo@gmail.com', '123');
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user_status`
+--
+
+CREATE TABLE `user_status` (
+  `user` varchar(200) DEFAULT NULL,
+  `last_seen` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `user_status`
+--
+
+INSERT INTO `user_status` (`user`, `last_seen`) VALUES
+('pkt', '2017-12-29 00:01:40'),
+('mkt', '2017-12-28 19:52:31'),
+('anit', '2017-12-29 00:08:49'),
+('1', '2022-11-17 01:22:33'),
+('12', NULL),
+('13', NULL),
+('56', NULL),
+('45', NULL),
+('78', NULL),
+('455', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `vocation`
+--
+
+CREATE TABLE `vocation` (
+  `id` int(11) NOT NULL,
+  `vd_image` varchar(50) DEFAULT NULL,
+  `vd_name` varchar(50) DEFAULT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `message` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `vocation`
+--
+
+INSERT INTO `vocation` (`id`, `vd_image`, `vd_name`, `title`, `message`) VALUES
+(1, 'lay8.jfif', 'Fr Joachim ( VD Uganda) ', '   word by the vovational director  ', '   “For at the moment the sound of your greeting reached my ears, the infant in my womb leaped for joy…” These words of Elizabeth show how the presence of Jesus is really coming to her as a gift of a real Joy. Even the infant in the womb of Elizabeth noticed the presence of Jesus in the family.  This is one of the greatest gift that Elizabeth received throughout her life, to be greeted by the mother of the Lord.    '),
+(2, 'rule1.jfif', 'Fr Patric Mabu', 'Message by the VD Kenya', ' The evangelist is actually putting it clear that Elizabeth cried in a loud voice when Virgin Mary visited her: “For at the moment the sound of your greeting reached my ears, the infant in my womb leaped for joy…” These words of Elizabeth show how the presence of Jesus is really coming to her as a gift of a real Joy. Even the infant in the womb of Elizabeth noticed the presence of Jesus in the family.  This is one of the greatest gift that Elizabeth received throughout her life, to be greeted by the mother of the Lord.  ');
+
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `africa_location`
@@ -1135,9 +1832,57 @@ ALTER TABLE `communitiesuganda`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `contact_kenya`
+--
+ALTER TABLE `contact_kenya`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `contact_tanzania`
+--
+ALTER TABLE `contact_tanzania`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `contact_uganda`
+--
+ALTER TABLE `contact_uganda`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `deacons`
 --
 ALTER TABLE `deacons`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `donation_formation`
+--
+ALTER TABLE `donation_formation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `donation_parishes`
+--
+ALTER TABLE `donation_parishes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `donation_shrines`
+--
+ALTER TABLE `donation_shrines`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `donation_socialworks`
+--
+ALTER TABLE `donation_socialworks`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `donation_vocation`
+--
+ALTER TABLE `donation_vocation`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1147,9 +1892,45 @@ ALTER TABLE `ecumenism`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `emails`
+--
+ALTER TABLE `emails`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `email_kenya`
+--
+ALTER TABLE `email_kenya`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `email_tanzania`
+--
+ALTER TABLE `email_tanzania`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `email_uganda`
+--
+ALTER TABLE `email_uganda`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `europ_location`
 --
 ALTER TABLE `europ_location`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `events`
+--
+ALTER TABLE `events`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `form_vocation`
+--
+ALTER TABLE `form_vocation`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1237,6 +2018,24 @@ ALTER TABLE `philosophy_infor`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `phone_kenya`
+--
+ALTER TABLE `phone_kenya`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `phone_tanzania`
+--
+ALTER TABLE `phone_tanzania`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `phone_uganda`
+--
+ALTER TABLE `phone_uganda`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `postulancy`
 --
 ALTER TABLE `postulancy`
@@ -1294,6 +2093,36 @@ ALTER TABLE `provincial_council`
 -- Index pour la table `prov_calendar`
 --
 ALTER TABLE `prov_calendar`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `public_chat`
+--
+ALTER TABLE `public_chat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `register`
+--
+ALTER TABLE `register`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `reli`
+--
+ALTER TABLE `reli`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `religious`
+--
+ALTER TABLE `religious`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `religious_tb`
+--
+ALTER TABLE `religious_tb`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1363,14 +2192,32 @@ ALTER TABLE `triplelove`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `upload`
+--
+ALTER TABLE `upload`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `vocation`
+--
+ALTER TABLE `vocation`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `africa_location`
@@ -1409,10 +2256,58 @@ ALTER TABLE `communitiesuganda`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
+-- AUTO_INCREMENT pour la table `contact_kenya`
+--
+ALTER TABLE `contact_kenya`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `contact_tanzania`
+--
+ALTER TABLE `contact_tanzania`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `contact_uganda`
+--
+ALTER TABLE `contact_uganda`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT pour la table `deacons`
 --
 ALTER TABLE `deacons`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+
+--
+-- AUTO_INCREMENT pour la table `donation_formation`
+--
+ALTER TABLE `donation_formation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT pour la table `donation_parishes`
+--
+ALTER TABLE `donation_parishes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT pour la table `donation_shrines`
+--
+ALTER TABLE `donation_shrines`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT pour la table `donation_socialworks`
+--
+ALTER TABLE `donation_socialworks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT pour la table `donation_vocation`
+--
+ALTER TABLE `donation_vocation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `ecumenism`
@@ -1421,10 +2316,46 @@ ALTER TABLE `ecumenism`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT pour la table `emails`
+--
+ALTER TABLE `emails`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT pour la table `email_kenya`
+--
+ALTER TABLE `email_kenya`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT pour la table `email_tanzania`
+--
+ALTER TABLE `email_tanzania`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `email_uganda`
+--
+ALTER TABLE `email_uganda`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT pour la table `europ_location`
 --
 ALTER TABLE `europ_location`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
+--
+-- AUTO_INCREMENT pour la table `events`
+--
+ALTER TABLE `events`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT pour la table `form_vocation`
+--
+ALTER TABLE `form_vocation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT pour la table `general_council`
@@ -1511,6 +2442,24 @@ ALTER TABLE `philosophy_infor`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT pour la table `phone_kenya`
+--
+ALTER TABLE `phone_kenya`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `phone_tanzania`
+--
+ALTER TABLE `phone_tanzania`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `phone_uganda`
+--
+ALTER TABLE `phone_uganda`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT pour la table `postulancy`
 --
 ALTER TABLE `postulancy`
@@ -1550,7 +2499,7 @@ ALTER TABLE `post_philosophy_infor`
 -- AUTO_INCREMENT pour la table `priests`
 --
 ALTER TABLE `priests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT pour la table `provincial_administration`
@@ -1569,6 +2518,36 @@ ALTER TABLE `provincial_council`
 --
 ALTER TABLE `prov_calendar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT pour la table `public_chat`
+--
+ALTER TABLE `public_chat`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
+
+--
+-- AUTO_INCREMENT pour la table `register`
+--
+ALTER TABLE `register`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT pour la table `reli`
+--
+ALTER TABLE `reli`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT pour la table `religious`
+--
+ALTER TABLE `religious`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT pour la table `religious_tb`
+--
+ALTER TABLE `religious_tb`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `rule`
@@ -1637,10 +2616,22 @@ ALTER TABLE `triplelove`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
+-- AUTO_INCREMENT pour la table `upload`
+--
+ALTER TABLE `upload`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT pour la table `vocation`
+--
+ALTER TABLE `vocation`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

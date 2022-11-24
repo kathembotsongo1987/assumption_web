@@ -1,76 +1,133 @@
 
-<?php 
-	  require_once 'dbconnection.php';
-
-
-if(isset($_REQUEST['delete_id'])){
-	// select image from database to delete
-	$id = $_REQUEST['delete_id']; // get delete_id and store in $id variable
-
-	$select_stmt = $connection->prepare('SELECT * FROM prov_calendar WHERE id =:id'); // sql select query
-	$select_stmt->bindParam(':id',$id);
-	$select_stmt->execute();
-	$row = $select_stmt->fetch(PDO::FETCH_ASSOC);
-	
-	// delete an original record from database
-	$delete_stmt = $connection->prepare('DELETE FROM prov_calendar WHERE id =:id');
-	$delete_stmt->bindParam(':id',$id);
-	$delete_stmt->execute();
-
-	header("Location:read_prov_calendar.php");
-}
-
-?>
 
 <?php require 'layout_header.php' ?>
-<div class="wrapper">	
-	<div class="container">			
-		<div class="col-lg-12">
-			<div class="panel panel-default">
-                    <div class="panel-heading">
-                    	<h1 style="text-align: center;">DATA MANIPULATION || PROVINCIAL CALENDAR</h1>
-                        <h3><a href="create_prov_calendar.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add Event</a></h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="table-responsive">
-							<table class="table table-striped table-bordered table-hover" style="text-align: center;">
-								<thead>
-									<tr>
-										<th style="text-align: center;">Event</th>
-										<th style="text-align: center;">Date</th>
-										<th style="text-align: center;">Location</th>
-										<th style="text-align: center;">Edit</th>
-										<th style="text-align: center;">Delete</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php 
-										$select_stmt = $connection->prepare("SELECT * FROM prov_calendar"); //sql select query
-										$select_stmt->execute();
-										while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))
-											{
-												?>
 
-									<tr>
-										<td><?php echo $row['Date_event']; ?></td>
-										<td><?php echo $row['Event_prepared']; ?></td>
-										<td><?php echo $row['Location']; ?></td>
-										<td><a href="edit_prov_calendar.php?update_id=<?php echo $row['id']; ?>" class="btn btn-warning">Edit</a></td>
-										<td><a href="?delete_id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a></td>
-									</tr>
-
-									<?php
-										}					
-										?>
-				
-								</tbody>
-							</table>
-						</div>
-                    </div>
-                </div>
-        </div>		
-	</div>			
+				<!DOCTYPE html>  
+<html>  
+<head>  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>  
+<style>  
+ body {  
+  margin-top: 40px;  
+  text-align: center;  
+  font-size: 14px;  
+  font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;  
+  }  
+ #calendar {  
+  width: 650px;  
+  margin: 0 auto;  
+  }  
+</style>  
+</head>  
+  
+<body>
+	<div class="wrapper">	
+		<div class="container">			
+			<div class="col-lg-12">  
+ 				<h2> Event Manipulation </h2>  
+ 				<br/>  
+ 				<div id='calendar'></div> 
+ 				<script>  
+ 						$(document).ready(function() {  
+ 						var date = new Date();  
+ 						var d = date.getDate();  
+ 						var m = date.getMonth();  
+ 						var y = date.getFullYear();  
+  
+ 						var calendar = $('#calendar').fullCalendar({  
+   							editable: true,  
+   							header: {  
+    						left: 'prev,next today',  
+    						center: 'title',  
+    						right: 'month,agendaWeek,agendaDay'  
+   						},  
+  
+   						events: "events/events.php",  
+  
+   						eventRender: function(event, element, view) {  
+   							if (event.allDay === 'true') {  
+     							event.allDay = true;  
+    						} else {  
+     							    event.allDay = false;  
+    							}  
+   						},  
+   						selectable: true,  
+   						selectHelper: true,  
+   						select: function(start, end, allDay) {  
+   						var title = prompt('Event Title:');  
+  
+   							if (title) {  
+   								var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");  
+   								var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");  
+   								$.ajax({  
+      									url: 'events/add_events.php',  
+       								data: 'title='+ title+'&start='+ start +'&end='+ end,  
+       								type: "POST",  
+       								success: function(json) {  
+      						    	alert('Added Successfully');
+      						    	}  
+   								});  
+   								calendar.fullCalendar('renderEvent',  
+   								{  
+      							 title: title,  
+       							 start: start,  
+       							 end: end,  
+       							 allDay: allDay  
+   								},  
+   								true  
+   								);  
+   							}  
+   								calendar.fullCalendar('unselect');  
+   								},  
+  
+   								editable: true,  
+   								eventDrop: function(event, delta) {  
+   								var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");  
+   								var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");  
+   								$.ajax({  
+       								url: 'events/update_events.php',  
+       								data: 'title='+ event.title+'&start='+ start +'&end='+ end +'&id='+ event.id ,  
+       								type: "POST",  
+      								success: function(json) {  
+        							alert("Updated Successfully");  
+       								}  
+   								});  
+   							},  
+   								eventClick: function(event) {  
+    							var decision = confirm("Do you really want to do that?");   
+    							if (decision) {  
+    							$.ajax({  
+       							type: "POST",  
+        						url: "events/delete_event.php",  
+        						data: "&id=" + event.id,  
+         						success: function(json) {  
+            					$('#calendar').fullCalendar('removeEvents', event.id);  
+              					alert("Updated Successfully");}  
+    							});  
+    						}  
+   						 },  
+   						eventResize: function(event) {  
+      						 var start = $.fullCalendar.formatDate(event.start, "yyyy-MM-dd HH:mm:ss");  
+       						 var end = $.fullCalendar.formatDate(event.end, "yyyy-MM-dd HH:mm:ss");  
+       					$.ajax({  
+        					url: 'events/update_events.php',  
+        					data: 'title='+ event.title+'&start='+ start +'&end='+ end +'&id='+ event.id ,  
+        					type: "POST",  
+        					success: function(json) {  
+         					alert("Updated Successfully");  
+        				}  
+       				});  
+    			}     
+  			});   
+ 		});  
+	</script>
+   </div>        
+  </div>    
 </div>
-
+</body>  
 
 <?php require 'layout_footer.php' ?>

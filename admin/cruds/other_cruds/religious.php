@@ -1,5 +1,6 @@
 
- <?php  session_start(); ?> 
+ <?php  session_start(); ?>
+ 
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,9 +11,6 @@
         <meta name="author" content="" />
         <title></title>
         <link href="../../css/styles.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-        
-
         <script src="../../js/js_font.js"></script>        
     </head>
     <body>
@@ -25,13 +23,13 @@
             }  
             else  
                 {  
-                header("location:../../../login_religious.php");  
+                header("location:../../../login/login_religious.php");  
                 }  
                 ?>
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
-            <!-- Navbar-->
+            <a class="nav-link" href="../../../index.php"><i class="fas fa-home fa-fw" style="color:blue; font-size:40px;"></i></a>
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">                               
-                <?php echo '<br /><br /><a style="color:white;" href="../../../logout.php"><i class="fas fa-lock fa-fw"></i></a>'; ?>
+                <?php echo '<br /><br /><a style="color:white;" href="../../../login/logout.php"><i class="fas fa-lock fa-fw"></i></a>'; ?>
             </ul>
     </nav>
 
@@ -41,7 +39,7 @@
         <div class="row row-cols-1">
     
             <div class="col-5">
-                <a href="#">
+                <a href="events_user.php">
                   <div class="card h-100">
                     <img src="../../../assets/images/upcoming-events.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -52,7 +50,7 @@
             </div>
                          
             <div class="col-5">
-                <a href="">
+                <a href="documents/documents.php">
                 <div class="card h-100">
                     <img src="../../../assets/images/documents.jpg" class="card-img-top" alt="...">
                         <div class="card-body">

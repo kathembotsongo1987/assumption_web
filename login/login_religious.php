@@ -1,11 +1,10 @@
 <?php   
-
+session_start(); 
 $dsn = 'mysql:host=localhost;dbname=newaadb';
 $username = 'root';
 $password = '';
 $options =[];
 $status = "";
-
 
 try {
     
@@ -15,29 +14,27 @@ try {
       {  
            if(empty($_POST["username"]) || empty($_POST["password"]))  
            {  
-                $message = '<label>All fields are required</label>';  
+              $message = '<label>All fields are required</label>';  
            }  
            else  
            {  
-                $query = "SELECT * FROM users WHERE name = :username AND pass = :password";  
-                $statement = $connection->prepare($query);  
-                $statement->execute(  
-                     array(  
-                          'username'     =>     $_POST["username"],  
-                          'password'     =>     $_POST["password"]  
-                     )  
-                );  
+              $query = "SELECT * FROM religious_tb WHERE email = :username AND password = :password";  
+              $statement = $connection->prepare($query);  
+              $statement->execute(
+                array(  
+                    'username'     =>     $_POST["username"],  
+                    'password'     =>    md5($_POST["password"]), 
+                )  
+              );  
                 $count = $statement->rowCount();  
                 if($count > 0)  
                 {  
-                  if (   $status = 1) {
-                      $_SESSION["username"] = $_POST["username"];  
-                     header("location:admin/cruds/other_cruds/dashboadcandidate.php");  
-                  }
-                }  
+                  $_SESSION["username"] = $_POST["username"];  
+                  header("location:../admin/cruds/other_cruds/religious.php");  
+                }              
                 else  
                 {  
-                     $message = '<label>Wrong Data</label>';  
+                  $message = '<label>Wrong Data</label>';  
                 }
             } 
                       
@@ -47,7 +44,7 @@ try {
  {  
       $message = $error->getMessage();  
  }  
- ?>  
+ ?> 
  <!DOCTYPE html>  
  <html>  
       <head>  
@@ -73,8 +70,10 @@ try {
                      <label>Password</label>  
                      <input type="password" name="password" class="form-control" />  
                      <br />  
-                     <input type="submit" name="login" class="btn btn-info" value="Login" />  
-                </form>  
+                     <input type="submit" name="login" class="btn btn-info" value="Login" /> 
+                     <br>
+                        <a href="forgot_password.php">Change Password</a>
+                    </form>  
            </div>  
            <br />  
       </body>  
