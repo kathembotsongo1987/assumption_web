@@ -1,10 +1,24 @@
 
 <?php require 'dbconnection.php'; ?> 
-
-
-<?php require 'layout_header.php'; ?>
-
 <?php
+if(isset($_REQUEST['delete_id'])){
+	// select image from database to delete
+	$id = $_REQUEST['delete_id']; // get delete_id and store in $id variable
+
+	$select_stmt = $connection->prepare('SELECT * FROM upload WHERE id =:id'); // sql select query
+	$select_stmt->bindParam(':id',$id);
+	$select_stmt->execute();
+	$row = $select_stmt->fetch(PDO::FETCH_ASSOC);
+	unlink("documents/upload/".$row['name']); //unlink function permanently remove your file
+
+	// delete an original record from database
+	$delete_stmt = $connection->prepare('DELETE FROM upload WHERE id =:id');
+	$delete_stmt->bindParam(':id',$id);
+	$delete_stmt->execute();
+
+	header("Location:upload_documents.php");
+}
+
 if(isset($_POST['submit'])!=""){
   $name=$_FILES['file']['name'];
   $size=$_FILES['file']['size'];
@@ -29,7 +43,7 @@ if(isset($_POST['submit'])!=""){
     	}
     }
 }
- $move =  move_uploaded_file($temp,"upload/".$fname);
+ $move =  move_uploaded_file($temp,"documents/upload/".$fname);
  if($move){
  	$query=$connection->query("insert into upload(name,fname)values('$name','$fname')");
 	if($query){
@@ -41,6 +55,8 @@ if(isset($_POST['submit'])!=""){
  }
 }
 ?>
+
+<?php require 'layout_header.php'; ?>
 <html>
 	<link href="documents/css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
     <link rel="stylesheet" type="text/css" href="documents/css/DT_bootstrap.css">
@@ -68,7 +84,8 @@ if(isset($_POST['submit'])!=""){
 			<thead>
 				<tr>
 					<th width="90%" align="center">Documents</th>
-					<th align="center">Download</th>	
+					<th style="text-align: center;">Download</th>	
+					<th style="text-align: center;">Delete</th>	
 				</tr>
 			</thead>
 			<?php
@@ -83,6 +100,9 @@ if(isset($_POST['submit'])!=""){
 				</td>
 				<td>
 					<button class="alert-success"><a href="documents/download.php?filename=<?php echo $name;?>&f=<?php echo $row['fname'] ?>"><i style="margin-left: 50px;" class="fas fa-download"></i></a></button>
+				</td>
+				<td>
+					<button class="alert-success"><a href="?delete_id=<?php echo $row['id']; ?>" class="btn btn-danger"><i style="margin-left: 50px;" class="fas fa-trash"></i></a></button>
 				</td>
 			</tr>
 			<?php }?>

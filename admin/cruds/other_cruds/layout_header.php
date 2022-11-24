@@ -146,11 +146,11 @@
                                 <span style=" margin: 20px; color: blue; background-color: white; border-radius: 25%; padding: 5px;"> 
                                   <?php
                                    require 'data_count.php';
-                                    $query=$handler->query("SELECT * FROM events");
+                                    $query=$connection->query("SELECT * FROM events");
                                         if($query->rowCount()){
                                             ECHO $query->rowCount();
                                         }else{
-                                            echo 'No result';
+                                            echo '0';
                                         }
 
                                   ?>
@@ -162,11 +162,11 @@
                                 <span style=" margin: 20px; color: blue; background-color: white; border-radius: 25%; padding: 5px;"> 
                                   <?php
                                    require 'data_count.php';
-                                    $query=$handler->query("SELECT * FROM religious_tb");
+                                    $query=$connection->query("SELECT * FROM religious_tb");
                                         if($query->rowCount()){
                                             ECHO $query->rowCount();
                                         }else{
-                                            echo 'No result';
+                                            echo '0';
                                         }
 
                                   ?>
@@ -179,11 +179,11 @@
                                 <span style=" margin: 20px; color: blue; background-color: white; border-radius: 25%; padding: 5px;"> 
                                   <?php
                                    require 'data_count.php';
-                                    $query=$handler->query("SELECT * FROM upload");
+                                    $query=$connection->query("SELECT * FROM upload");
                                         if($query->rowCount()){
                                             ECHO $query->rowCount();
                                         }else{
-                                            echo 'No result';
+                                            echo '0';
                                         }
 
                                   ?>

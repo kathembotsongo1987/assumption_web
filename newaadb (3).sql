@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 24 nov. 2022 à 13:22
+-- Généré le : jeu. 24 nov. 2022 à 17:18
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 8.0.2
 
@@ -634,7 +634,8 @@ CREATE TABLE `events` (
 INSERT INTO `events` (`id`, `title`, `start`, `end`) VALUES
 (1, ';poiuu', '2022-11-09 00:00:00', '2022-11-10 00:00:00'),
 (3, 'Community meeting', '2022-11-03 00:00:00', '2022-11-04 00:00:00'),
-(4, 'mass', '2022-11-03 17:00:00', '2022-11-04 00:00:00');
+(4, 'mass', '2022-11-03 17:00:00', '2022-11-04 00:00:00'),
+(5, 'Meeting at Njiru Parish', '2022-11-25 00:00:00', '2022-11-26 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1703,10 +1704,10 @@ CREATE TABLE `upload` (
 --
 
 INSERT INTO `upload` (`id`, `fname`, `name`) VALUES
-(1, '20221123032529_BBT 2204- IS Project 1 Course Outline.pdf', 'BBT 2204- IS Project 1 Course Outline.pdf'),
-(2, '20221123032601_112721_CONCEPT_NOTE.odt', '112721_CONCEPT_NOTE.odt'),
-(3, '20221123034732_cover.docx', 'cover.docx'),
-(4, '20221123035423_2232113.png', '2232113.png');
+(9, '20221124165313_BBT 2204- IS Project 1 Course Outline (3).pdf', 'BBT 2204- IS Project 1 Course Outline (3).pdf'),
+(10, '20221124165749_St lucy (1).docx', 'St lucy (1).docx'),
+(12, '20221124170041_112721_CONCEPT_NOTE (2).odt', '112721_CONCEPT_NOTE (2).odt'),
+(16, '20221124170419_Group Assigment.doc', 'Group Assigment.doc');
 
 -- --------------------------------------------------------
 
@@ -2349,7 +2350,7 @@ ALTER TABLE `europ_location`
 -- AUTO_INCREMENT pour la table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `form_vocation`
@@ -2619,7 +2620,7 @@ ALTER TABLE `triplelove`
 -- AUTO_INCREMENT pour la table `upload`
 --
 ALTER TABLE `upload`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT pour la table `users`
