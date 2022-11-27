@@ -62,7 +62,7 @@
           
             
             <div class="col-5">
-                <a href="">
+                <a href="cties.php">
                 <div class="card h-100">
                     <img src="../../../assets/images/communities.jpg" class="card-img-top" height="350" alt="...">
                         <div class="card-body">

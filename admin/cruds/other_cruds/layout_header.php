@@ -143,7 +143,7 @@
                             <a class="nav-link" href="read_prov_calendar.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Events
-                                <span style=" margin: 20px; color: blue; background-color: white; border-radius: 25%; padding: 5px;"> 
+                                <span style=" margin: 20px; color: blue; background-color: white; border-radius: 25%;"> 
                                   <?php
                                    require 'data_count.php';
                                     $query=$connection->query("SELECT * FROM events");
@@ -159,7 +159,7 @@
                             <a  class="nav-link" href="read_religious.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-pray"></i></div>
                                 Religious 
-                                <span style=" margin: 20px; color: blue; background-color: white; border-radius: 25%; padding: 5px;"> 
+                                <span style=" margin: 20px; color: blue; background-color: white; border-radius: 25%;"> 
                                   <?php
                                    require 'data_count.php';
                                     $query=$connection->query("SELECT * FROM religious_tb");
@@ -189,6 +189,16 @@
                                   ?>
                                 </span>
                             </a>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#admCollapse" aria-expanded="false" aria-controls="StatisticCollapse">Communities
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                                <div class="collapse" id="admCollapse" aria-labelledby="headingOne" data-bs-parent="#formationCollapse">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="read_cty_kenya.php">In Kenya</a>
+                                        <a class="nav-link" href="read_cty_tanzania.php">In Tanzania</a>
+                                        <a class="nav-link" href="read_cty_uganda.php">In Uganda</a>
+                                    </nav>
+                                </div>
                         </div>
                     </div>
                   </nav>
