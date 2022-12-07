@@ -10,7 +10,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title></title>
         <link href="../../../css/styles.css" rel="stylesheet" />
         <script src="../../../js/js_font.js"></script>        
     </head>
@@ -36,47 +35,10 @@
 
 <body>  
 <section style="margin-left: 15%;"> 
-    <?php
-if(isset($_POST['submit'])!=""){
-  $name=$_FILES['file']['name'];
-  $size=$_FILES['file']['size'];
-  $type=$_FILES['file']['type'];
-  $temp=$_FILES['file']['tmp_name'];
-  // $caption1=$_POST['caption'];
-  // $link=$_POST['link'];
-  $fname = date("YmdHis").'_'.$name;
-  $chk = $connection->query("SELECT * FROM  upload where name = '$name' ")->rowCount();
-  if($chk){
-    $i = 1;
-    $c = 0;
-	while($c == 0){
-    	$i++;
-    	$reversedParts = explode('.', strrev($name), 2);
-    	$tname = (strrev($reversedParts[1]))."_".($i).'.'.(strrev($reversedParts[0]));
-    // var_dump($tname);exit;
-    	$chk2 = $connection->query("SELECT * FROM  upload where name = '$tname' ")->rowCount();
-    	if($chk2 == 0){
-    		$c = 1;
-    		$name = $tname;
-    	}
-    }
-}
- $move =  move_uploaded_file($temp,"upload/".$fname);
- if($move){
- 	$query=$connection->query("insert into upload(name,fname)values('$name','$fname')");
-	if($query){
-	header("location:index.php");
-	}
-	else{
-	die(mysql_error());
-	}
- }
-}
-?>
-<html>
+   <html>
 <head>
-<title>Upload and Download Files</title>
 		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="screen">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="css/DT_bootstrap.css">
 </head>
 	<script src="js/jquery.js" type="text/javascript"></script>

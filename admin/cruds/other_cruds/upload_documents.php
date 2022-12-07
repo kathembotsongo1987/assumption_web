@@ -57,10 +57,11 @@ if(isset($_POST['submit'])!=""){
 ?>
 
 <?php require 'layout_header.php'; ?>
-<html>
+<html> 
+<header>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="documents/css/DT_bootstrap.css">
-	
+	<link rel="stylesheet" type="text/css" href="documents/css/DT_bootstrap.css">	
+</header>
 <body>
 
 		<div class="container">

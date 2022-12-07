@@ -66,7 +66,7 @@
                       <li><a href="index.php" class="nav-link active">Home</a></li>
                       <li><a href="#" data-bs-toggle="modal" data-bs-target="#AboutModal" class="nav-item nav-link">About</a></li>
                       <li><a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#ApostolateModal" class="nav-item nav-link active" >Apostolates</a></li>
-                      <li><a href="vocation.php" class="nav-item nav-link">Vocation_Office</a></li>
+                      <li><a href="chatbox/login.php" class="nav-item nav-link">Vocation_Office</a></li>
                       <li><a href="contact.php" class="nav-item nav-link" >Contacts</a></li>
 
                     <div class="dropdown">

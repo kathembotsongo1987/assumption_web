@@ -1,7 +1,7 @@
-<?php 
-	  require_once 'dbconnection.php';
+<?php require 'dbconnection.php'; ?>
 
-if(isset($_REQUEST['delete_id'])){
+<?php
+	if(isset($_REQUEST['delete_id'])){
 	// select image from database to delete
 	$id = $_REQUEST['delete_id']; // get delete_id and store in $id variable
 
@@ -21,29 +21,33 @@ if(isset($_REQUEST['delete_id'])){
 
 ?>
 
-<?php require_once 'layout_header.php'; ?>
-
+<?php require 'header2.php'; ?>
+<?php require_once 'sidedashboad.php'; ?>
+<?php require_once 'js_datatable.php'; ?>
 <div class="wrapper">	
 	<div class="">			
 		<div class="col-lg-12">
 			<div class="panel panel-default">
                     <div class="panel-heading">
-                    	<h1 style="text-align: center;">DATA MANIPULATION || RELIGIOUS</h1>
-                        <h3><a href="create_priest.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add File</a></h3>
+                    	<h1 style="text-align: center;">DATA MANIPULATION || PRIESTS</h1>
+                        <h3><a href="create_priests.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add File</a></h3>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
-							<table class="table table-striped table-bordered table-hover" style="text-align: center;">
+							<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 								<thead>
 									<tr>
 										<th style="text-align: center;">Image</th>
 										<th style="text-align: center;">Name</th>
 										<th style="text-align: center;">Country</th>
+										<th style="text-align: center;">Diocese</th>
 										<th style="text-align: center;">Community</th>
 										<th style="text-align: center;">Date T. V.</th>
 										<th style="text-align: center;">Date P. V.</th>
-										<th style="text-align: center;">Date deac</th>
-										<th style="text-align: center;">Date for Priesth</th>
+										<th style="text-align: center;">Phone</th>
+										<th style="text-align: center;">Email</th>
+										<th style="text-align: center;">Date for diaconate</th>
+										<th style="text-align: center;">Date for Priesthood</th>
 										<th style="text-align: center;">Edit</th>
 										<th style="text-align: center;">Delete</th>
 									</tr>
@@ -60,13 +64,16 @@ if(isset($_REQUEST['delete_id'])){
 										<td><img src="upload/<?php echo $row['image']; ?>" width="100px" height="60px"></td>
 										<td><?php echo $row['name']; ?></td>
 										<td><?php echo $row['country']; ?></td>
+										<td><?php echo $row['diocese']; ?></td>
 										<td><?php echo $row['community']; ?></td>
-										<td><?php echo $row['temp_v_date']; ?></td>
-										<td><?php echo $row['perp_v_date']; ?></td>
-										<td><?php echo $row['deaconate_date']; ?></td>
+										<td><?php echo $row['temporary_vows']; ?></td>
+										<td><?php echo $row['perpetual_vows']; ?></td>
+										<td><?php echo $row['phone']; ?></td>
+										<td><?php echo $row['email']; ?></td>
+										<td><?php echo $row['diaconate_date']; ?></td>
 										<td><?php echo $row['priesthood_date']; ?></td>
-										<td><a href="edit_priest.php?update_id=<?php echo $row['id']; ?>" class="btn btn-warning">Edit</a></td>
-										<td><a href="?delete_id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a></td>
+										<td><a href="edit_priest.php?update_id=<?php echo $row['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a></td>
+										<td><a href="?delete_id=<?php echo $row['id']; ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
 									</tr>
 
 									<?php

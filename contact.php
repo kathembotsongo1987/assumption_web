@@ -1,6 +1,5 @@
 <?php 	include('header.php'); ?>
 
-
     <body>	
 		    <section>			
 				      <div class="row">

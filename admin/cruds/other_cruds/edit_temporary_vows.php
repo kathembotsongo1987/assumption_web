@@ -27,6 +27,8 @@ if(isset($_REQUEST['btn_update'])){
 				$country = $_REQUEST["country"]; 
 				$cty = $_REQUEST["cty"]; 
 				$temp_v_date = $_REQUEST['temp_v_date']; 
+				$phone = $_REQUEST['phone']; 
+				$email = $_REQUEST['email']; 
 				
 				// now set the part to the store. where the image is going to be kept. You must open first a new folder called upload. that is where images will be stored in your computer
 			$path = "upload/".$image_file;
@@ -42,6 +44,12 @@ if(isset($_REQUEST['btn_update'])){
 				}
 				else if (empty($temp_v_date)) {
 					$errorMsg = "please Enter the date for the first vows";	
+				}
+				else if (empty($phone)) {
+					$errorMsg = "please Enter Phone";	
+				}
+				else if (empty($email)) {
+					$errorMsg = "please Enter Email";	
 				}
 						
 				else if(empty($image_file)){
@@ -64,13 +72,15 @@ if(isset($_REQUEST['btn_update'])){
 				  		}
 				  		
 		if(!isset($errorMsg)){
-			$upldate_stmt = $connection->prepare('UPDATE temporary_vows SET	image=:image, name=:name, country=:country, community=:community, temp_v_date=:temp_v_date WHERE id=:id'); // sql insert query
+			$upldate_stmt = $connection->prepare('UPDATE temporary_vows SET	image=:image, name=:name, country=:country, community=:community, temp_v_date=:temp_v_date, phone=:phone, email=:email WHERE id=:id'); // sql insert query
 				  				
 			$upldate_stmt->bindParam(':image', $image_file); // bind all parameter
 			$upldate_stmt->bindParam(':name', $name);
 			$upldate_stmt->bindParam(':country', $country);
 			$upldate_stmt->bindParam(':community', $cty);
 			$upldate_stmt->bindParam(':temp_v_date', $temp_v_date);
+			$upldate_stmt->bindParam(':phone', $phone);
+			$upldate_stmt->bindParam(':email', $email);
 			$upldate_stmt->bindParam(':id',$id);
 
 			if($upldate_stmt->execute()){
@@ -122,19 +132,31 @@ if(isset($_REQUEST['btn_update'])){
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Country</label>
 									<div class="col-sm-6">
-										<input type="text" name="country" value=" <?php echo $country ?> " class="form-control" placeholder="enter name">
+										<input type="text" name="country" value=" <?php echo $country ?> " class="form-control" placeholder="enter country">
 									</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Community</label>
 									<div class="col-sm-6">
-										<input type="text" name="cty" value=" <?php echo $community ?> " class="form-control" placeholder="enter name">
+										<input type="text" name="cty" value=" <?php echo $community ?> " class="form-control" placeholder="enter community">
 									</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Date for Temp vows</label>
 									<div class="col-sm-6">
-										<input type="text" name="temp_v_date" value=" <?php echo $temp_v_date ?> " class="form-control" placeholder="enter name">
+										<input type="text" name="temp_v_date" value=" <?php echo $temp_v_date ?> " class="form-control" placeholder="enter date for temporary vows">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Phone</label>
+									<div class="col-sm-6">
+										<input type="text" name="phone" value=" <?php echo $phone ?> " class="form-control" placeholder="enter phone">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Email</label>
+									<div class="col-sm-6">
+										<input type="text" name="email" value=" <?php echo $email ?> " class="form-control" placeholder="enter phone">
 									</div>
 							</div>
 							<div class="form-group">

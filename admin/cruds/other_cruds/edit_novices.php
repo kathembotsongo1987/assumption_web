@@ -19,12 +19,16 @@
 if(isset($_REQUEST['btn_update'])){
 	try {
 		$image_file = $_FILES["txt_file"]["name"]; 
-				$type = $_FILES["txt_file"]["type"];
-				$size = $_FILES["txt_file"]["size"];
-				$temp = $_FILES["txt_file"]["tmp_name"];
+		$type = $_FILES["txt_file"]["type"];
+		$size = $_FILES["txt_file"]["size"];
+		$temp = $_FILES["txt_file"]["tmp_name"];
 				
-				$name = $_REQUEST["name"]; // 
-				$country = $_REQUEST["country"]; 
+		$name = $_REQUEST["name"]; // 
+		$country = $_REQUEST["country"]; 
+		$diocese = $_REQUEST["diocese"]; 
+		$parish = $_REQUEST['parish']; 
+		$phone = $_REQUEST['phone']; 
+		$email = $_REQUEST['email']; 
 				
 				// now set the part to the store. where the image is going to be kept. You must open first a new folder called upload. that is where images will be stored in your computer
 			$path = "upload/".$image_file;
@@ -34,6 +38,18 @@ if(isset($_REQUEST['btn_update'])){
 				} 
 				else if (empty($country)) {
 					$errorMsg = "please Enter the country";	
+				}
+				else if (empty($diocese)) {
+					$errorMsg = "please Enter the diocese";	
+				}
+				else if (empty($parish)) {
+					$errorMsg = "please Enter the parish";	
+				}
+				else if (empty($phone)) {
+					$errorMsg = "please Enter the phone";	
+				}
+				else if (empty($email)) {
+					$errorMsg = "please Enter the email";	
 				}
 				
 				else if(empty($image_file)){
@@ -56,11 +72,15 @@ if(isset($_REQUEST['btn_update'])){
 				  		}
 				  		
 		if(!isset($errorMsg)){
-			$upldate_stmt = $connection->prepare('UPDATE novices SET	image=:image, name=:name, country=:country WHERE id=:id'); // sql insert query
+			$upldate_stmt = $connection->prepare('UPDATE novices SET	image=:image, name=:name, country=:country, diocese=:diocese, parish=:parish, phone=:phone, email=:email WHERE id=:id'); // sql insert query
 				  				
 			$upldate_stmt->bindParam(':image', $image_file); // bind all parameter
 			$upldate_stmt->bindParam(':name', $name);
 			$upldate_stmt->bindParam(':country', $country);
+			$upldate_stmt->bindParam(':diocese', $diocese);
+			$upldate_stmt->bindParam(':parish', $parish);
+			$upldate_stmt->bindParam(':phone', $phone);
+			$upldate_stmt->bindParam(':email', $email);
 			$upldate_stmt->bindParam(':id',$id);
 
 			if($upldate_stmt->execute()){
@@ -82,7 +102,7 @@ if(isset($_REQUEST['btn_update'])){
 		<div class="col-lg-12">
 			 <div class="panel panel-default">
                     <div class="panel-heading">
-                    	<h1 style="text-align: center;">DATA MANIPULATION || NOVICE</h1>
+                    	<h1 style="text-align: center;">DATA MANIPULATION || NOVICES </h1>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -110,9 +130,33 @@ if(isset($_REQUEST['btn_update'])){
 									</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">Country</label>
+								<label class="col-sm-3 control-label">Country of origin</label>
 									<div class="col-sm-6">
 										<input type="text" name="country" value=" <?php echo $country ?> " class="form-control" placeholder="enter name">
+									</div>
+							</div>	
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Diocese of origine</label>
+									<div class="col-sm-6">
+										<input type="text" name="diocese" value=" <?php echo $diocese ?> "	 class="form-control" placeholder="enter diocese">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Parish</label>
+									<div class="col-sm-6">
+										<input type="name" name="parish" value=" <?php echo $parish ?> " class="form-control" placeholder="enter Parish">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Phone</label>
+									<div class="col-sm-6">
+										<input type="text" name="phone" value=" <?php echo $phone; ?> " class="form-control" placeholder="enter phone">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Email</label>
+									<div class="col-sm-6">
+										<input type="text" name="email" value=" <?php echo $email; ?> " class="form-control" placeholder="enter email">
 									</div>
 							</div>							
 							<div class="form-group">

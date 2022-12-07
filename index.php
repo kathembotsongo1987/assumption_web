@@ -150,7 +150,9 @@
     </div>
 </div>
 </body>
-
 <?php   include('footer.php'); ?>
+<?php   include('modals/modal_about_us.php'); ?>
+<?php   include('modals/modal_apostolate.php'); ?>
+<?php   include('modals/formation.php'); ?>
 
 

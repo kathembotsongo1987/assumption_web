@@ -1,13 +1,11 @@
 
-<?php require 'dbconnection.php'; ?>
 
+<?php 	require 'dbconnection.php'; ?>
 	<?php 	
 		if(isset($_REQUEST['btn_insert']))
 		{
 			try
 			{
-				
-
 				$image_file = $_FILES["txt_file"]["name"]; 
 				$type = $_FILES["txt_file"]["type"];
 				$size = $_FILES["txt_file"]["size"];
@@ -16,7 +14,9 @@
 				$name = $_REQUEST["name"]; // 
 				$country = $_REQUEST["country"]; 
 				$diocese = $_REQUEST["diocese"]; 
-				$parish = $_REQUEST['parish']; 
+				$temp_v = $_REQUEST['temp_v']; 
+				$phone = $_REQUEST['phone']; 
+				$email = $_REQUEST['email']; 
 				
 				
 				// now set the part to the store. where the image is going to be kept. Open first a new folder called upload. That is where images will be stored in your computer
@@ -31,8 +31,14 @@
 				else if (empty($diocese)) {
 					$errorMsg = "please Enter diocese";	
 				}
-				else if (empty($parish)) {
-					$errorMsg = "please Enter parish";	
+				else if (empty($temp_v)) {
+					$errorMsg = "please Enter date for temporary vows";	
+				}
+				else if (empty($phone)) {
+					$errorMsg = "please Enter phone";	
+				}
+				else if (empty($email)) {
+					$errorMsg = "please Enter email";	
 				}
 				
 				else if(empty($image_file)){
@@ -55,13 +61,15 @@
 				  		}
 
 				  		if(!isset($errorMsg)){
-				  			$insert_stmt = $connection->prepare('INSERT INTO philosophers(image, name, country, diocese, parish) VALUES(:image, :name, :country, :diocese, :parish)'); // sql insert query
+				  			$insert_stmt = $connection->prepare('INSERT INTO philosophers(image, name, country, diocese, temporary_vows, phone, email) VALUES(:image, :name, :country, :diocese, :temp_v, :phone, :email)'); // sql insert query
 				  				
 				  				$insert_stmt->bindParam(':image', $image_file); // bind all parameter
 				  				$insert_stmt->bindParam(':name', $name);
 				  				$insert_stmt->bindParam(':country', $country);
 				  				$insert_stmt->bindParam(':diocese', $diocese);
-				  				$insert_stmt->bindParam(':parish', $parish);
+				  				$insert_stmt->bindParam(':temp_v', $temp_v);
+				  				$insert_stmt->bindParam(':phone', $phone);
+				  				$insert_stmt->bindParam(':email', $email);
 				  								  				
 				  				if($insert_stmt->execute()){
 				  					$insertMsg="File Upload Successfully."; // execute query success message
@@ -77,15 +85,14 @@
 			}
 		
 	 ?>
-
-	 <?php require 'layout_header.php'; ?>
-
+<?php require 'layout_header.php'; ?>
 <div class="wrapper">	
 	<div class="container">			
 		<div class="col-lg-12">
 			<div class="panel panel-default">
                 <div class="panel-heading">
-                	<h1>DATA MANIPULATION || PHILOSPHERS</h1>
+                	<h1>DATA MANIPULATION || NOVICES</h1>
+                    <h3><a href="create_novices.php"><span class="glyphicon glyphicon-plus"></span>&nbsp; Add File</a></h3>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
@@ -105,19 +112,31 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Country</label>
 									<div class="col-sm-6">
-										<input type="text" name="country" class="form-control" placeholder="enter name">
+										<input type="text" name="country" class="form-control" placeholder="enter country">
 									</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Diocese</label>
 									<div class="col-sm-6">
-										<input type="text" name="diocese" class="form-control" placeholder="enter name">
+										<input type="text" name="diocese" class="form-control" placeholder="enter diocese">
 									</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">Parish</label>
+								<label class="col-sm-3 control-label">Date for Temporary vows</label>
 									<div class="col-sm-6">
-										<input type="text" name="parish" class="form-control" placeholder="enter name">
+										<input type="text" name="temp_v" class="form-control" placeholder="enter date for temporary vows">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Phone</label>
+									<div class="col-sm-6">
+										<input type="text" name="phone" class="form-control" placeholder="enter phone">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Email</label>
+									<div class="col-sm-6">
+										<input type="text" name="email" class="form-control" placeholder="enter Email">
 									</div>
 							</div>							
 							<div class="form-group">

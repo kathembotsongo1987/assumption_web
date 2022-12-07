@@ -1,7 +1,6 @@
-<?php 
-	  require_once 'dbconnection.php';
-
-if(isset($_REQUEST['delete_id'])){
+<?php require 'dbconnection.php'; ?>
+<?php
+	if(isset($_REQUEST['delete_id'])){
 	// select image from database to delete
 	$id = $_REQUEST['delete_id']; // get delete_id and store in $id variable
 
@@ -21,7 +20,9 @@ if(isset($_REQUEST['delete_id'])){
 
 ?>
 
-<?php require_once 'layout_header.php'; ?>
+<?php require 'header2.php'; ?>
+<?php require_once 'sidedashboad.php'; ?>
+<?php require_once 'js_datatable.php'; ?>
 
 <div class="wrapper">	
 	<div class="">			
@@ -33,7 +34,7 @@ if(isset($_REQUEST['delete_id'])){
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
-							<table class="table table-striped table-bordered table-hover" style="text-align: center;">
+							<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 								<thead>
 									<tr>
 										<th style="text-align: center;">Image</th>
@@ -42,6 +43,8 @@ if(isset($_REQUEST['delete_id'])){
 										<th style="text-align: center;">Community</th>
 										<th style="text-align: center;">Date T. V.</th>
 										<th style="text-align: center;">Date P. V.</th>
+										<th style="text-align: center;">Phone</th>
+										<th style="text-align: center;">Email</th>
 										<th style="text-align: center;">Edit</th>
 										<th style="text-align: center;">Delete</th>
 									</tr>
@@ -52,7 +55,7 @@ if(isset($_REQUEST['delete_id'])){
 										$select_stmt->execute();
 										while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))
 											{
-												?>
+									?>
 
 									<tr>
 										<td><img src="upload/<?php echo $row['image']; ?>" width="100px" height="60px"></td>
@@ -61,8 +64,10 @@ if(isset($_REQUEST['delete_id'])){
 										<td><?php echo $row['community']; ?></td>
 										<td><?php echo $row['temp_v_date']; ?></td>
 										<td><?php echo $row['perp_v_date']; ?></td>
-										<td><a href="edit_perpetual_vows.php?update_id=<?php echo $row['id']; ?>" class="btn btn-warning">Edit</a></td>
-										<td><a href="?delete_id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a></td>
+										<td><?php echo $row['phone']; ?></td>
+										<td><?php echo $row['email']; ?></td>
+										<td><a href="edit_perpetual_vows.php?update_id=<?php echo $row['id']; ?>" class="btn btn-warning"><i class="fas fa-edit"></i></a></td>
+										<td><a href="?delete_id=<?php echo $row['id']; ?>" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
 									</tr>
 
 									<?php

@@ -40,7 +40,7 @@
     
             <div class="col-5">
                 <a href="events_user.php">
-                  <div class="card h-100">
+                  <div class="card" style="width:50%; height:80%;"> 
                     <img src="../../../assets/images/upcoming-events.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Upcoming Events</h5>
@@ -50,8 +50,8 @@
             </div>
                          
             <div class="col-5">
-                <a href="documents/documents.php">
-                <div class="card h-100">
+                <a href="documents_religious.php">
+                <div class="card" style="width:50%;">
                     <img src="../../../assets/images/documents.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Documents</h5>
@@ -59,11 +59,16 @@
                 </div>
                   </a>
             </div>
-          
+                <a href="religiouschatbox/login.php">                            
+                    <div class="card-body">
+                        <img src="../../../assets/images/whatsapp.png" class="card-img-top" style=" background-color: rgba(25,125,15,.1); width: 15%; margin-right: 15%; padding: 20px;" alt="...">
+                    </div>
+                </a>
+                
             
             <div class="col-5">
                 <a href="cties.php">
-                <div class="card h-100">
+                <div class="card" style="width:50%; height:60%;">
                     <img src="../../../assets/images/communities.jpg" class="card-img-top" height="350" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Commmunitites</h5>
@@ -74,8 +79,8 @@
             
             
             <div class="col-5">
-                <a href="../../../messaging/index.php">
-                <div class="card h-100">
+                <a href="formation_cycle.php">
+                <div class="card" style="width:50%;">
                     <img src="../../../assets/images/religious.jfif" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Formation Cycle</h5>

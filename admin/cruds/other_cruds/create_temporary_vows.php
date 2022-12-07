@@ -17,6 +17,8 @@
 				$country = $_REQUEST["country"]; 
 				$cty = $_REQUEST["cty"]; 
 				$temp_v_date = $_REQUEST['temp_v_date']; 
+				$phone = $_REQUEST['phone']; 
+				$email = $_REQUEST['email']; 
 				
 				// now set the part to the store. where the image is going to be kept. Open first a new folder called upload. That is where images will be stored in your computer
 				$path = "upload/".$image_file;
@@ -32,6 +34,12 @@
 				}
 				else if (empty($temp_v_date)) {
 					$errorMsg = "please Enter the date for the first vows";	
+				}
+				else if (empty($phone)) {
+					$errorMsg = "please Enter phone";	
+				}
+				else if (empty($email)) {
+					$errorMsg = "please Enter email";	
 				}
 				
 				else if(empty($image_file)){
@@ -54,13 +62,15 @@
 				  		}
 
 				  		if(!isset($errorMsg)){
-				  			$insert_stmt = $connection->prepare('INSERT INTO temporary_vows(image, name, country, community, temp_v_date) VALUES(:image, :name, :country, :community, :temp_v_date)'); // sql insert query
+				  			$insert_stmt = $connection->prepare('INSERT INTO temporary_vows(image, name, country, community, temp_v_date, phone, email) VALUES(:image, :name, :country, :community, :temp_v_date, :phone, :email)'); // sql insert query
 				  				
 				  				$insert_stmt->bindParam(':image', $image_file); // bind all parameter
 				  				$insert_stmt->bindParam(':name', $name);
 				  				$insert_stmt->bindParam(':country', $country);
 				  				$insert_stmt->bindParam(':community', $cty);
 				  				$insert_stmt->bindParam(':temp_v_date', $temp_v_date);
+				  				$insert_stmt->bindParam(':phone', $phone);
+				  				$insert_stmt->bindParam(':email', $email);
 				  				
 				  				if($insert_stmt->execute()){
 				  					$insertMsg="File Upload Successfully."; // execute query success message
@@ -118,6 +128,18 @@
 								<label class="col-sm-3 control-label">Date for temporary vows</label>
 									<div class="col-sm-6">
 										<input type="text" name="temp_v_date" class="form-control" placeholder="enter name">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Phone</label>
+									<div class="col-sm-6">
+										<input type="text" name="phone" class="form-control" placeholder="enter name">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Email</label>
+									<div class="col-sm-6">
+										<input type="text" name="email" class="form-control" placeholder="enter name">
 									</div>
 							</div>
 							<div class="form-group">

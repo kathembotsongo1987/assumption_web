@@ -32,7 +32,7 @@
     </nav>       
     </head>    
 <body>  
-  <section style="margin: 5%;"> 
+  <section style="margin: 2%;"> 
     <container>
       <center>
       <div>
@@ -42,7 +42,8 @@
   <div class="col">
     <div class="card" style="background-color: rgba(15,15,100,.2);">
       <h2 class="card-title">Kenya</h2>
-      <a href=" " style="text-decoration: none;">
+      <h3 class="card-title" style="background-color: rgba(200,12,150,.2);">Number of Communities</h3>
+      <a href="religious_read_cty_kenya.php" style="text-decoration: none;">
         <div class="card-body bg-primary" style="margin: 70px;">        
         <div style="color: white; font-size: 140px;">
         <?php
@@ -58,14 +59,15 @@
       </div>
        </a>
        <div style="background-color: rgba(200,12,150,.2);">
-        <a href="read_st_monica_njiru_cty.php" style="text-decoration: none;"><h3>View Communities</h3></a>
+        <a href="religious_in_kenya.php" style="text-decoration: none;"><h3>Religious in Kenya</h3></a>
       </div>
     </div>
   </div>
   <div class="col">
     <div class="card" style="background-color: rgba(105,105,100,.2);">
       <h2 class="card-title">Tanzania</h2>
-      <a href=" " style="text-decoration: none;">
+      <h3 class="card-title" style="background-color: rgba(200,12,150,.2);">Number of Communities</h3>
+      <a href="religious_read_cty_tanzania.php" style="text-decoration: none;">
       <div class="card-body bg-warning" style="margin: 70px;">        
         <div style="color: white; font-size: 140px;"> 
        <?php
@@ -81,14 +83,15 @@
       </div>
       </a>
       <div style="background-color: rgba(200,12,150,.2);">
-        <a href=" " style="text-decoration: none;"><h3>View Communities</h3></a>
+        <a href="religious_in_tanzania.php" style="text-decoration: none; color: yellow;"><h3>Religious in Tanzania</h3></a>
       </div>
     </div>
   </div>
   <div class="col">
     <div class="card" style="background-color: rgba(205,205,10,.2);">
        <h2 class="card-title">Uganda</h2>
-       <a href="  " style="text-decoration: none;">
+        <h3 class="card-title" style="background-color: rgba(200,12,150,.2);">Number of Communities</h3>
+       <a href="religious_read_cty_uganda.php" style="text-decoration: none;">
       <div class="card-body bg-success" style="margin: 70px;">
         <div style="color: white; font-size: 140px;"> 
         <?php
@@ -104,7 +107,7 @@
       </div>
       </a>
       <div style="background-color: rgba(200,12,150,.2);">
-        <a href=" " style="text-decoration: none;"><h3>View Communities</h3></a>
+        <a href="religious_in_uganda.php" style="text-decoration: none; color: green;"><h3>Religious in Uganda</h3></a>
       </div>
     </div>
   </div>  

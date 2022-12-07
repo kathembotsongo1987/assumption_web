@@ -395,10 +395,8 @@
 
                             } catch (PDOException $e) {
                                 echo $e->getMessage();
-                                die();
-    
+                                die();    
                             }
-
                         $query=$handler->query("SELECT * FROM priests");
                         if($query->rowCount()){
                              ECHO $query->rowCount();

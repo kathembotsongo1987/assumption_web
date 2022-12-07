@@ -32,6 +32,8 @@
                 </li>
             </ul>
         </nav>
+        
+        
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -143,7 +145,7 @@
                             <a class="nav-link" href="read_prov_calendar.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Events
-                                <span style=" margin: 20px; color: blue; background-color: white; border-radius: 25%;"> 
+                                <span style=" margin: 20px; color: blue; background-color: white; border-radius: 15%;"> 
                                   <?php
                                    require 'data_count.php';
                                     $query=$connection->query("SELECT * FROM events");
@@ -156,27 +158,10 @@
                                   ?>
                                 </span>
                             </a>
-                            <a  class="nav-link" href="read_religious.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-pray"></i></div>
-                                Religious 
-                                <span style=" margin: 20px; color: blue; background-color: white; border-radius: 25%;"> 
-                                  <?php
-                                   require 'data_count.php';
-                                    $query=$connection->query("SELECT * FROM religious_tb");
-                                        if($query->rowCount()){
-                                            ECHO $query->rowCount();
-                                        }else{
-                                            echo '0';
-                                        }
-
-                                  ?>
-                                </span>
-                                
-                            </a>
-                            <a class="nav-link" href="upload_documents.php">
+                             <a class="nav-link" href="upload_documents.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                                 Documents
-                                <span style=" margin: 20px; color: blue; background-color: white; border-radius: 25%; padding: 5px;"> 
+                                <span style=" margin: 20px; color: blue; background-color: white; border-radius: 15%;"> 
                                   <?php
                                    require 'data_count.php';
                                     $query=$connection->query("SELECT * FROM upload");
@@ -197,6 +182,32 @@
                                         <a class="nav-link" href="read_cty_kenya.php">In Kenya</a>
                                         <a class="nav-link" href="read_cty_tanzania.php">In Tanzania</a>
                                         <a class="nav-link" href="read_cty_uganda.php">In Uganda</a>
+                                    </nav>
+                                </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#adCollapse" aria-expanded="false" aria-controls="StatisticCollapse">Community Members
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                                <div class="collapse" id="adCollapse" aria-labelledby="headingOne" data-bs-parent="#formationCollapse">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="read_religious_in_kenya.php">In Kenya</a>
+                                        <a class="nav-link" href="read_religious_in_tanzania.php">In Tanzania</a>
+                                        <a class="nav-link" href="read_religious_in_uganda.php">In Uganda</a>
+                                    </nav>
+                                </div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#vipstateCollapse" aria-expanded="false" aria-controls="StatisticCollapse">Vice Provincial State
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                                <div class="collapse" id="vipstateCollapse" aria-labelledby="headingOne" data-bs-parent="#vipstateCollapse">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="read_novices.php">Noviciate</a>
+                                        <a class="nav-link" href="read_philosophers.php">Philosophy</a>
+                                        <a class="nav-link" href="read_pastoral.php">Pastoral</a>
+                                        <a class="nav-link" href="read_theologians.php">Theology</a>
+                                        <a class="nav-link" href="read_deacons.php">Diaconate</a>
+                                        <a class="nav-link" href="read_priests.php">Priesthood</a>
+                                        <a class="nav-link" href="read_missions.php">On Mission</a>
+                                        <a class="nav-link" href="read_temporary_vows.php">Temporary professed</a>
+                                        <a class="nav-link" href="read_perpetual_vows.php">Perpetually professe</a>
                                     </nav>
                                 </div>
                         </div>

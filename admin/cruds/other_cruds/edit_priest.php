@@ -1,7 +1,7 @@
 
+
+<?php require 'dbconnection.php'; ?>
 <?php 
- require_once 'dbconnection.php';  
- 
  if(isset($_REQUEST['update_id'])) {
 	try{
 		$id = $_REQUEST['update_id']; //get "update_id from the read.php page through anchor tag operation and store in "$id" variable
@@ -25,13 +25,14 @@ if(isset($_REQUEST['btn_update'])){
 				
 				$name = $_REQUEST["name"]; // 
 				$country = $_REQUEST["country"]; 
-				$cty = $_REQUEST["cty"]; 
-				$temp_v_date = $_REQUEST['temp_v_date']; 
-				$perp_v_date = $_REQUEST['perp_v_date']; 
-				$deaconate_date = $_REQUEST['deaconate_date']; 
-				$priesthood_date = $_REQUEST['priesthood_date']; 
-							
-
+				$diocese = $_REQUEST["diocese"]; 
+				$community = $_REQUEST["community"]; 
+				$temp_v = $_REQUEST["temp_v"]; 
+				$perp_v = $_REQUEST["perp_v"];				
+				$phone = $_REQUEST["phone"]; 
+				$email = $_REQUEST["email"];
+				$diaconate_date = $_REQUEST["diaconate_date"]; 
+				$priesthood_date = $_REQUEST["priesthood_date"];  
 				// now set the part to the store. where the image is going to be kept. You must open first a new folder called upload. that is where images will be stored in your computer
 			$path = "upload/".$image_file;
 
@@ -41,21 +42,31 @@ if(isset($_REQUEST['btn_update'])){
 				else if (empty($country)) {
 					$errorMsg = "please Enter the country";	
 				}
-				else if (empty($cty)) {
-					$errorMsg = "please Enter Community";	
+				else if (empty($diocese)) {
+					$errorMsg = "please Enter the diocese";	
 				}
-				else if (empty($temp_v_date)) {
-					$errorMsg = "please Enter the date for the first vows";	
+				else if (empty($community)) {
+					$errorMsg = "please Enter the community";	
 				}
-				else if (empty($perp_v_date)) {
-					$errorMsg = "please Enter date";	
+				else if (empty($temp_v)) {
+					$errorMsg = "please Enter the date for temporary_vows";	
 				}
-				else if (empty($deaconate_date)) {
-					$errorMsg = "please Enter date";	
+				else if (empty($perp_v)) {
+					$errorMsg = "please Enter the date for perpetual vows";	
+				}				
+				else if (empty($phone)) {
+					$errorMsg = "please Enter the phone";	
+				}
+				else if (empty($email)) {
+					$errorMsg = "please Enter the email";	
+				}
+				else if (empty($diaconate_date)) {
+					$errorMsg = "please Enter the date for diaconate";	
 				}
 				else if (empty($priesthood_date)) {
-					$errorMsg = "please Enter date for his priesthood";	
-				}				
+					$errorMsg = "please Enter the date for priesthood_date";	
+				}
+				
 				else if(empty($image_file)){
 						$errorMsg = "Please Select Image";
 					} 
@@ -76,15 +87,18 @@ if(isset($_REQUEST['btn_update'])){
 				  		}
 				  		
 		if(!isset($errorMsg)){
-			$upldate_stmt = $connection->prepare('UPDATE priests SET	image=:image, name=:name, country=:country, community=:community, temp_v_date=:temp_v_date, perp_v_date=:perp_v_date, deaconate_date=:deaconate_date, priesthood_date=:priesthood_date WHERE id=:id'); // sql insert query
+			$upldate_stmt = $connection->prepare('UPDATE priests SET	image=:image, name=:name, country=:country, diocese=:diocese, community=:community, temporary_vows=:temp_v, perpetual_vows=:perp_v, phone=:phone, email=:email,diaconate_date=:diaconate_date, priesthood_date=:priesthood_date WHERE id=:id'); // sql insert query
 				  				
 			$upldate_stmt->bindParam(':image', $image_file); // bind all parameter
 			$upldate_stmt->bindParam(':name', $name);
 			$upldate_stmt->bindParam(':country', $country);
-			$upldate_stmt->bindParam(':community', $cty);
-			$upldate_stmt->bindParam(':temp_v_date', $temp_v_date);
-			$upldate_stmt->bindParam(':perp_v_date', $perp_v_date);
-			$upldate_stmt->bindParam(':deaconate_date', $deaconate_date);
+			$upldate_stmt->bindParam(':diocese', $diocese);			
+			$upldate_stmt->bindParam(':community', $community);			
+			$upldate_stmt->bindParam(':temp_v', $temp_v);
+			$upldate_stmt->bindParam(':perp_v', $perp_v);			
+			$upldate_stmt->bindParam(':phone', $phone);
+			$upldate_stmt->bindParam(':email', $email);
+			$upldate_stmt->bindParam(':diaconate_date', $diaconate_date);
 			$upldate_stmt->bindParam(':priesthood_date', $priesthood_date);
 			$upldate_stmt->bindParam(':id',$id);
 
@@ -107,7 +121,7 @@ if(isset($_REQUEST['btn_update'])){
 		<div class="col-lg-12">
 			 <div class="panel panel-default">
                     <div class="panel-heading">
-                    	<h1 style="text-align: center;">DATA MANIPULATION || RELIGIOUS</h1>
+                    	<h1 style="text-align: center;">DATA MANIPULATION || THEOLOGIANS</h1>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -137,44 +151,62 @@ if(isset($_REQUEST['btn_update'])){
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Country</label>
 									<div class="col-sm-6">
-										<input type="text" name="country" value=" <?php echo $country ?> " class="form-control" placeholder="enter name">
+										<input type="text" name="country" value=" <?php echo $country ?> " class="form-control" placeholder="enter Country">
 									</div>
-							</div>
+							</div>	
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Diocese</label>
+									<div class="col-sm-6">
+										<input type="text" name="diocese" value=" <?php echo $diocese ?> "	 class="form-control" placeholder="enter diocese ">
+									</div>
+							</div>	
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Community</label>
 									<div class="col-sm-6">
-										<input type="text" name="cty" value=" <?php echo $community ?> " class="form-control" placeholder="enter name">
+										<input type="text" name="community" value=" <?php echo $community ?> "	 class="form-control" placeholder="enter diocese ">
+									</div>
+							</div>							
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Date for temporary vows</label>
+									<div class="col-sm-6">
+										<input type="name" name="temp_v" value=" <?php echo $temporary_vows; ?> " class="form-control" placeholder="enter date for temporary vows">
 									</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">Date for Temp vows</label>
+								<label class="col-sm-3 control-label">Date for perpetual vows</label>
 									<div class="col-sm-6">
-										<input type="text" name="temp_v_date" value=" <?php echo $temp_v_date ?> " class="form-control" placeholder="enter name">
+										<input type="name" name="perp_v" value=" <?php echo $perpetual_vows; ?> " class="form-control" placeholder="enter date for perpetual vows">
+									</div>
+							</div>							
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Phone</label>
+									<div class="col-sm-6">
+										<input type="text" name="phone" value=" <?php echo $phone ?> " class="form-control" placeholder="enter Phone">
 									</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-3 control-label">Date for Perpetual vows</label>
+								<label class="col-sm-3 control-label">Email</label>
 									<div class="col-sm-6">
-										<input type="text" name="perp_v_date" value=" <?php echo $perp_v_date ?> " class="form-control" placeholder="enter Description">
+										<input type="text" name="email" value=" <?php echo $email ?> " class="form-control" placeholder="enter email">
 									</div>
 							</div>	
 							<div class="form-group">
-								<label class="col-sm-3 control-label">Date for deaconate</label>
+								<label class="col-sm-3 control-label">Date for diaconate</label>
 									<div class="col-sm-6">
-										<input type="text" name="deaconate_date" value=" <?php echo $deaconate_date ?> " class="form-control" placeholder="enter Description">
+										<input type="text" name="diaconate_date" value=" <?php echo $diaconate_date ?> "	 class="form-control" placeholder="enter parish ">
 									</div>
-							</div>	
+							</div>
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Date for priesthood</label>
 									<div class="col-sm-6">
-										<input type="text" name="priesthood_date" value=" <?php echo $priesthood_date ?> " class="form-control" placeholder="enter priesthood_date">
+										<input type="text" name="priesthood_date" value=" <?php echo $priesthood_date ?> "	 class="form-control" placeholder="enter parish ">
 									</div>
-							</div>	
+							</div>								
 							<div class="form-group">
 								<div class="col-sm-6">
 									<label class="col-sm-6 control-label">Action</label>
 										<input type="submit" name="btn_update" class="btn btn-success" value="Update">
-											<a href="read_priest.php" class="btn btn-danger">Cancel</a>
+											<a href="read_deacons.php" class="btn btn-danger">Cancel</a>
 								</div>
 							</div>
 						</form>

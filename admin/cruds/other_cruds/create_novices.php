@@ -1,13 +1,11 @@
 
-<?php require 'dbconnection.php'; ?>
 
+<?php 	require 'dbconnection.php'; ?>
 	<?php 	
 		if(isset($_REQUEST['btn_insert']))
 		{
 			try
 			{
-				
-
 				$image_file = $_FILES["txt_file"]["name"]; 
 				$type = $_FILES["txt_file"]["type"];
 				$size = $_FILES["txt_file"]["size"];
@@ -17,6 +15,8 @@
 				$country = $_REQUEST["country"]; 
 				$diocese = $_REQUEST["diocese"]; 
 				$parish = $_REQUEST['parish']; 
+				$phone = $_REQUEST['phone']; 
+				$email = $_REQUEST['email']; 
 				
 				
 				// now set the part to the store. where the image is going to be kept. Open first a new folder called upload. That is where images will be stored in your computer
@@ -33,6 +33,12 @@
 				}
 				else if (empty($parish)) {
 					$errorMsg = "please Enter parish";	
+				}
+				else if (empty($phone)) {
+					$errorMsg = "please Enter phone";	
+				}
+				else if (empty($email)) {
+					$errorMsg = "please Enter email";	
 				}
 				
 				else if(empty($image_file)){
@@ -55,13 +61,15 @@
 				  		}
 
 				  		if(!isset($errorMsg)){
-				  			$insert_stmt = $connection->prepare('INSERT INTO novices(image, name, country, diocese, parish) VALUES(:image, :name, :country, :diocese, :parish)'); // sql insert query
+				  			$insert_stmt = $connection->prepare('INSERT INTO novices(image, name, country, diocese, parish, phone, email) VALUES(:image, :name, :country, :diocese, :parish, :phone, :email)'); // sql insert query
 				  				
 				  				$insert_stmt->bindParam(':image', $image_file); // bind all parameter
 				  				$insert_stmt->bindParam(':name', $name);
 				  				$insert_stmt->bindParam(':country', $country);
 				  				$insert_stmt->bindParam(':diocese', $diocese);
 				  				$insert_stmt->bindParam(':parish', $parish);
+				  				$insert_stmt->bindParam(':phone', $phone);
+				  				$insert_stmt->bindParam(':email', $email);
 				  								  				
 				  				if($insert_stmt->execute()){
 				  					$insertMsg="File Upload Successfully."; // execute query success message
@@ -77,9 +85,7 @@
 			}
 		
 	 ?>
-
-	 <?php require 'layout_header.php'; ?>
-
+<?php require 'layout_header.php'; ?>
 <div class="wrapper">	
 	<div class="container">			
 		<div class="col-lg-12">
@@ -119,6 +125,18 @@
 								<label class="col-sm-3 control-label">Parish</label>
 									<div class="col-sm-6">
 										<input type="text" name="parish" class="form-control" placeholder="enter name">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Phone</label>
+									<div class="col-sm-6">
+										<input type="text" name="phone" class="form-control" placeholder="enter name">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Email</label>
+									<div class="col-sm-6">
+										<input type="text" name="email" class="form-control" placeholder="enter name">
 									</div>
 							</div>							
 							<div class="form-group">

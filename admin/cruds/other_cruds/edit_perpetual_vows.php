@@ -28,6 +28,8 @@ if(isset($_REQUEST['btn_update'])){
 				$cty = $_REQUEST["cty"]; 
 				$temp_v_date = $_REQUEST['temp_v_date']; 
 				$perp_v_date = $_REQUEST['perp_v_date']; 
+				$phone = $_REQUEST['phone']; 
+				$email = $_REQUEST['email']; 
 				
 				// now set the part to the store. where the image is going to be kept. You must open first a new folder called upload. that is where images will be stored in your computer
 			$path = "upload/".$image_file;
@@ -47,7 +49,12 @@ if(isset($_REQUEST['btn_update'])){
 				else if (empty($perp_v_date)) {
 					$errorMsg = "please Enter date";	
 				}
-							
+				else if (empty($phone)) {
+					$errorMsg = "please Enter date";	
+				}
+				else if (empty($email)) {
+					$errorMsg = "please Enter date";	
+				}							
 				else if(empty($image_file)){
 						$errorMsg = "Please Select Image";
 					} 
@@ -68,7 +75,7 @@ if(isset($_REQUEST['btn_update'])){
 				  		}
 				  		
 		if(!isset($errorMsg)){
-			$upldate_stmt = $connection->prepare('UPDATE perpetual_vows SET	image=:image, name=:name, country=:country, community=:community, temp_v_date=:temp_v_date, perp_v_date=:perp_v_date WHERE id=:id'); // sql insert query
+			$upldate_stmt = $connection->prepare('UPDATE perpetual_vows SET	image=:image, name=:name, country=:country, community=:community, temp_v_date=:temp_v_date, perp_v_date=:perp_v_date, phone=:phone, email=:email WHERE id=:id'); // sql insert query
 				  				
 			$upldate_stmt->bindParam(':image', $image_file); // bind all parameter
 			$upldate_stmt->bindParam(':name', $name);
@@ -76,6 +83,8 @@ if(isset($_REQUEST['btn_update'])){
 			$upldate_stmt->bindParam(':community', $cty);
 			$upldate_stmt->bindParam(':temp_v_date', $temp_v_date);
 			$upldate_stmt->bindParam(':perp_v_date', $perp_v_date);
+			$upldate_stmt->bindParam(':phone', $phone);
+			$upldate_stmt->bindParam(':email', $email);
 			$upldate_stmt->bindParam(':id',$id);
 
 			if($upldate_stmt->execute()){
@@ -147,7 +156,19 @@ if(isset($_REQUEST['btn_update'])){
 									<div class="col-sm-6">
 										<input type="text" name="perp_v_date" value=" <?php echo $perp_v_date ?> " class="form-control" placeholder="enter Description">
 									</div>
-							</div>	
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Phone</label>
+									<div class="col-sm-6">
+										<input type="text" name="phone" value=" <?php echo $phone ?> " class="form-control" placeholder="enter name">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Email</label>
+									<div class="col-sm-6">
+										<input type="text" name="email" value=" <?php echo $email ?> " class="form-control" placeholder="enter Description">
+									</div>
+							</div>		
 							<div class="form-group">
 								<div class="col-sm-6">
 									<label class="col-sm-6 control-label">Action</label>

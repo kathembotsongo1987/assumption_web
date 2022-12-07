@@ -1,7 +1,7 @@
 
+
+<?php require 'dbconnection.php'; ?>
 <?php 
- require_once 'dbconnection.php';  
- 
  if(isset($_REQUEST['update_id'])) {
 	try{
 		$id = $_REQUEST['update_id']; //get "update_id from the read.php page through anchor tag operation and store in "$id" variable
@@ -25,7 +25,10 @@ if(isset($_REQUEST['btn_update'])){
 				
 				$name = $_REQUEST["name"]; // 
 				$country = $_REQUEST["country"]; 
-				
+				$diocese = $_REQUEST["diocese"]; 
+				$temp_v = $_REQUEST["temp_v"]; 
+				$phone = $_REQUEST["phone"]; 
+				$email = $_REQUEST["email"]; 
 				// now set the part to the store. where the image is going to be kept. You must open first a new folder called upload. that is where images will be stored in your computer
 			$path = "upload/".$image_file;
 
@@ -34,6 +37,18 @@ if(isset($_REQUEST['btn_update'])){
 				} 
 				else if (empty($country)) {
 					$errorMsg = "please Enter the country";	
+				}
+				else if (empty($diocese)) {
+					$errorMsg = "please Enter the diocese";	
+				}
+				else if (empty($temp_v)) {
+					$errorMsg = "please Enter the date for your temporary vow";	
+				}
+				else if (empty($phone)) {
+					$errorMsg = "please Enter the phone";	
+				}
+				else if (empty($email)) {
+					$errorMsg = "please Enter the email";	
 				}
 				
 				else if(empty($image_file)){
@@ -56,11 +71,15 @@ if(isset($_REQUEST['btn_update'])){
 				  		}
 				  		
 		if(!isset($errorMsg)){
-			$upldate_stmt = $connection->prepare('UPDATE philosophers SET	image=:image, name=:name, country=:country WHERE id=:id'); // sql insert query
+			$upldate_stmt = $connection->prepare('UPDATE philosophers SET	image=:image, name=:name, country=:country, diocese=:diocese, temporary_vows=:temp_v, phone=:phone, email=:email WHERE id=:id'); // sql insert query
 				  				
 			$upldate_stmt->bindParam(':image', $image_file); // bind all parameter
 			$upldate_stmt->bindParam(':name', $name);
 			$upldate_stmt->bindParam(':country', $country);
+			$upldate_stmt->bindParam(':diocese', $diocese);
+			$upldate_stmt->bindParam(':temp_v', $temp_v);
+			$upldate_stmt->bindParam(':phone', $phone);
+			$upldate_stmt->bindParam(':email', $email);
 			$upldate_stmt->bindParam(':id',$id);
 
 			if($upldate_stmt->execute()){
@@ -114,7 +133,31 @@ if(isset($_REQUEST['btn_update'])){
 									<div class="col-sm-6">
 										<input type="text" name="country" value=" <?php echo $country ?> " class="form-control" placeholder="enter name">
 									</div>
-							</div>							
+							</div>	
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Diocese</label>
+									<div class="col-sm-6">
+										<input type="text" name="diocese" value=" <?php echo $diocese ?> "	 class="form-control" placeholder="enter Diocese ">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Date for temporary vows</label>
+									<div class="col-sm-6">
+										<input type="name" name="temp_v" value=" <?php echo $temporary_vows; ?> " class="form-control" placeholder="enter date for temporary vows">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Phone</label>
+									<div class="col-sm-6">
+										<input type="text" name="phone" value=" <?php echo $phone ?> " class="form-control" placeholder="enter Phone">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Email</label>
+									<div class="col-sm-6">
+										<input type="text" name="email" value=" <?php echo $email ?> " class="form-control" placeholder="enter email">
+									</div>
+							</div>									
 							<div class="form-group">
 								<div class="col-sm-6">
 									<label class="col-sm-6 control-label">Action</label>
