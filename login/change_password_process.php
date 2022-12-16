@@ -12,13 +12,13 @@
 		$verifyQuery = $conn->query("SELECT * FROM religious_tb WHERE code = '$code' and updated_time >= NOW() - Interval 1 DAY");
 
 		if($verifyQuery->num_rows == 0){
-			header("Location:.php");
+			header("Location:index.html");
 			exit();
 		}
 
 		if(isset($_POST['change'])){
 			$email = $_POST['email'];
-			$new_password = md5($_POST['new_password']);
+			$new_password = $_POST['new_password'];
 
 			$changeQuery = $conn->query("UPDATE religious_tb SET password = '$new_password' WHERE email = '$email' and code = '$code' and updated_time >= NOW() - INTERVAL 1 DAY");
 
@@ -29,7 +29,7 @@
 			$conn->close();
 		}
 		else{
-			header("Location: login_religious.php");
+			header("Location: index.php");
 			exit();
 	}
 

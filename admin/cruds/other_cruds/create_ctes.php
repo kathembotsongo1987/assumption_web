@@ -8,31 +8,36 @@
 			{				
 				$name = $_REQUEST['name']; 
 				$diocese = $_REQUEST['diocese'];
+				$country = $_REQUEST['country'];
 				
 				if(empty($name)){
 					$errorMsg = "please Enter the name";					
+				}
+				else if(empty($diocese)){
+					$errorMsg = "please Enter the diocese";					
+				} 
+				else if(empty($country)){
+					$errorMsg = "please Enter the country";					
 				} 
 
-				  		if(!isset($errorMsg)){
-				  			$insert_stmt = $connection->prepare('INSERT INTO communitieskenya(name, diocese) VALUES(:name, :diocese)'); 
+				 if(!isset($errorMsg)){
+				  	$insert_stmt = $connection->prepare('INSERT INTO communities(name, diocese, country) VALUES(:name, :diocese, :country)');		  				
+				  	$insert_stmt->bindParam(':name',$name);
+				  	$insert_stmt->bindParam(':diocese',$diocese);
+				  	$insert_stmt->bindParam(':country',$country);
 				  				
-				  				$insert_stmt->bindParam(':name',$name);
-				  				$insert_stmt->bindParam(':diocese',$diocese);
-				  				
-				  				if($insert_stmt->execute()){
-				  					$insertMsg="File Upload Successfully."; // execute query success message
-				  					header("refresh:1;read_cty_kenya.php"); //refresh 3 second and redirext to the read page
-				  				}
-				  		}
-
-				}
-				catch(PDOException $e){
-					echo $e->getMessage();
-				}
-
+				  	if($insert_stmt->execute()){
+				  	   $insertMsg="File Upload Successfully."; // execute query success message
+				  		header("refresh:1;read_cties.php"); //refresh 3 second and redirext to the read page
+				  	}
+				 }
 			}
+			catch(PDOException $e){
+				echo $e->getMessage();
+		}
+	}
 		
-	 ?>
+	?>
 
 	 <?php require 'layout_header.php'; ob_start(); ?>
 

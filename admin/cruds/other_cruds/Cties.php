@@ -1,5 +1,15 @@
 
- <?php  session_start(); ?>
+<?php 
+include 'dbconnection.php'; 
+ session_start();
+
+$religious_id = $_SESSION['religious_id'];
+
+if(!isset($religious_id)){
+   header('location:../../../login/login.php');
+
+} 
+?>
  
 <!DOCTYPE html>
 <html>
@@ -14,16 +24,17 @@
         <script src="../../js/js_font.js"></script> 
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <?php  
-            if(isset($_SESSION["username"]))  
-            {  
-             echo '<h3 style="color:white;">Welcome - '.$_SESSION["username"].', enjoy our service</h3>'; 
-            }  
-            else  
-                {  
-                header("location:../../../login/login_religious.php");  
-                }  
+            <h3 style="color: white;">
+                <?php
+                    $select_profile = $connection->prepare("SELECT * FROM `religious_tb` WHERE id = ?");
+                    $select_profile->execute([$religious_id]);
+                    $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
                 ?>
+
+            <img style="width: 100%; height: 50px; border-radius: 50%;" src="upload/<?= $fetch_profile['image']; ?>" alt="">
+            <h3 style="color: white";><?= $fetch_profile['name']; ?></h3>
+            <a style="color: blue;" href="../../../login/religious_profile_update.php" class="btn"><h4>update profile</h4></a>
+        </h3>
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
             <a class="nav-link" href="../../../index.php"><i class="fas fa-home fa-fw" style="color:blue; font-size:40px;"></i></a>
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">                               
@@ -48,7 +59,7 @@
         <div style="color: white; font-size: 140px;">
         <?php
           require 'data_count.php';
-          $query=$connection->query("SELECT * FROM communitieskenya");
+          $query=$connection->query("SELECT * FROM communities where country='kenya'");
           if($query->rowCount()){
           ECHO $query->rowCount();
           }else{
@@ -72,7 +83,7 @@
         <div style="color: white; font-size: 140px;"> 
        <?php
           require 'data_count.php';
-          $query=$connection->query("SELECT * FROM communitiestanzania");
+          $query=$connection->query("SELECT * FROM communities where country='tanzania'");
           if($query->rowCount()){
           ECHO $query->rowCount();
           }else{
@@ -96,7 +107,7 @@
         <div style="color: white; font-size: 140px;"> 
         <?php
           require 'data_count.php';
-          $query=$connection->query("SELECT * FROM communitiesuganda");
+          $query=$connection->query("SELECT * FROM communities where country='uganda'");
           if($query->rowCount()){
           ECHO $query->rowCount();
           }else{

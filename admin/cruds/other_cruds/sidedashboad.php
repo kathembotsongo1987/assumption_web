@@ -123,6 +123,22 @@
                                   ?>
                                 </span>
                             </a>
+                            <a class="nav-link" href="read_candidate.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                Candidates
+                                <span style=" margin: 20px; color: blue; background-color: white; border-radius: 15%;"> 
+                                  <?php
+                                   require 'data_count.php';
+                                    $query=$connection->query("SELECT * FROM religious_tb where role='candidate'");
+                                        if($query->rowCount()){
+                                            ECHO $query->rowCount();
+                                        }else{
+                                            echo '0';
+                                        }
+
+                                  ?>
+                                </span>
+                            </a>
                              <a class="nav-link" href="upload_documents.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                                 Documents

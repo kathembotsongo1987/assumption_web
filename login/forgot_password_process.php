@@ -1,4 +1,6 @@
+
 <?php 
+    include '../admin/cruds/other_cruds/dbconnection.php';
 	if(isset($_POST['reset'])) {
 		$email = $_POST['email'];
 	}
@@ -50,12 +52,21 @@ try {
     	$codeQuery = $conn->query("UPDATE religious_tb SET code = '$code' WHERE email = '$email'");
 
     $mail->send();
-    echo 'Message has been sent to your email';
+    echo ' <center>
+            <h1 style="margin-top:10%; background-color: rgba(15,15,50,.2); width:43%;"> 
+            Check your email and change you password using the shared link!!!
+          </h1>
+          </center>';
     }
     $conn->close();
        
 } catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    echo '
+    <center>
+        <h1 style="margin-top:10%; background-color: rgba(15,15,50,.2); width:43%;"> 
+            Message could not be send!!! Mailer Error: {$mail->ErrorInfo}
+        </h1>
+    </center>';
 }
 
  ?>

@@ -5,7 +5,7 @@
       $phone = $_POST['phone'];
       $msg = $_POST['msg'];
 
-      $to = 'godwonders1@gmail.com';
+      $to = 'dieudonnekathembotsongo@gmail.com';
       $subject = 'Email from footer';
       $message ="Name: ".$name."\n"."Phone: ".$phone."\n". "Wrote the following: "."\n\n".$msg;
       $headers="From: ".$email;

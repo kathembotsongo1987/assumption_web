@@ -21,6 +21,7 @@
 				$phone = $_REQUEST['phone']; 
 				$email = $_REQUEST['email']; 
 				$password = $_REQUEST['password']; 
+				$role = $_REQUEST['role']; 
 							
 
 				// now set the part to the store. where the image is going to be kept. Open first a new folder called upload. That is where images will be stored in your computer
@@ -56,7 +57,9 @@
 				else if (empty($password)) {
 					$errorMsg = "please Enter password";	
 				}
-				
+				else if (empty($role)) {
+					$errorMsg = "please Select role";	
+				}			
 				else if(empty($image_file)){
 						$errorMsg = "Please Select Image";
 					} 
@@ -77,7 +80,7 @@
 				  		}
 
 				  		if(!isset($errorMsg)){
-				  			$insert_stmt = $connection->prepare('INSERT INTO religious_tb(image, name, country, community, temp_v_date, perp_v_date, deaconate_date, priesthood_date, phone, email, password) VALUES(:image, :name, :country, :community, :temp_v_date, :perp_v_date, :deaconate_date, :priesthood_date, :phone, :email, :password)'); // sql insert query
+				  			$insert_stmt = $connection->prepare('INSERT INTO religious_tb(image, name, country, community, temp_v_date, perp_v_date, deaconate_date, priesthood_date, phone, email, password, role) VALUES(:image, :name, :country, :community, :temp_v_date, :perp_v_date, :deaconate_date, :priesthood_date, :phone, :email, :password, :role)'); // sql insert query
 				  				
 				  				$insert_stmt->bindParam(':image', $image_file); // bind all parameter
 				  				$insert_stmt->bindParam(':name', $name);
@@ -90,6 +93,7 @@
 				  				$insert_stmt->bindParam(':phone', $phone);
 				  				$insert_stmt->bindParam(':email', $email);
 				  				$insert_stmt->bindParam(':password', $password);
+				  				$insert_stmt->bindParam(':role', $role);
 				  				
 				  				if($insert_stmt->execute()){
 				  					$insertMsg="File Upload Successfully."; // execute query success message
@@ -181,7 +185,18 @@
 									<div class="col-sm-6">
 										<input type="text" name="password" class="form-control" placeholder="enter Password">
 									</div>
-							</div>	
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Role</label>
+									<div class="col-sm-6">
+										<select class="form-control" name="role">
+											<option value="">select role</option>
+											<option value="admin">Admin</option>
+											<option value="religious">Religious</option>
+											<option value="candidate">Candidate</option>
+										</select>
+									</div>
+							</div>
 							<div class="form-group">
 								<div class="col-sm-6">
 									<label class="col-sm-6 control-label">Action</label>

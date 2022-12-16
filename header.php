@@ -82,15 +82,7 @@
                           <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#OtherProjects">Other Projects</a></li>
                         </ul> 
                       </div>
-                      <div class="dropdown">
-                      <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" class="nav-link dropdown-toggle">
-                        Login
-                      </a>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink"> 
-                          <li><a class="dropdown-item" href="login/login_admin.php">Admin</a></li>
-                          <li><a class="dropdown-item" href="login/login_religious.php" >Religious</a></li>                          
-                        </ul> 
-                      </div>
+                      <li><a href="login/login.php" class="nav-item nav-link">Access services</a></li>
                   </ul>
               </div>
           </div>    

@@ -5,14 +5,14 @@ if(isset($_REQUEST['delete_id'])){
 	// select image from database to delete
 	$id = $_REQUEST['delete_id']; // get delete_id and store in $id variable
 
-	$select_stmt = $connection->prepare('SELECT * FROM religious_in_kenya WHERE id =:id'); // sql select query
+	$select_stmt = $connection->prepare('SELECT * FROM religious_tb WHERE id =:id'); // sql select query
 	$select_stmt->bindParam(':id',$id);
 	$select_stmt->execute();
 	$row = $select_stmt->fetch(PDO::FETCH_ASSOC);
 	unlink("upload/".$row['image']); //unlink function permanently remove your file
 
 	// delete an original record from database
-	$delete_stmt = $connection->prepare('DELETE FROM religious_in_kenya WHERE id =:id');
+	$delete_stmt = $connection->prepare('DELETE FROM religious_tb WHERE id =:id');
 	$delete_stmt->bindParam(':id',$id);
 	$delete_stmt->execute();
 
@@ -53,7 +53,7 @@ if(isset($_REQUEST['delete_id'])){
                                 </thead>
                                 <tbody>
                                     <?php 
-                                        $select_stmt = $connection->prepare("SELECT * FROM religious_in_kenya"); //sql select query
+                                        $select_stmt = $connection->prepare("SELECT * FROM religious_tb where cur_country='kenya'"); //sql select query
                                         $select_stmt->execute();
                                         while($row=$select_stmt->fetch(PDO::FETCH_ASSOC))
                                             {

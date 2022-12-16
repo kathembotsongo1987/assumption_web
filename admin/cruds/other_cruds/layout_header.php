@@ -1,3 +1,11 @@
+    <?php
+        include 'dbconnection.php';
+        session_start();
+        $admin_id = $_SESSION['admin_id'];
+        if(!isset($admin_id)){
+        header('location:login.php');
+        }
+        ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -16,20 +24,27 @@
 	<body>
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Administration</a>
+            <a class="navbar-brand ps-3" href="#">Administration</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <h3 style="color: white;">
+                <?php
+                    $select_profile = $connection->prepare("SELECT * FROM `religious_tb` WHERE id = ?");
+                    $select_profile->execute([$admin_id]);
+                    $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+                ?>
+
+            <img style="width: 100%; height: 50px; border-radius: 50%;" src="upload/<?= $fetch_profile['image']; ?>" alt="">
+            <h3 style="color: white";><?= $fetch_profile['name']; ?></h3>
+            <a style="color: blue;" href="../../../login/admin_profile_update.php" class="btn"><h4>update profile</h4></a>
+            </h3>
+            
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <a class="nav-link" href="../../../index.php"><i class="fas fa-home fa-fw" style="color:blue; font-size:40px;"></i></a>
-                <li class="nav-item dropdown">                
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-lock fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">                        
-                        <li><a class="dropdown-item" href="../../../login/login_admin.php">Logout</a></li>
-                    </ul>
-                </li>
+                <a class="nav-link" href="../../../index.php"><i class="fas fa-home fa-fw" style="color:blue; font-size:40px;"></i></a>                          
+                <a class="nav-link" id="" href="../../../login/logout.php"href="../../../login/logout.php"><i class="fas fa-lock fa-fw"></i></a>              
             </ul>
         </nav>
         
@@ -158,6 +173,38 @@
                                   ?>
                                 </span>
                             </a>
+                            <a class="nav-link" href="read_candidate.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                Candidates
+                                <span style=" margin: 20px; color: blue; background-color: white; border-radius: 15%;"> 
+                                  <?php
+                                   require 'data_count.php';
+                                    $query=$connection->query("SELECT * FROM religious_tb where role='candidate'");
+                                        if($query->rowCount()){
+                                            ECHO $query->rowCount();
+                                        }else{
+                                            echo '0';
+                                        }
+
+                                  ?>
+                                </span>
+                            </a>
+                            <a class="nav-link" href="create_religious.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-person-praying"></i></div>
+                                Religious
+                                <span style=" margin: 20px; color: blue; background-color: white; border-radius: 15%;"> 
+                                  <?php
+                                   require 'data_count.php';
+                                    $query=$connection->query("SELECT * FROM religious_tb");
+                                        if($query->rowCount()){
+                                            ECHO $query->rowCount();
+                                        }else{
+                                            echo '0';
+                                        }
+
+                                  ?>
+                                </span>
+                            </a>
                              <a class="nav-link" href="upload_documents.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                                 Documents
@@ -174,26 +221,21 @@
                                   ?>
                                 </span>
                             </a>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#admCollapse" aria-expanded="false" aria-controls="StatisticCollapse">Communities
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            <a class="nav-link" href="read_cties.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-person-praying"></i></div>
+                                Communities
+                                <span style=" margin: 20px; color: blue; background-color: white; border-radius: 15%;"> 
+                                    <?php
+                                        require 'data_count.php';
+                                        $query=$connection->query("SELECT * FROM communities");
+                                        if($query->rowCount()){
+                                             ECHO $query->rowCount();
+                                            }else{
+                                                echo '0';
+                                        }
+                                    ?>
+                                </span>
                             </a>
-                                <div class="collapse" id="admCollapse" aria-labelledby="headingOne" data-bs-parent="#formationCollapse">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="read_cty_kenya.php">In Kenya</a>
-                                        <a class="nav-link" href="read_cty_tanzania.php">In Tanzania</a>
-                                        <a class="nav-link" href="read_cty_uganda.php">In Uganda</a>
-                                    </nav>
-                                </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#adCollapse" aria-expanded="false" aria-controls="StatisticCollapse">Community Members
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                                <div class="collapse" id="adCollapse" aria-labelledby="headingOne" data-bs-parent="#formationCollapse">
-                                    <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" href="read_religious_in_kenya.php">In Kenya</a>
-                                        <a class="nav-link" href="read_religious_in_tanzania.php">In Tanzania</a>
-                                        <a class="nav-link" href="read_religious_in_uganda.php">In Uganda</a>
-                                    </nav>
-                                </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#vipstateCollapse" aria-expanded="false" aria-controls="StatisticCollapse">Vice Provincial State
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>

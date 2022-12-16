@@ -33,6 +33,7 @@ if(isset($_REQUEST['btn_update'])){
 		$phone = $_REQUEST['phone']; 
 		$email = $_REQUEST['email']; 
 		$password = $_REQUEST['password']; 
+		$role = $_REQUEST['role']; 
 							
 
 		// now set the part to the store. where the image is going to be kept. Open first a new folder called upload. That is where images will be stored in your computer
@@ -68,6 +69,9 @@ if(isset($_REQUEST['btn_update'])){
 				else if (empty($password)) {
 					$errorMsg = "please Enter password";	
 				}
+				else if (empty($role)) {
+					$errorMsg = "please select role";	
+				}
 				else if(empty($image_file)){
 						$errorMsg = "Please Select Image";
 					} 
@@ -88,7 +92,7 @@ if(isset($_REQUEST['btn_update'])){
 				  		}
 
 		if(!isset($errorMsg)){
-			$upldate_stmt = $connection->prepare('UPDATE religious_tb SET	image=:image, name=:name, country=:country, community=:community, temp_v_date=:temp_v_date, perp_v_date=:perp_v_date, deaconate_date=:deaconate_date, priesthood_date=:priesthood_date, phone=:phone, email=:email, password=:password WHERE id=:id'); // sql insert query
+			$upldate_stmt = $connection->prepare('UPDATE religious_tb SET	image=:image, name=:name, country=:country, community=:community, temp_v_date=:temp_v_date, perp_v_date=:perp_v_date, deaconate_date=:deaconate_date, priesthood_date=:priesthood_date, phone=:phone, email=:email, password=:password, role=:role WHERE id=:id'); // sql insert query
 				  				
 			$upldate_stmt->bindParam(':image', $image_file); // bind all parameter
 			$upldate_stmt->bindParam(':name', $name);
@@ -101,6 +105,7 @@ if(isset($_REQUEST['btn_update'])){
 			$upldate_stmt->bindParam(':phone', $phone);
 			$upldate_stmt->bindParam(':email', $email);
 			$upldate_stmt->bindParam(':password', $password);
+			$upldate_stmt->bindParam(':role', $role);
 			$upldate_stmt->bindParam(':id',$id);
 
 			if($upldate_stmt->execute()){
@@ -201,6 +206,17 @@ if(isset($_REQUEST['btn_update'])){
 								<label class="col-sm-3 control-label">Password</label>
 									<div class="col-sm-6">
 										<input type="text" name="password" class="form-control" value=" <?php echo $password ?> " placeholder="enter Password">
+									</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Role</label>
+									<div class="col-sm-6">
+										<select class="form-control" name="role">
+											<option value=" <?php echo $role ?> ">select role</option>
+											<option value="admin">Admin</option>
+											<option value="religious">Religious</option>
+											<option value="candidate">Candidate</option>
+										</select>
 									</div>
 							</div>		
 							<div class="form-group">

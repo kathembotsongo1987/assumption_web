@@ -1,4 +1,5 @@
 
+
 <?php   
 session_start(); 
 $dsn = 'mysql:host=localhost;dbname=newaadb';
@@ -20,7 +21,7 @@ try {
            }  
            else  
            {  
-                $query = "SELECT * FROM religious_tb WHERE email = :username AND password = :password";  
+                $query = "SELECT * FROM religious_tb WHERE email = :username AND pass = :password";  
                 $statement = $connection->prepare($query);  
                 $statement->execute(  
                      array(  
@@ -31,8 +32,10 @@ try {
                 $count = $statement->rowCount();  
                 if($count > 0)  
                 {  
-                     $_SESSION["username"] = $_POST["username"];  
-                     header("location:login_religious.php");  
+                  if (   $status = 1) {
+                      $_SESSION["username"] = $_POST["username"];  
+                     header("location:../home.php");  
+                  }
                 }  
                 else  
                 {  
